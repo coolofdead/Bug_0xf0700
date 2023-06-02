@@ -7,6 +7,7 @@ public class PlayerInteractionController : MonoBehaviour
 {
     [Header("Interact")]
     [SerializeField] private float pickedObjectPhysicsForce;
+    [SerializeField] private float pickedObjectDistance = 4;
     [SerializeField] private float maxInteractDistance;
     [SerializeField] private Transform pickupObjectHand;
 
@@ -31,7 +32,7 @@ public class PlayerInteractionController : MonoBehaviour
     {
         if (objectPicked == null) return;
 
-        objectPicked.transform.localPosition = Vector3.zero;
+        objectPicked.transform.position = Camera.main.transform.position + Camera.main.transform.forward * pickedObjectDistance;
     }
 
     private void FixedUpdate()
@@ -57,8 +58,8 @@ public class PlayerInteractionController : MonoBehaviour
     {
         if (objectPicked == null) return;
 
-        objectPicked.rb.AddTorque(new Vector3(moveDirection.x, 0, moveDirection.y) * pickedObjectPhysicsForce);
-        //objectPicked.rb.AddForce(moveDirection * pickedObjectPhysicsForce);
+        //objectPicked.rb.AddTorque(new Vector3(moveDirection.x, 0, moveDirection.y) * pickedObjectPhysicsForce);
+        objectPicked.rb.AddForce(moveDirection * pickedObjectPhysicsForce);
     }
 
     public void InteractInput(bool interact)
@@ -86,7 +87,6 @@ public class PlayerInteractionController : MonoBehaviour
     {
         objectPicked = newObjectPicked;
         objectPicked.Pick();
-        objectPicked.transform.SetParent(pickupObjectHand);
         objectPicked.transform.localPosition = Vector3.zero;
     }
 
@@ -95,7 +95,6 @@ public class PlayerInteractionController : MonoBehaviour
         if (objectPicked == null) return;
 
         objectPicked.Release();
-        objectPicked.transform.SetParent(null);
         objectPicked = null;
     }
 }
