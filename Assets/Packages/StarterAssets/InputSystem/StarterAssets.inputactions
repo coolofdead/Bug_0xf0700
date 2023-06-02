@@ -63,7 +63,16 @@
                     "name": "BookNextPage",
                     "type": "PassThrough",
                     "id": "ca02e011-6641-433d-9ac0-1607301c0556",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BookScrollPage",
+                    "type": "PassThrough",
+                    "id": "5f250c81-5bd4-42ff-9752-be973d7f2c8b",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -280,7 +289,7 @@
                 {
                     "name": "",
                     "id": "4f50fd60-2b05-4186-bc9e-d877f242b11c",
-                    "path": "<Keyboard>/#(M)",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
@@ -292,17 +301,6 @@
                     "name": "",
                     "id": "1cb9741f-7c0f-403e-992d-de70bcbf61f9",
                     "path": "<Mouse>/backButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "BookNextPage",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "cb7d8a6a-960c-4570-b86e-caaf8af6841c",
-                    "path": "<Keyboard>/t",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
@@ -329,6 +327,28 @@
                     "processors": "",
                     "groups": "KeyboardMouse",
                     "action": "BookPreviousPage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ab9b8fd1-469a-416c-876a-21829431db17",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "BookScrollPage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "45a15475-312d-4dd0-8083-f82d55fe8fc4",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "BookNextPage",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
