@@ -25,7 +25,7 @@ public class PlayerInteractionController : MonoBehaviour
 
     public void OnLook(InputValue value)
     {
-        HandlePickepObjectPhysics(value.Get<Vector2>());
+        HandlePickupObjectPhysics(value.Get<Vector2>());
     }
 
     private void Update()
@@ -37,14 +37,16 @@ public class PlayerInteractionController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (objectPicked != null) return;
+
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position + Camera.main.transform.forward, Camera.main.transform.forward, out hit, maxInteractDistance))
         {
-            if (hoverObjectPicked != null) return;
+            var objectToPick = hit.transform.GetComponent<ObjectPickable>();
+            if (objectToPick == null || objectToPick == hoverObjectPicked) return;
 
-            if (hit.transform.GetComponent<ObjectPickable>() == null) return;
-
-            hoverObjectPicked = hit.transform.GetComponent<ObjectPickable>();
+            hoverObjectPicked?.ExitHover();
+            hoverObjectPicked = objectToPick;
             hoverObjectPicked.Hover();
         }
         else if (hoverObjectPicked != null)
@@ -54,7 +56,7 @@ public class PlayerInteractionController : MonoBehaviour
         }
     }
 
-    private void HandlePickepObjectPhysics(Vector2 moveDirection)
+    private void HandlePickupObjectPhysics(Vector2 moveDirection)
     {
         if (objectPicked == null) return;
 

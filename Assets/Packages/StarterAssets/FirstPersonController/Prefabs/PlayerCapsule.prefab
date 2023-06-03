@@ -1464,9 +1464,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61bec889d89bb174e9e23bc1471b4215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickedObjectPhysicsForce: 0.2
-  pickedObjectDistance: 4
-  maxInteractDistance: 10
+  pickedObjectPhysicsForce: 0.35
+  pickedObjectDistance: 3
+  maxInteractDistance: 5
   pickupObjectHand: {fileID: 1051375980}
   playerInput: {fileID: 8616685848737228376}
 --- !u!114 &5393215579111688473
