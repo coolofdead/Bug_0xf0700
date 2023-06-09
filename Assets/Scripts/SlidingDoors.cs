@@ -5,9 +5,51 @@ using UnityEngine;
 public class SlidingDoors : MonoBehaviour
 {
     public Animator doorsAnimator;
+    public Material enableLightMaterial;
+    public Material disableLightMaterial;
+
+    public MeshRenderer[] statusIndicatorMaterials;
+    public Light[] statusIndicatorLights;
+    public Color enableStatusLightColor;
+    public Color disableStatusLightColor;
 
     private bool isOpening;
     private bool isClosing;
+
+    private bool isEnable = true;
+
+    private void Awake()
+    {
+        WarningHackManager.onHack += OnHackCloseDoors;
+    }
+
+    private void OnHackCloseDoors()
+    {
+        isEnable = false;
+        foreach (MeshRenderer mr in statusIndicatorMaterials) mr.material = disableLightMaterial;
+        foreach (Light light in statusIndicatorLights) light.color = disableStatusLightColor;
+        CloseDoors();
+    }
+
+    public void FixDoors()
+    {
+        isEnable = true;
+        foreach (MeshRenderer mr in statusIndicatorMaterials) mr.material = enableLightMaterial;
+        foreach (Light light in statusIndicatorLights) light.color = enableStatusLightColor;
+        OpenDoors();
+    }
+
+    public void OpenDoors()
+    {
+        isOpening = true;
+        doorsAnimator.Play("OpenDoors");
+    }
+
+    public void CloseDoors()
+    {
+        isClosing = true;
+        doorsAnimator.Play("CloseDoors");
+    }
 
     private void DoorsOpened()
     {
@@ -21,25 +63,28 @@ public class SlidingDoors : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Player" || isOpening || isClosing)
+        if (other.tag != "Player" || isOpening || isClosing || !isEnable)
         {
             if (isClosing) doorsAnimator.SetTrigger("OpenDoorsAfterClosing");
             return;
         }
 
-        isOpening = true;
-        doorsAnimator.Play("OpenDoors");
+        OpenDoors();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag != "Player" || isOpening || isClosing)
+        if (other.tag != "Player" || isOpening || isClosing || !isEnable)
         {
             if (isOpening) doorsAnimator.SetTrigger("CloseDoorsAfterOpening");
             return;
         }
 
-        isClosing = true;
-        doorsAnimator.Play("CloseDoors");
+        CloseDoors();
+    }
+
+    private void OnDestroy()
+    {
+        WarningHackManager.onHack -= OnHackCloseDoors;
     }
 }
