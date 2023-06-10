@@ -11,7 +11,6 @@ public class WaterJet : MonoBehaviour
     void Start()
     {
         emitter = GetComponentInChildren<ObiEmitter>();
-
     }
 
     // Update is called once per frame
