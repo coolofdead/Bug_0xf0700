@@ -1,0 +1,464 @@
+fileFormatVersion: 2
+guid: 3019434d4a13d7741a62dc3c146d7b69
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: human-action-poses-postures-stick-figure-pictogram-icons-vector_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2666.6665
+        width: 800
+        height: 1333.3334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6468be4017b08f64cb37d2dc76456f4c
+      internalID: -1443769244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: human-action-poses-postures-stick-figure-pictogram-icons-vector_1
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 2666.6665
+        width: 800
+        height: 1333.3334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d8fc99bef33569468929d1bd889bd85
+      internalID: -1850966362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: human-action-poses-postures-stick-figure-pictogram-icons-vector_2
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 2667
+        width: 564
+        height: 1333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afc71ba5bc08a824ebf3c3c7f5f4a7ce
+      internalID: -1095566976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: human-action-poses-postures-stick-figure-pictogram-icons-vector_3
+      rect:
+        serializedVersion: 2
+        x: 2655
+        y: 2667
+        width: 718
+        height: 1333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88f2b1c82c9db47439809f6eb424250c
+      internalID: 1540784438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: human-action-poses-postures-stick-figure-pictogram-icons-vector_4
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 2666.6665
+        width: 800
+        height: 1333.3334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d690ad9cf1bbad042ab26f6d30d38d20
+      internalID: -685336945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: human-action-poses-postures-stick-figure-pictogram-icons-vector_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1333.6666
+        width: 800
+        height: 1333.3334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4da57267fd8f6184a9ca77d00f07381e
+      internalID: 1353424625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: human-action-poses-postures-stick-figure-pictogram-icons-vector_6
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1333.6666
+        width: 800
+        height: 1333.3334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29578e8ca39213c4ca6904001b42ccc1
+      internalID: -409215171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: human-action-poses-postures-stick-figure-pictogram-icons-vector_7
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1333.6666
+        width: 800
+        height: 1333.3334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b40f323a57288994b9def2c456788411
+      internalID: 1729741744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: human-action-poses-postures-stick-figure-pictogram-icons-vector_8
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 1333.6666
+        width: 800
+        height: 1333.3334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd36b8a6afa2b6b43a0863055f793ae8
+      internalID: 1454974081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: human-action-poses-postures-stick-figure-pictogram-icons-vector_9
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1333.6666
+        width: 800
+        height: 1333.3334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 666a29f5fe6f2524a8a630907a2b4206
+      internalID: -2095755972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: human-action-poses-postures-stick-figure-pictogram-icons-vector_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.666626
+        width: 800
+        height: 1333.3334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1568c4db47e2d4447839efbe5549723d
+      internalID: -2106056961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: human-action-poses-postures-stick-figure-pictogram-icons-vector_11
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0.666626
+        width: 800
+        height: 1333.3334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5190ceebe79866441a85720996189a6e
+      internalID: -1860644749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: human-action-poses-postures-stick-figure-pictogram-icons-vector_12
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0.666626
+        width: 800
+        height: 1333.3334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98e64018f3b68034b9906dc771c0f6ab
+      internalID: -190905326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: human-action-poses-postures-stick-figure-pictogram-icons-vector_13
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0.666626
+        width: 800
+        height: 1333.3334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09719c0ef50ab3347ae4a11a0bf081d3
+      internalID: 478077732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: human-action-poses-postures-stick-figure-pictogram-icons-vector_14
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0.666626
+        width: 800
+        height: 1333.3334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66b8c9739df99634c90578d380191469
+      internalID: -778568157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      human-action-poses-postures-stick-figure-pictogram-icons-vector_7: 1729741744
+      human-action-poses-postures-stick-figure-pictogram-icons-vector_3: 1540784438
+      human-action-poses-postures-stick-figure-pictogram-icons-vector_13: 478077732
+      human-action-poses-postures-stick-figure-pictogram-icons-vector_11: -1860644749
+      human-action-poses-postures-stick-figure-pictogram-icons-vector_1: -1850966362
+      human-action-poses-postures-stick-figure-pictogram-icons-vector_2: -1095566976
+      human-action-poses-postures-stick-figure-pictogram-icons-vector_5: 1353424625
+      human-action-poses-postures-stick-figure-pictogram-icons-vector_0: -1443769244
+      human-action-poses-postures-stick-figure-pictogram-icons-vector_4: -685336945
+      human-action-poses-postures-stick-figure-pictogram-icons-vector_8: 1454974081
+      human-action-poses-postures-stick-figure-pictogram-icons-vector_10: -2106056961
+      human-action-poses-postures-stick-figure-pictogram-icons-vector_14: -778568157
+      human-action-poses-postures-stick-figure-pictogram-icons-vector_12: -190905326
+      human-action-poses-postures-stick-figure-pictogram-icons-vector_6: -409215171
+      human-action-poses-postures-stick-figure-pictogram-icons-vector_9: -2095755972
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
