@@ -16,7 +16,7 @@ public class WaterJet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetMouseButton(0))
         {
             emitter.speed = emissionSpeed;
         }
