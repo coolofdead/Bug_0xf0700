@@ -22,16 +22,28 @@ public class Fire : MonoBehaviour
 
     private void Update()
     {
-        for (int i = 0; i < particle.Length; i++)
-        {
-            ChangeIntensity(particle[i], startIntensity[i]);
-        }
+        //for (int i = 0; i < particle.Length; i++)
+        //{
+        //    ChangeIntensity(particle[i], startIntensity[i]);
+        //}
     }
 
     private void ChangeIntensity(ParticleSystem particle, float startIntensity)
     {
         var emission = particle.emission;
         emission.rateOverTime = currentIntensity * startIntensity;
+    }
+
+    public bool TryExtinguish(float amount)
+    {
+        currentIntensity -= amount;
+
+        for (int i = 0; i < particle.Length; i++)
+        {
+            ChangeIntensity(particle[i], startIntensity[i]);
+        }
+
+        return currentIntensity <= 0f;
     }
 }
     
