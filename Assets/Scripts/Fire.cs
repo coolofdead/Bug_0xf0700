@@ -5,10 +5,17 @@ using UnityEngine;
 public class Fire : MonoBehaviour
 {
     [SerializeField, Range(0f, 1f)] private float currentIntensity = 1.0f;
+    [SerializeField] private float regenDelay = 2.5f;
+    [SerializeField] private float regenRate = 0.1f;
+
 
     private float[] startIntensity;
 
-    ParticleSystem[] particle;
+    private ParticleSystem[] particle;
+
+    private float timeLastWatered = 0;
+
+    private bool isLit = true;
 
     private void Start()
     {
@@ -22,6 +29,15 @@ public class Fire : MonoBehaviour
 
     private void Update()
     {
+        if (isLit && currentIntensity < 1.0f && Time.time - timeLastWatered >= regenDelay)
+        {
+            currentIntensity += regenRate * Time.deltaTime;
+            
+            for (int i = 0; i < particle.Length; i++)
+            {
+                ChangeIntensity(particle[i], startIntensity[i]);
+            }
+        }
         //for (int i = 0; i < particle.Length; i++)
         //{
         //    ChangeIntensity(particle[i], startIntensity[i]);
@@ -36,6 +52,8 @@ public class Fire : MonoBehaviour
 
     public bool TryExtinguish(float amount)
     {
+        timeLastWatered = Time.time;
+        
         currentIntensity -= amount;
 
         for (int i = 0; i < particle.Length; i++)
@@ -43,7 +61,13 @@ public class Fire : MonoBehaviour
             ChangeIntensity(particle[i], startIntensity[i]);
         }
 
-        return currentIntensity <= 0f;
+        if (currentIntensity <= 0)
+        {
+            isLit = false;
+            return true;
+        }
+        
+        return false;
     }
 }
     
