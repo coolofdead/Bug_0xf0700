@@ -22,6 +22,18 @@ public class Extinguisher : MonoBehaviour
             return;
         }
 
+        if (PlayerInteractionController.GetInstance().GetPickedObject() == null)
+        {
+            Debug.Log("no object");
+            return;
+        }
+
+        if (!PlayerInteractionController.GetInstance().GetPickedObject().TryGetComponent(out Extinguisher extinguisher))
+        {
+            Debug.Log("Not extinguisher");
+            return;
+        }
+
         if (Input.GetMouseButton(0))
         {
             Debug.Log("Extinguishing !");
