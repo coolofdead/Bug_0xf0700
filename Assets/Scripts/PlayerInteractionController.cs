@@ -18,6 +18,21 @@ public class PlayerInteractionController : MonoBehaviour
     private ObjectPickable hoverObjectPicked;
     private RaycastHit hit;
 
+    private static PlayerInteractionController instance; //Singleton
+
+    private void Start()
+    {
+        GetInstance();
+    }
+    public static PlayerInteractionController GetInstance()
+    {
+        if (instance == null)
+        {
+            instance = new PlayerInteractionController();
+        }
+        return instance;
+    }
+
     public void OnInteract(InputValue value)
     {
         InteractInput(value.isPressed);
