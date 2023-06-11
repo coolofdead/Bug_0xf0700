@@ -99,4 +99,9 @@ public class PlayerInteractionController : MonoBehaviour
         objectPicked.Release();
         objectPicked = null;
     }
+
+    public ObjectPickable GetPickedObject()
+    {
+        return objectPicked;
+    }
 }
