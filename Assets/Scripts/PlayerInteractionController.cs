@@ -18,6 +18,20 @@ public class PlayerInteractionController : MonoBehaviour
     private ObjectPickable hoverObjectPicked;
     private RaycastHit hit;
 
+    private static PlayerInteractionController instance; //Singleton
+
+    private void Start()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+    public static PlayerInteractionController GetInstance()
+    {
+        return instance;
+    }
+
     public void OnInteract(InputValue value)
     {
         InteractInput(value.isPressed);
@@ -27,12 +41,14 @@ public class PlayerInteractionController : MonoBehaviour
     {
         HandlePickupObjectPhysics(value.Get<Vector2>());
     }
-
+    
     private void Update()
     {
         if (objectPicked == null) return;
-
+        
         objectPicked.transform.position = Camera.main.transform.position + Camera.main.transform.forward * pickedObjectDistance;
+
+        Debug.Log(GetInstance().GetPickedObject().name);
     }
 
     private void FixedUpdate()
@@ -77,6 +93,7 @@ public class PlayerInteractionController : MonoBehaviour
                 if (objectPickable == null) return;
 
                 PickObject(objectPickable);
+
             }
         }
         else
@@ -98,5 +115,10 @@ public class PlayerInteractionController : MonoBehaviour
 
         objectPicked.Release();
         objectPicked = null;
+    }
+
+    public ObjectPickable GetPickedObject()
+    {
+        return objectPicked;
     }
 }
