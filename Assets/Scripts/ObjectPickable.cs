@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ObjectPickable : MonoBehaviour, IInteractable
+public class ObjectPickable : MonoBehaviour
 {
     public Rigidbody rb;
     
