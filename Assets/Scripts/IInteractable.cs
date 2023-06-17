@@ -12,4 +12,6 @@ public interface IInteractable
     public bool isInteractable { get; set; }
     public GameObject interactionGUI { get; set; }
     public TextMeshProUGUI interactionText { get; set; }
+
+    public void Interact();
 }
