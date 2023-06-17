@@ -1,0 +1,209 @@
+fileFormatVersion: 2
+guid: 49303312d915d154ea66f4d3a0225628
+timeCreated: 1565871104
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: ','
+    100002: Chair_1
+    100004: Closet
+    100006: Closet_2
+    100008: Closet_2aaaa_LOD_0
+    100010: Closet_Top
+    100012: Cup_1
+    100014: Cup_2
+    100016: Desk_1
+    100018: Desk_2
+    100020: Desk_3
+    100022: Dryer
+    100024: E_middle_1xC_X
+    100026: Keyboard
+    100028: Laptop2_bottom
+    100030: Laptop2_top
+    100032: //RootNode
+    100034: Laptop_bottom
+    100036: Laptop_top
+    100038: Mouse
+    100040: MousePad
+    100042: PC_Modem
+    100044: PC_Monitor
+    100046: PC_Tower
+    100048: Sink
+    100050: Toilet
+    100052: TrashBin
+    400000: ','
+    400002: Chair_1
+    400004: Closet
+    400006: Closet_2
+    400008: Closet_2aaaa_LOD_0
+    400010: Closet_Top
+    400012: Cup_1
+    400014: Cup_2
+    400016: Desk_1
+    400018: Desk_2
+    400020: Desk_3
+    400022: Dryer
+    400024: E_middle_1xC_X
+    400026: Keyboard
+    400028: Laptop2_bottom
+    400030: Laptop2_top
+    400032: //RootNode
+    400034: Laptop_bottom
+    400036: Laptop_top
+    400038: Mouse
+    400040: MousePad
+    400042: PC_Modem
+    400044: PC_Monitor
+    400046: PC_Tower
+    400048: Sink
+    400050: Toilet
+    400052: TrashBin
+    2300000: ','
+    2300002: Chair_1
+    2300004: Closet
+    2300006: Closet_2
+    2300008: Closet_2aaaa_LOD_0
+    2300010: Closet_Top
+    2300012: Cup_1
+    2300014: Cup_2
+    2300016: Desk_1
+    2300018: Desk_2
+    2300020: Desk_3
+    2300022: Dryer
+    2300024: E_middle_1xC_X
+    2300026: Keyboard
+    2300028: Laptop2_bottom
+    2300030: Laptop2_top
+    2300032: Laptop_bottom
+    2300034: Laptop_top
+    2300036: Mouse
+    2300038: MousePad
+    2300040: PC_Modem
+    2300042: PC_Monitor
+    2300044: PC_Tower
+    2300046: Sink
+    2300048: Toilet
+    2300050: TrashBin
+    3300000: ','
+    3300002: Chair_1
+    3300004: Closet
+    3300006: Closet_2
+    3300008: Closet_2aaaa_LOD_0
+    3300010: Closet_Top
+    3300012: Cup_1
+    3300014: Cup_2
+    3300016: Desk_1
+    3300018: Desk_2
+    3300020: Desk_3
+    3300022: Dryer
+    3300024: E_middle_1xC_X
+    3300026: Keyboard
+    3300028: Laptop2_bottom
+    3300030: Laptop2_top
+    3300032: Laptop_bottom
+    3300034: Laptop_top
+    3300036: Mouse
+    3300038: MousePad
+    3300040: PC_Modem
+    3300042: PC_Monitor
+    3300044: PC_Tower
+    3300046: Sink
+    3300048: Toilet
+    3300050: TrashBin
+    4300000: E_middle_1xC_X
+    4300002: Closet_2aaaa_LOD_0
+    4300004: Laptop_top
+    4300006: Desk_1
+    4300008: Closet
+    4300010: Chair_1
+    4300012: Keyboard
+    4300014: Laptop_bottom
+    4300016: Desk_2
+    4300018: Sink
+    4300020: Toilet
+    4300022: Desk_3
+    4300024: Closet_Top
+    4300026: Closet_2
+    4300028: Dryer
+    4300030: TrashBin
+    4300032: PC_Monitor
+    4300034: PC_Tower
+    4300036: Cup_1
+    4300038: Cup_2
+    4300040: PC_Modem
+    4300042: ','
+    4300044: Mouse
+    4300046: MousePad
+    4300048: Laptop2_top
+    4300050: Laptop2_bottom
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

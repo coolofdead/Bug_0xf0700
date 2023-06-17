@@ -1,0 +1,244 @@
+fileFormatVersion: 2
+guid: ede10fd966a82fe49ae9cd00575d2e18
+timeCreated: 1599504939
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Cube
+    100002: Cylinder
+    100004: FreezerDoor
+    100006: FreezerDoor.001
+    100008: FreezerDoor.002
+    100010: FreezerDoorGlas
+    100012: FreezerDoorGlas.001
+    100014: FreezerDoorGlas.002
+    100016: FrreezerBody
+    100018: FrreezerBody.001
+    100020: glass
+    100022: interior
+    100024: interior.001
+    100026: interior.002
+    100028: interior.003
+    100030: Kassa
+    100032: KassaDeckel
+    100034: "K\xFChler"
+    100036: //RootNode
+    100038: outWall.001
+    100040: outWall.002
+    100042: outWall_LOD_0
+    100044: outWall_LOD_0.001
+    100046: shelves
+    100048: shelves.002
+    100050: shelves.006
+    100052: shelves.007
+    100054: shelves.009
+    100056: shelves.010
+    100058: shelves.011
+    100060: shelves.012
+    100062: shelves.013
+    100064: shelves.014
+    100066: Wall
+    400000: Cube
+    400002: Cylinder
+    400004: FreezerDoor
+    400006: FreezerDoor.001
+    400008: FreezerDoor.002
+    400010: FreezerDoorGlas
+    400012: FreezerDoorGlas.001
+    400014: FreezerDoorGlas.002
+    400016: FrreezerBody
+    400018: FrreezerBody.001
+    400020: glass
+    400022: interior
+    400024: interior.001
+    400026: interior.002
+    400028: interior.003
+    400030: Kassa
+    400032: KassaDeckel
+    400034: "K\xFChler"
+    400036: //RootNode
+    400038: outWall.001
+    400040: outWall.002
+    400042: outWall_LOD_0
+    400044: outWall_LOD_0.001
+    400046: shelves
+    400048: shelves.002
+    400050: shelves.006
+    400052: shelves.007
+    400054: shelves.009
+    400056: shelves.010
+    400058: shelves.011
+    400060: shelves.012
+    400062: shelves.013
+    400064: shelves.014
+    400066: Wall
+    2300000: Cube
+    2300002: Cylinder
+    2300004: FreezerDoor
+    2300006: FreezerDoor.001
+    2300008: FreezerDoor.002
+    2300010: FreezerDoorGlas
+    2300012: FreezerDoorGlas.001
+    2300014: FreezerDoorGlas.002
+    2300016: FrreezerBody
+    2300018: FrreezerBody.001
+    2300020: glass
+    2300022: interior
+    2300024: interior.001
+    2300026: interior.002
+    2300028: interior.003
+    2300030: Kassa
+    2300032: KassaDeckel
+    2300034: "K\xFChler"
+    2300036: outWall.001
+    2300038: outWall.002
+    2300040: outWall_LOD_0
+    2300042: outWall_LOD_0.001
+    2300044: shelves
+    2300046: shelves.002
+    2300048: shelves.006
+    2300050: shelves.007
+    2300052: shelves.009
+    2300054: shelves.010
+    2300056: shelves.011
+    2300058: shelves.012
+    2300060: shelves.013
+    2300062: shelves.014
+    2300064: Wall
+    3300000: Cube
+    3300002: Cylinder
+    3300004: FreezerDoor
+    3300006: FreezerDoor.001
+    3300008: FreezerDoor.002
+    3300010: FreezerDoorGlas
+    3300012: FreezerDoorGlas.001
+    3300014: FreezerDoorGlas.002
+    3300016: FrreezerBody
+    3300018: FrreezerBody.001
+    3300020: glass
+    3300022: interior
+    3300024: interior.001
+    3300026: interior.002
+    3300028: interior.003
+    3300030: Kassa
+    3300032: KassaDeckel
+    3300034: "K\xFChler"
+    3300036: outWall.001
+    3300038: outWall.002
+    3300040: outWall_LOD_0
+    3300042: outWall_LOD_0.001
+    3300044: shelves
+    3300046: shelves.002
+    3300048: shelves.006
+    3300050: shelves.007
+    3300052: shelves.009
+    3300054: shelves.010
+    3300056: shelves.011
+    3300058: shelves.012
+    3300060: shelves.013
+    3300062: shelves.014
+    3300064: Wall
+    4300000: shelves
+    4300002: interior
+    4300004: glass
+    4300006: shelves.002
+    4300008: shelves.009
+    4300010: shelves.010
+    4300012: FrreezerBody
+    4300014: FreezerDoor
+    4300016: FreezerDoorGlas
+    4300018: Cube
+    4300020: Kassa
+    4300022: KassaDeckel
+    4300024: Cylinder
+    4300026: shelves.011
+    4300028: shelves.012
+    4300030: shelves.013
+    4300032: shelves.014
+    4300034: FrreezerBody.001
+    4300036: FreezerDoor.001
+    4300038: FreezerDoorGlas.001
+    4300040: FreezerDoor.002
+    4300042: FreezerDoorGlas.002
+    4300044: shelves.006
+    4300046: shelves.007
+    4300048: Wall
+    4300050: "K\xFChler"
+    4300052: interior.001
+    4300054: interior.002
+    4300056: outWall.001
+    4300058: outWall_LOD_0
+    4300060: interior.003
+    4300062: outWall_LOD_0.001
+    4300064: outWall.002
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
