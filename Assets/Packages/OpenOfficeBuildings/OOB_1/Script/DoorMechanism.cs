@@ -13,7 +13,7 @@ public class DoorMechanism : MonoBehaviour, IInteractable {
 	public float rotSpeed = 1f;
 
     [field: SerializeField] public float interactionDistance { get; set; }
-    public RaycastHit hit { get; set; }
+    public RaycastHit hit { get; set; }    
     public bool isInteract { get; set; }
     public bool isInteractable { get; set; }
     [field: SerializeField] public GameObject interactionGUI { get; set; }
@@ -28,8 +28,15 @@ public class DoorMechanism : MonoBehaviour, IInteractable {
 
 	void Update () 
 	{
+        RaycastHit hitInfo;
+        isInteractable = Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out hitInfo, interactionDistance);
+        hit = hitInfo;
+
+        //debug raycast
+        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward) * interactionDistance, Color.yellow);
+
         Interact();
-	}
+    }
 
     public void Interact()
     {
@@ -39,14 +46,14 @@ public class DoorMechanism : MonoBehaviour, IInteractable {
             return;
         }
 
-        Debug.Log("Interactable door");
+        Debug.Log("Interactable : " + hit);
         
         if (!hit.transform.CompareTag("Door"))
         {
             return;
         }
         
-        if (!Input.GetMouseButtonDown(0))
+        if (!Input.GetKeyDown(KeyCode.E))
         {
             return;
         }
