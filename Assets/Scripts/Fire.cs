@@ -9,16 +9,20 @@ public class Fire : MonoBehaviour
     [SerializeField] private float regenRate = 0.1f;
 
 
-    private float[] startIntensity;
-
     private ParticleSystem[] particle;
-
+    private AudioSource sfx;
+    private float[] startIntensity;
+    private float startVolume;
     private float timeLastWatered = 0;
-
     private bool isLit = true;
 
     private void Start()
     {
+        if (TryGetComponent(out sfx))
+        {
+            startVolume = sfx.volume;
+        }
+
         particle = GetComponentsInChildren<ParticleSystem>();
         startIntensity = new float[particle.Length];
         for (int i = 0; i < particle.Length; i++)
@@ -37,17 +41,23 @@ public class Fire : MonoBehaviour
             {
                 ChangeIntensity(particle[i], startIntensity[i]);
             }
+
+            ChangeVolume(sfx, startVolume);
         }
-        //for (int i = 0; i < particle.Length; i++)
-        //{
-        //    ChangeIntensity(particle[i], startIntensity[i]);
-        //}
     }
 
     private void ChangeIntensity(ParticleSystem particle, float startIntensity)
     {
         var emission = particle.emission;
         emission.rateOverTime = currentIntensity * startIntensity;
+    }
+
+    private void ChangeVolume(AudioSource sfx, float startVolume)
+    {
+        if (sfx != null)
+        {
+            sfx.volume = currentIntensity * startVolume;
+        }
     }
 
     public bool TryExtinguish(float amount)
@@ -60,6 +70,8 @@ public class Fire : MonoBehaviour
         {
             ChangeIntensity(particle[i], startIntensity[i]);
         }
+
+        ChangeVolume(sfx, startVolume);
 
         if (currentIntensity <= 0)
         {
