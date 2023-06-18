@@ -28,7 +28,6 @@ public class DoorMechanism : MonoBehaviour, IInteractable {
         isInteractable = Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out hitInfo, interactionDistance);
         hit = hitInfo;
 
-        //debug raycast
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward) * interactionDistance, Color.yellow);
 
         Interact();
@@ -47,25 +46,26 @@ public class DoorMechanism : MonoBehaviour, IInteractable {
             return;
         }
 
-        if (!isInteract)
-        {
-            popup.Pop();
-        }
-
-        popup.Pop();
-
-        if (!Input.GetKeyDown(KeyCode.E))
-        {
-            return;
-        }
 
         if (!hit.transform.TryGetComponent<Door>(out door))
         {
             return;
         }
 
+        popup.Pop();
+
+        if (door.isOpen)
+            popup.text.text = "Close the door ?";
+        else
+            popup.text.text = "Open the door ?";
+
+
+        if (!Input.GetKeyDown(KeyCode.E))
+        {
+            return;
+        }
+
         door.isOpen = !door.isOpen;
-        //door.Open();
     }
 
     //public void Open()

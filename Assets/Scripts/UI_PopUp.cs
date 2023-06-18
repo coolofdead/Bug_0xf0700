@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UI_PopUp : MonoBehaviour
 {
     [SerializeField] private AudioSource sfx;
+    [SerializeField] public TextMeshProUGUI text;
     private bool isPop = false;
     
     private void Start()
