@@ -6,12 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(IInteractable))]
 public class DoorMechanism : MonoBehaviour, IInteractable {
 
-	//public GameObject Door;
-
-	public Vector3 doorPosOpen, doorPosClose;
-
-	public float rotSpeed = 1f;
-
+	private Door door;
     [field: SerializeField] public float interactionDistance { get; set; }
     public RaycastHit hit { get; set; }    
     public bool isInteract { get; set; }
@@ -57,17 +52,32 @@ public class DoorMechanism : MonoBehaviour, IInteractable {
         {
             return;
         }
-        
-        Open();
+
+        if (!hit.transform.TryGetComponent<Door>(out door))
+        {
+            return;
+        }
+
+        door.isOpen = !door.isOpen;
+        //door.Open();
     }
 
-    public void Open()
-    {
-        if (isInteract)
-            hit.transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(doorPosOpen), rotSpeed * Time.deltaTime);
-        else
-            hit.transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(doorPosClose), rotSpeed * Time.deltaTime);
-    }
+    //public void Open()
+    //{
+    //    if (!hit.transform.GetComponent<Door>().isOpen)
+    //    {
+    //        hit.transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(doorPosOpen), rotSpeed * Time.deltaTime);
+    //        hit.transform.GetComponent<Door>().isOpen = true;
+    //        Debug.Log("Open the door");
+    //    }
+    //    else
+    //    {
+    //        hit.transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(doorPosClose), rotSpeed * Time.deltaTime);
+    //        hit.transform.GetComponent<Door>().isOpen = false;
+    //        Debug.Log("Close the door");
+    //    }
+
+    //}
 
 
 }
