@@ -40,14 +40,14 @@ public class DoorMechanism : MonoBehaviour, IInteractable {
             interactionGUI.SetActive(false);
             return;
         }
-
-        Debug.Log("Interactable : " + hit);
         
         if (!hit.transform.CompareTag("Door"))
         {
             return;
         }
-        
+
+        interactionGUI.SetActive(true);
+
         if (!Input.GetKeyDown(KeyCode.E))
         {
             return;
