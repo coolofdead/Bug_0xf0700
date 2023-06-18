@@ -7,6 +7,7 @@ using UnityEngine;
 public class DoorMechanism : MonoBehaviour, IInteractable {
 
 	private Door door;
+    [SerializeField] private UI_PopUp popup;
     [field: SerializeField] public float interactionDistance { get; set; }
     public RaycastHit hit { get; set; }    
     public bool isInteract { get; set; }
@@ -37,7 +38,7 @@ public class DoorMechanism : MonoBehaviour, IInteractable {
     {
         if (!isInteractable)
         {
-            interactionGUI.SetActive(false);
+            popup.Close();
             return;
         }
         
@@ -46,7 +47,12 @@ public class DoorMechanism : MonoBehaviour, IInteractable {
             return;
         }
 
-        interactionGUI.SetActive(true);
+        if (!isInteract)
+        {
+            popup.Pop();
+        }
+
+        popup.Pop();
 
         if (!Input.GetKeyDown(KeyCode.E))
         {
