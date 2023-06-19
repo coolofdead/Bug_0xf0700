@@ -40,6 +40,13 @@ public class Computer : MonoBehaviour, IInteractable
             return;
         }
 
+        if (isInteract)
+        {
+            computerCamera.enabled = false;
+            isInteract = false;
+            return;
+        }
+
         isInteract = true;
         computerCamera.enabled = true;
     }
