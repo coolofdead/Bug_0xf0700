@@ -58,12 +58,13 @@ public class PlayerInteractionController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position + Camera.main.transform.forward, Camera.main.transform.forward, out hit, maxInteractDistance))
         {
-            var objectToPick = hit.transform.GetComponent<ObjectPickable>();
+            var objectToPick = hit.transform.GetComponent<IInteractable>();
             if (objectToPick == null || objectToPick == hoverObjectPicked) return;
 
-            hoverObjectPicked?.ExitHover();
-            hoverObjectPicked = objectToPick;
-            hoverObjectPicked.Hover();
+            objectToPick.Hover();
+            //hoverObjectPicked?.ExitHover();
+            //hoverObjectPicked = objectToPick;
+            //hoverObjectPicked.Hover();
         }
         else if (hoverObjectPicked != null)
         {
@@ -88,12 +89,13 @@ public class PlayerInteractionController : MonoBehaviour
 
             if (Physics.Raycast(Camera.main.transform.position + Camera.main.transform.forward, Camera.main.transform.forward, out hit, maxInteractDistance))
             {
-                var objectPickable = hit.transform.GetComponent<ObjectPickable>();
+                var objectPickable = hit.transform.GetComponent<IInteractable>();
 
                 if (objectPickable == null) return;
 
-                PickObject(objectPickable);
+                objectPickable.Interact();
 
+                if (objectPickable is ObjectPickable) PickObject(objectPickable as ObjectPickable);
             }
         }
         else

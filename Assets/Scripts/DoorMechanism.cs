@@ -68,6 +68,16 @@ public class DoorMechanism : MonoBehaviour, IInteractable {
         door.isOpen = !door.isOpen;
     }
 
+    public void Hover()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void ExitHover()
+    {
+        throw new System.NotImplementedException();
+    }
+
     //public void Open()
     //{
     //    if (!hit.transform.GetComponent<Door>().isOpen)

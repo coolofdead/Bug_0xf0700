@@ -14,4 +14,6 @@ public interface IInteractable
     public TextMeshProUGUI interactionText { get; set; }
 
     public void Interact();
+    public void Hover();
+    public void ExitHover();
 }
