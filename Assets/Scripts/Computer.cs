@@ -1,29 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using Cinemachine;
 
-public class Computer : MonoBehaviour
+public class Computer : MonoBehaviour, IInteractable
 {
-    public static System.Action onComputerBugResolve;
+    [SerializeField] private CinemachineVirtualCamera computerCamera;
+    [field: SerializeField] public float interactionDistance { get; set; }
+    public bool isInteract { get; set; }
+    [field: SerializeField]public bool isInteractable { get; set; }
+    [field: SerializeField] public GameObject interactionGUI { get; set; }
+    [field: SerializeField] public TextMeshProUGUI interactionText { get; set; }
+    public RaycastHit hit { get; set; }
+    [field: SerializeField] Transform IInteractable.camera { get; set; }
 
-    public ParticleSystem bugFeedback;
-
-    public GameObject bugScreen;
-    public MeshRenderer mr;
-    public Material[] bugScreenMaterials;
-
-    public void CreateBug()
+    private void Update()
     {
-        bugScreen.SetActive(true);
-        bugFeedback.gameObject.SetActive(true);
-        mr.material = bugScreenMaterials[Random.Range(0, bugScreenMaterials.Length)];
+        RaycastHit hitInfo;
+        isInteractable = Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out hitInfo, interactionDistance);
+        hit = hitInfo;
+        
+        Interact();
     }
-
-    public void ResolveBug()
+    public void Interact()
     {
-        bugScreen.SetActive(false);
-        bugFeedback.gameObject.SetActive(false);
+        if (!isInteractable)
+        {
+            return;
+        }
+        
+        if (!hit.transform.CompareTag("Computer"))
+        {
+            return;
+        }
 
-        onComputerBugResolve?.Invoke();
+        if (!Input.GetKeyDown(KeyCode.E))
+        {
+            return;
+        }
+
+        isInteract = true;
+        computerCamera.enabled = true;
     }
 }
