@@ -6,4 +6,9 @@ using System;
 public class WarningHackManager : MonoBehaviour
 {
     public static Action onHack;
+
+    private void Start()
+    {
+        //onHack?.Invoke();
+    }
 }

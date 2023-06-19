@@ -33,12 +33,13 @@ public class Projector : MonoBehaviour
             screenImage.sprite = projectedTutoFrames[currentFrame];
             StartCoroutine(UpdateFillSlides());
 
-            yield return new WaitForSeconds(changeFrameAfterSec);
-
             for (int i = 0; i < slidesCount.Length; i++)
             {
                 slidesCount[i].color = currentFrame >= i ? slideDisplayedColor : slideNotDisplayedColor;
             }
+
+            yield return new WaitForSeconds(changeFrameAfterSec);
+
             screenAnimator.Play("SwapSlide");
             yield return new WaitForSeconds(swapSlidesAnimation.length);
 
