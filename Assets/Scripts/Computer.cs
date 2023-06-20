@@ -46,6 +46,12 @@ public class Computer : MonoBehaviour, IInteractable
         {
             computerCamera.enabled = false;
             isInteract = false;
+            
+            if (TryGetComponent<RansomWare>(out var rans))
+            {
+                rans.EnableInputField(false);
+            }
+            
             return;
         }
 
@@ -54,8 +60,7 @@ public class Computer : MonoBehaviour, IInteractable
 
         if (TryGetComponent<RansomWare>(out var ransomWare))
         {
-            Debug.Log("RansomWare finded !!");
-            ransomWare.Init();
+            ransomWare.EnableInputField(true);
         }
     
         //inputField.Select();
