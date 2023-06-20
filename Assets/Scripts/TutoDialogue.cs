@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class TutoDialogue : MonoBehaviour
 {
+    public Animator elevatorTutoAnimator;
+    public float showBugAfterDelay = 3f;
     public string[] tutoDialogue;
 
     void Start()
@@ -19,7 +21,8 @@ public class TutoDialogue : MonoBehaviour
 
     private void OnDialogueDone()
     {
-        Invoke("ShowTutoBug", 5f);
+        elevatorTutoAnimator.Play("OpenDoors");
+        Invoke("ShowTutoBug", showBugAfterDelay);
     }
 
     private void ShowTutoBug()

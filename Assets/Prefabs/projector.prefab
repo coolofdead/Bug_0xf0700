@@ -856,7 +856,7 @@ GameObject:
   - component: {fileID: 3561448138131030409}
   - component: {fileID: 8872372052995048962}
   m_Layer: 0
-  m_Name: projector
+  m_Name: Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
