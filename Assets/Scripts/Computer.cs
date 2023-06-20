@@ -7,6 +7,8 @@ using Cinemachine;
 public class Computer : MonoBehaviour, IInteractable
 {
     [SerializeField] private CinemachineVirtualCamera computerCamera;
+
+    private TMP_SelectionCaret caret;
     [field: SerializeField] public float interactionDistance { get; set; }
     public bool isInteract { get; set; }
     [field: SerializeField]public bool isInteractable { get; set; }
@@ -49,5 +51,22 @@ public class Computer : MonoBehaviour, IInteractable
 
         isInteract = true;
         computerCamera.enabled = true;
+
+        if (TryGetComponent<RansomWare>(out var ransomWare))
+        {
+            Debug.Log("RansomWare finded !!");
+            ransomWare.Init();
+        }
+    
+        //inputField.Select();
+        //var caret = inputField.GetComponentInChildren<TMP_SelectionCaret>();
+        //Destroy(caret.gameObject);
+        //if (inputField.TryGetComponent<TMP_SelectionCaret>(out caret))
+        //{
+        //    Debug.Log("Destroy caret !");
+        //    Destroy(caret);
+        //}
+        
+        //inputField.ActivateInputField();
     }
 }
