@@ -47,7 +47,7 @@ public class Computer : MonoBehaviour, IInteractable
             computerCamera.enabled = false;
             isInteract = false;
             
-            if (TryGetComponent<RansomWare>(out var rans))
+            if (TryGetComponent<RansomWare>(out var rans)) //Not really pretty :c
             {
                 rans.EnableInputField(false);
             }
