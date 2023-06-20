@@ -14,13 +14,6 @@ public class DoorMechanism : MonoBehaviour, IInteractable {
     public bool isInteractable { get; set; }
     [field: SerializeField] public GameObject interactionGUI { get; set; }
     [field: SerializeField] public TextMeshProUGUI interactionText { get; set; }
-    [field: SerializeField] Transform IInteractable.camera { get; set; }
-
-    void Start () 
-	{
-		
-	}
-	
 
 	void Update () 
 	{
