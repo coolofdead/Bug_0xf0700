@@ -24,7 +24,7 @@ public class BugsManager : MonoBehaviour
     {
         Instance = this;
         computers = FindObjectsOfType<Computer>();
-        Computer.onComputerBugResolve += OnComputerBugResolved;
+        RansomWare.onComputerBugResolve += OnComputerBugResolved;
     }
 
     public void StartBugs()
@@ -67,6 +67,6 @@ public class BugsManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        Computer.onComputerBugResolve -= OnComputerBugResolved;
+        RansomWare.onComputerBugResolve -= OnComputerBugResolved;
     }
 }

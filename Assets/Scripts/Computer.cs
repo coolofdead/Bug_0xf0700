@@ -7,77 +7,49 @@ using Cinemachine;
 public class Computer : MonoBehaviour, IInteractable
 {
     [SerializeField] private CinemachineVirtualCamera computerCamera;
+    [SerializeField] private RansomWare ransomWare;
+    [SerializeField] private GameObject canvas;
+    [SerializeField] private GameObject particles;
+
+    [Header("Outline")]
+    [SerializeField] private Color hoverColor;
+    [SerializeField] private Color pickedColor;
+    [SerializeField] private Outline outline;
 
     private TMP_SelectionCaret caret;
-    [field: SerializeField] public float interactionDistance { get; set; }
-    public bool isInteract { get; set; }
-    [field: SerializeField]public bool isInteractable { get; set; }
-    [field: SerializeField] public GameObject interactionGUI { get; set; }
-    [field: SerializeField] public TextMeshProUGUI interactionText { get; set; }
-    public RaycastHit hit { get; set; }
-    [field: SerializeField] Transform camera { get; set; }
 
-    public GameObject bugScreen;
-    public MeshRenderer mr;
-    public Material[] bugScreenMaterials;
-
-    public bool IsBugged => bugScreen.activeSelf;
+    public bool IsBugged { get; private set; }
 
     public void CreateBug()
     {
-        RaycastHit hitInfo;
-        isInteractable = Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out hitInfo, interactionDistance);
-        hit = hitInfo;
-        
-        Interact();
+        IsBugged = true;
+        particles.SetActive(true);
+        canvas.SetActive(true);
     }
+
     public void Interact()
     {
-        if (!isInteractable)
-        {
-            return;
-        }
-        
-        if (!hit.transform.CompareTag("Computer"))
-        {
-            return;
-        }
+        computerCamera.enabled = !computerCamera.enabled;
 
-        if (!Input.GetKeyDown(KeyCode.E))
-        {
-            return;
-        }
+        ransomWare.EnableInputField(computerCamera.enabled);
+    }
 
-        if (isInteract)
-        {
-            computerCamera.enabled = false;
-            isInteract = false;
-            
-            if (TryGetComponent<RansomWare>(out var rans)) //Not really pretty :c
-            {
-                rans.EnableInputField(false);
-            }
-            
-            return;
-        }
+    public void FixBug()
+    {
+        IsBugged = false;
+        particles.SetActive(true);
+        canvas.SetActive(true);
+    }
 
-        isInteract = true;
-        computerCamera.enabled = true;
+    public void Hover()
+    {
+        outline.enabled = true;
+        outline.OutlineColor = hoverColor;
+    }
 
-        if (TryGetComponent<RansomWare>(out var ransomWare))
-        {
-            ransomWare.EnableInputField(true);
-        }
-    
-        //inputField.Select();
-        //var caret = inputField.GetComponentInChildren<TMP_SelectionCaret>();
-        //Destroy(caret.gameObject);
-        //if (inputField.TryGetComponent<TMP_SelectionCaret>(out caret))
-        //{
-        //    Debug.Log("Destroy caret !");
-        //    Destroy(caret);
-        //}
-        
-        //inputField.ActivateInputField();
+    public void ExitHover()
+    {
+        outline.enabled = false;
+        outline.OutlineColor = pickedColor;
     }
 }

@@ -818,9 +818,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pagesSprites:
-  - {fileID: 21300000, guid: 4c5d6af4b4aca4ce29536ae531a0ddf1, type: 3}
-  - {fileID: 21300000, guid: a92d22fe095644b218d359ff7abd7328, type: 3}
-  - {fileID: 21300000, guid: 619153f4a39b7462b8401040a45d5d9e, type: 3}
+  - {fileID: 21300000, guid: 9a5b8778ba9eb401397990211d0c6082, type: 3}
+  - {fileID: 21300000, guid: 7b27ad105b54a4bfe8d5ad996600a910, type: 3}
+  - {fileID: 21300000, guid: 9a815308242ba490fa71eec1cdf39d94, type: 3}
   currentPage: 0
   pageAnimator: {fileID: 2497335093179152427}
   updateCurrentPageDelay: 0.45
@@ -1464,6 +1464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61bec889d89bb174e9e23bc1471b4215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raycastInteractableInterval: 0.3
   pickedObjectPhysicsForce: 0.35
   pickedObjectDistance: 3
   maxInteractDistance: 5

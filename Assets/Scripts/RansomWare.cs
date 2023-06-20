@@ -3,20 +3,32 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using System;
+using System.Linq;
 using UnityEngine.UI;
 
 public class RansomWare : MonoBehaviour
 {
+    public static Action onComputerBugResolve;
+
+    [SerializeField] private Computer computer;
     [SerializeField] private TMP_InputField computerNumber;
     [SerializeField] public Sprite windowsXPScreen;
     [SerializeField] public Image screen;
     [SerializeField] public TMP_InputField inputField;
-    [SerializeField] public string code = "000";
     private bool isCaretDestroy = false;
 
-    public void Init()
+    private static Dictionary<string, string> computerCodeByCode = new Dictionary<string, string> {
+        { "#011", "114" },
+        { "#007", "914" },
+        { "#002", "781" },
+    };
+
+    private int codeId;
+
+    private void Awake()
     {
-       
+        codeId = UnityEngine.Random.Range(0, 3);
+        computerNumber.text = computerCodeByCode.Keys.ToArray()[codeId];
     }
 
     public void EnableInputField(bool activate)
@@ -43,13 +55,17 @@ public class RansomWare : MonoBehaviour
     public void CompareCode()
     {
         Debug.Log("input : " + inputField.text);
-        if (inputField.text.Trim() == code.Trim())
+        if (inputField.text.Trim() == computerCodeByCode.Values.ToArray()[codeId])
         {
             
             Debug.Log("Good Code Friend !");
             screen.sprite = windowsXPScreen;
             inputField.gameObject.SetActive(false);
             computerNumber.gameObject.SetActive(false);
+
+            computer.FixBug();
+
+            onComputerBugResolve?.Invoke();
         }
     }
 }
