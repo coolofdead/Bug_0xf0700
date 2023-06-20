@@ -53,7 +53,7 @@ public class PlayerInteractionController : MonoBehaviour
     private void HandlePickupObjectPhysics(Vector2 moveDirection)
     {
         if (ObjectPicked == null) return;
-
+        
         //objectPicked.rb.AddTorque(new Vector3(moveDirection.x, 0, moveDirection.y) * pickedObjectPhysicsForce);
         ObjectPicked.Rb.AddForce(moveDirection * pickedObjectPhysicsForce);
     }
@@ -73,7 +73,6 @@ public class PlayerInteractionController : MonoBehaviour
         {
             ObjectPicked = interactable as ObjectPickable;
             ObjectPicked.Pick();
-            //ObjectPicked.transform.localPosition = Vector3.zero;
             return;
         }
 

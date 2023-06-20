@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Elevator : MonoBehaviour
 {
+    public Action<int, int> onElevatorMovingToFloor;
+    public Action<int> onElevatorReachedFloor;
+
     public Animator elevatorAnimator;
     public AnimationClip elevatorDorosAnimationClip;
     public Transform[] floorsTargets;
@@ -22,6 +26,14 @@ public class Elevator : MonoBehaviour
         elevatorAnimator.Play("CloseDoors");
     }
 
+    public void CallElevator(int floorLevel)
+    {
+        if (isMoving) return;
+
+        OpenDoors();
+        PickFloor(floorLevel);
+    }
+
     public void PickFloor(int floorLevel)
     {
         if (currentFloorLevel == floorLevel || isMoving) return;
@@ -33,6 +45,8 @@ public class Elevator : MonoBehaviour
     {
         CloseDoors();
         isMoving = true;
+
+        onElevatorMovingToFloor?.Invoke(currentFloorLevel, floorLevel);
 
         yield return new WaitForSeconds(elevatorDorosAnimationClip.length);
 
@@ -52,6 +66,8 @@ public class Elevator : MonoBehaviour
 
         transform.localPosition = targetPos;
         currentFloorLevel = floorLevel;
+
+        onElevatorReachedFloor?.Invoke(floorLevel);
 
         isMoving = false;
         OpenDoors();
