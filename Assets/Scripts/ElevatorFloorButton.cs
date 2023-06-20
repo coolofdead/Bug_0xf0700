@@ -5,14 +5,6 @@ using UnityEngine;
 
 public class ElevatorFloorButton : MonoBehaviour, IInteractable
 {
-    public float interactionDistance { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-    public RaycastHit hit { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-    public bool isInteract { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-    public bool isInteractable { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-    public GameObject interactionGUI { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-    public TextMeshProUGUI interactionText { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-    Transform IInteractable.camera { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-
     [Header("Outline")]
     [SerializeField] private Color hoverColor;
     [SerializeField] private Color pickedColor;

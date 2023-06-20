@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class ObjectPickable : MonoBehaviour
+[RequireComponent(typeof(Outline), typeof(Collider), typeof(Rigidbody))]
+public class ObjectPickable : MonoBehaviour, IInteractable
 {
-    public Rigidbody rb;
+    [field:SerializeField] public Rigidbody Rb;
     
     [Header("Outline")]
     [SerializeField] private Color hoverColor;
@@ -43,5 +44,10 @@ public class ObjectPickable : MonoBehaviour
     {
         outline.OutlineColor = pickedColor;
         DisableOutline();
+    }
+
+    public void Interact()
+    {
+        throw new System.NotImplementedException();
     }
 }

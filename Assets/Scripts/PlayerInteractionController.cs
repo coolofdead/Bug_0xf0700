@@ -6,30 +6,31 @@ using UnityEngine.InputSystem;
 public class PlayerInteractionController : MonoBehaviour
 {
     [Header("Interact")]
+    [SerializeField] private float raycastInteractableInterval = 0.1f;
     [SerializeField] private float pickedObjectPhysicsForce;
     [SerializeField] private float pickedObjectDistance = 4;
     [SerializeField] private float maxInteractDistance;
     [SerializeField] private Transform pickupObjectHand;
 
     [Header("Input")]
-    [SerializeField]  private PlayerInput playerInput;
+    [SerializeField] private PlayerInput playerInput;
 
-    private ObjectPickable objectPicked;
-    private ObjectPickable hoverObjectPicked;
+    public ObjectPickable ObjectPicked { get; private set; }
+    public bool HoldingObject => ObjectPicked != null;
+
+    private IInteractable hoverInteractable;
     private RaycastHit hit;
 
-    private static PlayerInteractionController instance; //Singleton
+    public static PlayerInteractionController Instance { get; private set; } //Singleton
 
-    private void Start()
+    private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
-    }
-    public static PlayerInteractionController GetInstance()
-    {
-        return instance;
+
+        StartCoroutine(RaycastInteractable());
     }
 
     public void OnInteract(InputValue value)
@@ -44,83 +45,75 @@ public class PlayerInteractionController : MonoBehaviour
     
     private void Update()
     {
-        if (objectPicked == null) return;
-        
-        objectPicked.transform.position = Camera.main.transform.position + Camera.main.transform.forward * pickedObjectDistance;
+        if (!HoldingObject) return;
 
-        Debug.Log(GetInstance().GetPickedObject().name);
-    }
-
-    private void FixedUpdate()
-    {
-        if (objectPicked != null) return;
-
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position + Camera.main.transform.forward, Camera.main.transform.forward, out hit, maxInteractDistance))
-        {
-            var objectToPick = hit.transform.GetComponent<IInteractable>();
-            if (objectToPick == null || objectToPick == hoverObjectPicked) return;
-
-            objectToPick.Hover();
-            //hoverObjectPicked?.ExitHover();
-            //hoverObjectPicked = objectToPick;
-            //hoverObjectPicked.Hover();
-        }
-        else if (hoverObjectPicked != null)
-        {
-            hoverObjectPicked.ExitHover();
-            hoverObjectPicked = null;
-        }
+        ObjectPicked.transform.position = Camera.main.transform.position + Camera.main.transform.forward * pickedObjectDistance;
     }
 
     private void HandlePickupObjectPhysics(Vector2 moveDirection)
     {
-        if (objectPicked == null) return;
+        if (ObjectPicked == null) return;
 
         //objectPicked.rb.AddTorque(new Vector3(moveDirection.x, 0, moveDirection.y) * pickedObjectPhysicsForce);
-        objectPicked.rb.AddForce(moveDirection * pickedObjectPhysicsForce);
+        ObjectPicked.Rb.AddForce(moveDirection * pickedObjectPhysicsForce);
     }
 
     public void InteractInput(bool interact)
     {
-        if (interact)
+        if (!interact)
         {
-            Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * hit.distance, Color.yellow, 5);
+            ObjectPicked?.Release();
+            return;
+        }
 
-            if (Physics.Raycast(Camera.main.transform.position + Camera.main.transform.forward, Camera.main.transform.forward, out hit, maxInteractDistance))
+        var interactable = RaycastForInteractable();
+        if (interactable == null) return;
+
+        if (interactable is ObjectPickable)
+        {
+            ObjectPicked = interactable as ObjectPickable;
+            ObjectPicked.Pick();
+            //ObjectPicked.transform.localPosition = Vector3.zero;
+            return;
+        }
+
+        interactable.Interact();
+    }
+
+    private IEnumerator RaycastInteractable()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(raycastInteractableInterval);
+
+            if (HoldingObject) continue;
+
+            var interactable = RaycastForInteractable();
+
+            if (interactable == null)
             {
-                var objectPickable = hit.transform.GetComponent<IInteractable>();
+                hoverInteractable?.ExitHover();
+                hoverInteractable = null;
 
-                if (objectPickable == null) return;
-
-                objectPickable.Interact();
-
-                if (objectPickable is ObjectPickable) PickObject(objectPickable as ObjectPickable);
+                continue;
             }
+
+            if (interactable == hoverInteractable) continue;
+
+            hoverInteractable?.ExitHover();
+            hoverInteractable = interactable;
+            hoverInteractable.Hover();
         }
-        else
+    }
+
+    private IInteractable? RaycastForInteractable()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, maxInteractDistance))
         {
-            ReleaseObject();
+            return hit.transform.GetComponent<IInteractable>();
         }
-    }
 
-    private void PickObject(ObjectPickable newObjectPicked)
-    {
-        objectPicked = newObjectPicked;
-        objectPicked.Pick();
-        objectPicked.transform.localPosition = Vector3.zero;
-    }
-
-    private void ReleaseObject()
-    {
-        if (objectPicked == null) return;
-
-        objectPicked.Release();
-        objectPicked = null;
-    }
-
-    public ObjectPickable GetPickedObject()
-    {
-        return objectPicked;
+        return null;
     }
 }
