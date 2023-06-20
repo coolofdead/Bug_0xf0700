@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WarningLight : MonoBehaviour
 {
-    public static float warningLightDuration = 5f;
+    public static float warningLightDuration = 16f;
 
     public Material warningLightMaterial;
     public Color warningColor;
@@ -13,7 +13,7 @@ public class WarningLight : MonoBehaviour
 
     private void Awake()
     {
-        WarningHackManager.onHack += SoundAlarm;
+        BugsManager.onHack += SoundAlarm;
     }
 
     public void SoundAlarm()
@@ -35,6 +35,6 @@ public class WarningLight : MonoBehaviour
 
     private void OnDestroy()
     {
-        WarningHackManager.onHack -= SoundAlarm;
+        BugsManager.onHack -= SoundAlarm;
     }
 }

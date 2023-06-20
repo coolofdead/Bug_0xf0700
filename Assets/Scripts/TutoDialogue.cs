@@ -5,15 +5,10 @@ using UnityEngine;
 
 public class TutoDialogue : MonoBehaviour
 {
-    public FirstPersonController fpsController;
     public string[] tutoDialogue;
-
-    private float defaultMoveSpeed;
 
     void Start()
     {
-        defaultMoveSpeed = fpsController.MoveSpeed;
-        //fpsController.MoveSpeed = 0;
         ShowTutoDialogue();
     }
 
@@ -24,6 +19,11 @@ public class TutoDialogue : MonoBehaviour
 
     private void OnDialogueDone()
     {
-        fpsController.MoveSpeed = defaultMoveSpeed;
+        Invoke("ShowTutoBug", 5f);
+    }
+
+    private void ShowTutoBug()
+    {
+        BugsManager.Instance.BugAppear();
     }
 }

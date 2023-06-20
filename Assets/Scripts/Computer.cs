@@ -15,9 +15,15 @@ public class Computer : MonoBehaviour, IInteractable
     [field: SerializeField] public GameObject interactionGUI { get; set; }
     [field: SerializeField] public TextMeshProUGUI interactionText { get; set; }
     public RaycastHit hit { get; set; }
-    [field: SerializeField] Transform IInteractable.camera { get; set; }
+    [field: SerializeField] Transform camera { get; set; }
 
-    private void Update()
+    public GameObject bugScreen;
+    public MeshRenderer mr;
+    public Material[] bugScreenMaterials;
+
+    public bool IsBugged => bugScreen.activeSelf;
+
+    public void CreateBug()
     {
         RaycastHit hitInfo;
         isInteractable = Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward), out hitInfo, interactionDistance);

@@ -3,46 +3,70 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using System;
 
 public class BugsManager : MonoBehaviour
 {
-    public int totalComputersBugged = 8;
-    public int totalComputersBugFixed { get; private set; }
+    public static Action onHack;
+    public static BugsManager Instance { get; private set; }
 
-    public TextMeshProUGUI totalComputersFixedTMP;
+    [Header("Bug Related")]
+    public float timeBetweenBugs = 45f;
+    [Range(0, 100)]
+    public float percentageOfHavingTwoBugs = 70;
+
+    [Header("Bug Effects")]
+    public GameObject warningCoverUI;
 
     private Computer[] computers;
 
-    //private void Awake()
-    //{
-    //    computers = FindObjectsOfType<Computer>();
-    //    Computer.onComputerBugResolve += OnComputerBugResolved;
+    private void Awake()
+    {
+        Instance = this;
+        computers = FindObjectsOfType<Computer>();
+        Computer.onComputerBugResolve += OnComputerBugResolved;
+    }
 
-    //    InitBugs();
-    //}
+    public void StartBugs()
+    {
+        Invoke("MakeBug", timeBetweenBugs);
+    }
 
-    //private void InitBugs()
-    //{
-    //    var rnd = new System.Random();
-    //    computers.ToList().Sort((i, c) => rnd.Next());
-    //    for (int i = 0; i < totalComputersBugged; i++)
-    //    {
-    //        computers[i].CreateBug();
-    //    }
-    //}
+    private void MakeBug()
+    {
+        var rnd = new System.Random();
+        var computersNotBugged = computers.Where((computer) => !computer.IsBugged).ToList();
+        computersNotBugged.Sort((i, c) => rnd.Next());
+        var computerToBug = computersNotBugged.First();
+        computerToBug.CreateBug();
+    }
 
-    //private void OnComputerBugResolved()
-    //{
-    //    totalComputersBugFixed++;
-    //    totalComputersFixedTMP.text = $"{totalComputersBugFixed} / {totalComputersBugged}";
+    private void OnComputerBugResolved()
+    {
+        BugAppear();
+    }
 
-    //    if (totalComputersBugFixed != totalComputersBugged) return;
+    public void BugAppear()
+    {
+        int nbBugToMake = UnityEngine.Random.Range(0, 100) < percentageOfHavingTwoBugs ? 1 : 2;
+        for (int i = 0; i < nbBugToMake; i++)
+        {
+            MakeBug();
+        }
 
-    //    print("all bugs resolved");
-    //}
+        warningCoverUI.SetActive(true);
+        onHack?.Invoke();
 
-    //private void OnDestroy()
-    //{
-    //    Computer.onComputerBugResolve -= OnComputerBugResolved;
-    //}
+        Invoke("HideWarningUI", 16);
+    }
+
+    private void HideWarningUI()
+    {
+        warningCoverUI.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        Computer.onComputerBugResolve -= OnComputerBugResolved;
+    }
 }

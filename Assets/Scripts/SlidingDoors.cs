@@ -20,7 +20,7 @@ public class SlidingDoors : MonoBehaviour
 
     private void Awake()
     {
-        WarningHackManager.onHack += OnHackCloseDoors;
+        BugsManager.onHack += OnHackCloseDoors;
     }
 
     private void OnHackCloseDoors()
@@ -29,6 +29,8 @@ public class SlidingDoors : MonoBehaviour
         foreach (MeshRenderer mr in statusIndicatorMaterials) mr.material = disableLightMaterial;
         foreach (Light light in statusIndicatorLights) light.color = disableStatusLightColor;
         CloseDoors();
+
+        Invoke("FixDoors", 10f);
     }
 
     public void FixDoors()
@@ -85,6 +87,6 @@ public class SlidingDoors : MonoBehaviour
 
     private void OnDestroy()
     {
-        WarningHackManager.onHack -= OnHackCloseDoors;
+        BugsManager.onHack -= OnHackCloseDoors;
     }
 }
