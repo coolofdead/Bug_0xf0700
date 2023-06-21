@@ -17,7 +17,7 @@ public class BugsManager : MonoBehaviour
     public float percentageOfHavingTwoBugs = 70;
 
     [Header("Bug Effects")]
-    public GameObject warningCoverUI;
+    public Animator warningCoverUI;
     public Image[] warningCoverBuildingFloors;
     public Color targetColor;
     public float timeToSwapColors = 0.5f;
@@ -62,15 +62,15 @@ public class BugsManager : MonoBehaviour
 
         }
 
-        warningCoverUI.SetActive(true);
+        warningCoverUI.Play("ShowWarning");
         onHack?.Invoke();
-
+        
         Invoke("HideWarningUI", 16);
     }
 
     private void HideWarningUI()
     {
-        warningCoverUI.SetActive(false);
+        warningCoverUI.SetTrigger("HideWarning");
     }
 
     private void OnDestroy()
