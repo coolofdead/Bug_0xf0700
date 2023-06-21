@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Cinemachine;
+using System;
 
 public class Computer : MonoBehaviour, IInteractable
 {
+    public static Action<Computer> onComputerHack;
+
     [SerializeField] private CinemachineVirtualCamera computerCamera;
     [SerializeField] private RansomWare ransomWare;
     [SerializeField] private GameObject canvas;
@@ -19,12 +22,15 @@ public class Computer : MonoBehaviour, IInteractable
     private TMP_SelectionCaret caret;
 
     public bool IsBugged { get; private set; }
+    public int FloorLevel { get; set; }
 
     public void CreateBug()
     {
         IsBugged = true;
         particles.SetActive(true);
         canvas.SetActive(true);
+
+        onComputerHack?.Invoke(this);
     }
 
     public void Interact()
@@ -37,8 +43,8 @@ public class Computer : MonoBehaviour, IInteractable
     public void FixBug()
     {
         IsBugged = false;
-        particles.SetActive(true);
-        canvas.SetActive(true);
+        particles.SetActive(false);
+        canvas.SetActive(false);
     }
 
     public void Hover()
