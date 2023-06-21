@@ -63,12 +63,10 @@ public class DoorMechanism : MonoBehaviour, IInteractable {
 
     public void Hover()
     {
-        throw new System.NotImplementedException();
     }
 
     public void ExitHover()
     {
-        throw new System.NotImplementedException();
     }
 
     //public void Open()

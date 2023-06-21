@@ -36,29 +36,25 @@ public class RansomWare : MonoBehaviour
         if (!isCaretDestroy)
         {
             var caret = inputField.GetComponentInChildren<TMP_SelectionCaret>();
-            Destroy(caret.gameObject);
+            Destroy(caret?.gameObject);
             isCaretDestroy = true;
         }
 
         if (activate)
         {
             inputField.ActivateInputField();
-            Debug.Log("ACTIVATED");
         }
         else
         {
             inputField.DeactivateInputField();
-            Debug.Log("DEACTIVATED");
         }
     }
 
     public void CompareCode()
     {
-        Debug.Log("input : " + inputField.text);
         if (inputField.text.Trim() == computerCodeByCode.Values.ToArray()[codeId])
         {
             
-            Debug.Log("Good Code Friend !");
             screen.sprite = windowsXPScreen;
             inputField.gameObject.SetActive(false);
             computerNumber.gameObject.SetActive(false);

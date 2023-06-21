@@ -184,11 +184,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SO_Monitor_03
       objectReference: {fileID: 0}
-    - target: {fileID: 1602919587617632563, guid: d3943b0b2068344d8a189beb281d7e5b,
-        type: 3}
-      propertyPath: ransomWare
-      value: 
-      objectReference: {fileID: 1298932602619887124}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3943b0b2068344d8a189beb281d7e5b, type: 3}
 --- !u!4 &1298932602619715525 stripped
@@ -197,18 +192,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 304004582552506145}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1298932602619887124 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1602919587617632565, guid: d3943b0b2068344d8a189beb281d7e5b,
-    type: 3}
-  m_PrefabInstance: {fileID: 304004582552506145}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3a9fe762e0b6ea4398e39073e7256f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5402962080074205552
 PrefabInstance:
   m_ObjectHideFlags: 0

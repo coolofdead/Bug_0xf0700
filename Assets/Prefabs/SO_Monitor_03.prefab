@@ -1462,7 +1462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   computerCamera: {fileID: 1602919587088589503}
-  ransomWare: {fileID: 0}
+  ransomWare: {fileID: 1602919587617632565}
   canvas: {fileID: 1602919587520535808}
   particles: {fileID: 7531662537683218174}
   hoverColor: {r: 1, g: 0.43137255, b: 0, a: 1}

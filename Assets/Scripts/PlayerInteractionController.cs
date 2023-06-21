@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +14,7 @@ public class PlayerInteractionController : MonoBehaviour
     [SerializeField] private Transform pickupObjectHand;
 
     [Header("Input")]
+    [SerializeField] private FirstPersonController fpsController;
     [SerializeField] private PlayerInput playerInput;
 
     public ObjectPickable ObjectPicked { get; private set; }
@@ -20,6 +22,7 @@ public class PlayerInteractionController : MonoBehaviour
 
     private IInteractable hoverInteractable;
     private RaycastHit hit;
+    private float defaultPlayerMoveSpeed;
 
     public static PlayerInteractionController Instance { get; private set; } //Singleton
 
@@ -30,6 +33,7 @@ public class PlayerInteractionController : MonoBehaviour
             Instance = this;
         }
 
+        defaultPlayerMoveSpeed = fpsController.MoveSpeed;
         StartCoroutine(RaycastInteractable());
     }
 
@@ -76,7 +80,19 @@ public class PlayerInteractionController : MonoBehaviour
             return;
         }
 
+        if (interactable is IInteractableDisablePlayerMovement)
+        {
+            fpsController.MoveSpeed = 0;
+
+            ((IInteractableDisablePlayerMovement)interactable).DisablePlayerMovement(ReleaseMovements);
+        }
+
         interactable.Interact();
+    }
+
+    private void ReleaseMovements()
+    {
+        fpsController.MoveSpeed = defaultPlayerMoveSpeed;
     }
 
     private IEnumerator RaycastInteractable()

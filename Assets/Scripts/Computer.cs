@@ -5,7 +5,7 @@ using UnityEngine;
 using Cinemachine;
 using System;
 
-public class Computer : MonoBehaviour, IInteractable
+public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
 {
     public static Action<Computer> onComputerHack;
 
@@ -24,6 +24,8 @@ public class Computer : MonoBehaviour, IInteractable
     public bool IsBugged { get; private set; }
     public int FloorLevel { get; set; }
 
+    private Action releasePlayerMovementCallback;
+
     public void CreateBug()
     {
         IsBugged = true;
@@ -38,6 +40,8 @@ public class Computer : MonoBehaviour, IInteractable
         computerCamera.enabled = !computerCamera.enabled;
 
         ransomWare.EnableInputField(computerCamera.enabled);
+
+        if (!computerCamera.enabled) releasePlayerMovementCallback?.Invoke();
     }
 
     public void FixBug()
@@ -57,5 +61,10 @@ public class Computer : MonoBehaviour, IInteractable
     {
         outline.enabled = false;
         outline.OutlineColor = pickedColor;
+    }
+
+    public void DisablePlayerMovement(Action releasePlayerMovementCallback)
+    {
+        this.releasePlayerMovementCallback = releasePlayerMovementCallback;
     }
 }

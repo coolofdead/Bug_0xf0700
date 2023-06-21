@@ -1469,6 +1469,7 @@ MonoBehaviour:
   pickedObjectDistance: 3
   maxInteractDistance: 5
   pickupObjectHand: {fileID: 1051375980}
+  fpsController: {fileID: 8616685848737228371}
   playerInput: {fileID: 8616685848737228376}
 --- !u!114 &5393215579111688473
 MonoBehaviour:
