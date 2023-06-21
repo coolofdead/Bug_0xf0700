@@ -18,6 +18,8 @@ public class BookController : MonoBehaviour
     public GameObject scrollWheelFeedback;
     public float showScrollWheelFeedbackAfterDelay = 0.7f;
 
+    [HideInInspector] public bool CanPickupBook = true;
+
     private bool pickupBook = false;
 
     public void OnPickupBook(InputValue value)
@@ -58,6 +60,8 @@ public class BookController : MonoBehaviour
 
     private void PickupBook(bool pickup)
     {
+        if (!CanPickupBook) return;
+
         pickupBook = !pickupBook;
         
         // Either show or hide book
@@ -73,6 +77,7 @@ public class BookController : MonoBehaviour
 
     private void HideBook()
     {
+        scrollWheelFeedback.SetActive(false);
         bookParent.SetActive(false);
     }
 

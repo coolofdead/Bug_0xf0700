@@ -14,6 +14,7 @@ public class PlayerInteractionController : MonoBehaviour
     [SerializeField] private Transform pickupObjectHand;
 
     [Header("Input")]
+    [SerializeField] private BookController bookController;
     [SerializeField] private FirstPersonController fpsController;
     [SerializeField] private PlayerInput playerInput;
 
@@ -67,6 +68,7 @@ public class PlayerInteractionController : MonoBehaviour
         if (!interact)
         {
             ObjectPicked?.Release();
+            ObjectPicked = null;
             return;
         }
 
@@ -83,6 +85,7 @@ public class PlayerInteractionController : MonoBehaviour
         if (interactable is IInteractableDisablePlayerMovement)
         {
             fpsController.MoveSpeed = 0;
+            bookController.CanPickupBook = false;
 
             ((IInteractableDisablePlayerMovement)interactable).DisablePlayerMovement(ReleaseMovements);
         }
@@ -93,6 +96,7 @@ public class PlayerInteractionController : MonoBehaviour
     private void ReleaseMovements()
     {
         fpsController.MoveSpeed = defaultPlayerMoveSpeed;
+        bookController.CanPickupBook = true;
     }
 
     private IEnumerator RaycastInteractable()
