@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class SlidingDoors : MonoBehaviour
 {
-    public Animator doorsAnimator;
+    public float openDoorOffset;
+    public float openDoorTime;
+    public GameObject rightDoor;
+    public GameObject leftDoor;
     public Material enableLightMaterial;
     public Material disableLightMaterial;
 
@@ -13,13 +16,16 @@ public class SlidingDoors : MonoBehaviour
     public Color enableStatusLightColor;
     public Color disableStatusLightColor;
 
-    private bool isOpening;
-    private bool isClosing;
+    private Vector3 defaultRightDoorlocalPos;
+    private Vector3 defaultLeftDoorlocalPos;
 
     private bool isEnable = true;
 
     private void Awake()
     {
+        defaultRightDoorlocalPos = rightDoor.transform.localPosition;
+        defaultLeftDoorlocalPos = leftDoor.transform.localPosition;
+
         BugsManager.onHack += OnHackCloseDoors;
     }
 
@@ -43,31 +49,26 @@ public class SlidingDoors : MonoBehaviour
 
     public void OpenDoors()
     {
-        isOpening = true;
-        doorsAnimator.Play("OpenDoors");
+        LeanTween.cancel(rightDoor);
+        LeanTween.cancel(leftDoor);
+
+        LeanTween.moveLocal(rightDoor, defaultRightDoorlocalPos + Vector3.forward * -openDoorOffset, openDoorTime);
+        LeanTween.moveLocal(leftDoor, defaultLeftDoorlocalPos + Vector3.forward * openDoorOffset, openDoorTime);
     }
 
     public void CloseDoors()
     {
-        isClosing = true;
-        doorsAnimator.Play("CloseDoors");
-    }
+        LeanTween.cancel(rightDoor);
+        LeanTween.cancel(leftDoor);
 
-    private void DoorsOpened()
-    {
-        isOpening = false;
-    }
-
-    private void DoorsClosed()
-    {
-        isClosing = false;
+        LeanTween.moveLocal(rightDoor, defaultRightDoorlocalPos, openDoorTime);
+        LeanTween.moveLocal(leftDoor, defaultLeftDoorlocalPos, openDoorTime);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Player" || isOpening || isClosing || !isEnable)
+        if (other.tag != "Player" || !isEnable)
         {
-            if (isClosing) doorsAnimator.SetTrigger("OpenDoorsAfterClosing");
             return;
         }
 
@@ -76,9 +77,8 @@ public class SlidingDoors : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag != "Player" || isOpening || isClosing || !isEnable)
+        if (other.tag != "Player" || !isEnable)
         {
-            if (isOpening) doorsAnimator.SetTrigger("CloseDoorsAfterOpening");
             return;
         }
 
