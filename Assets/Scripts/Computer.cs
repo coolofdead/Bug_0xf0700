@@ -8,6 +8,7 @@ using System;
 public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
 {
     public static Action<Computer> onComputerHack;
+    public static Action<Computer> onComputerFix;
 
     [SerializeField] private CinemachineVirtualCamera computerCamera;
     [SerializeField] private RansomWare ransomWare;
@@ -49,6 +50,8 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
         IsBugged = false;
         particles.SetActive(false);
         canvas.SetActive(false);
+
+        onComputerFix?.Invoke(this);
     }
 
     public void Hover()

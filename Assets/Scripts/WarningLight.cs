@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WarningLight : MonoBehaviour
 {
-    public static float warningLightDuration = 16f;
+    public static float warningLightDuration = 8f;
 
     public Material warningLightMaterial;
     public Color warningColor;

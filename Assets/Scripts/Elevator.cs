@@ -45,7 +45,7 @@ public class Elevator : MonoBehaviour
 
     public void PickFloor(int floorLevel)
     {
-        if (CurrentFloorLevel == floorLevel || isMoving) return;
+        if ( isMoving) return;
 
         StartCoroutine(MoveToFloor(floorLevel));
     }

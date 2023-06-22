@@ -78,6 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803f6c91e70a1446f852c147cdf0bb6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugBugWithB: 1
   timeBetweenBugs: 45
   percentageOfHavingTwoBugs: 70
   warningCoverUI: {fileID: 0}

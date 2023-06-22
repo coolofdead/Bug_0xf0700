@@ -778,7 +778,7 @@ Transform:
   m_GameObject: {fileID: 2019399661}
   m_LocalRotation: {x: -0.4304593, y: -0.4304593, z: 0.56098557, w: 0.56098557}
   m_LocalPosition: {x: 0.043, y: 1.211, z: 2.235}
-  m_LocalScale: {x: 1.6960611, y: 1.6960613, z: 1.6960614}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1855290965}
@@ -1485,14 +1485,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookFix: {fileID: 2019399665}
-  bookParent: {fileID: 2019399661}
   bookAnimator: {fileID: 2019399664}
-  closeBookAnimation: {fileID: 7400000, guid: bce6b3ca6e384cd45b5f10bc855f988b, type: 2}
   firstPersonController: {fileID: 8616685848737228371}
   cinemachineVirtualCamera: {fileID: 0}
   pointerUI: {fileID: 0}
   scrollWheelFeedback: {fileID: 0}
-  showScrollWheelFeedbackAfterDelay: 3
+  showScrollWheelFeedbackAfterDelay: 5
+  CanPickupBook: 1
 --- !u!1 &8782864753384800293
 GameObject:
   m_ObjectHideFlags: 0

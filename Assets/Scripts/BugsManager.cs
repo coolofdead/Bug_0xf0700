@@ -11,6 +11,8 @@ public class BugsManager : MonoBehaviour
     public static Action onHack;
     public static BugsManager Instance { get; private set; }
 
+    public bool debugBugWithB = true;
+
     [Header("Bug Related")]
     public float timeBetweenBugs = 45f;
     [Range(0, 100)]
@@ -23,12 +25,18 @@ public class BugsManager : MonoBehaviour
     public float timeToSwapColors = 0.5f;
 
     private Computer[] computers;
+    private bool showWarningOnce = true;
 
     private void Awake()
     {
         Instance = this;
         computers = FindObjectsOfType<Computer>();
         RansomWare.onComputerBugResolve += OnComputerBugResolved;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.B) && debugBugWithB) BugAppear();
     }
 
     public void StartBugs()
@@ -47,7 +55,7 @@ public class BugsManager : MonoBehaviour
 
     private void OnComputerBugResolved()
     {
-        BugAppear();
+        //Invoke("BugAppear", timeBetweenBugs);
     }
 
     public void BugAppear()
@@ -57,15 +65,19 @@ public class BugsManager : MonoBehaviour
         for (int i = 0; i < nbBugToMake; i++)
         {
             int floorLevelBug = UnityEngine.Random.Range(1, 4);
-            LeanTween.value(warningCoverBuildingFloors[i].gameObject, (Color c) => { warningCoverBuildingFloors[i].color = c; }, Color.white, targetColor, timeToSwapColors).setLoopType(LeanTweenType.pingPong);
+            LeanTween.value(warningCoverBuildingFloors[floorLevelBug - 1].gameObject, (Color c) => { warningCoverBuildingFloors[floorLevelBug - 1].color = c; }, Color.white, targetColor, timeToSwapColors).setLoopType(LeanTweenType.pingPong);
             MakeBug(floorLevelBug);
 
         }
 
-        warningCoverUI.Play("ShowWarning");
+        if (showWarningOnce)
+        {
+            showWarningOnce = false;
+            warningCoverUI.Play("ShowWarning");
+            Invoke("HideWarningUI", 8);
+        }
+
         onHack?.Invoke();
-        
-        Invoke("HideWarningUI", 16);
     }
 
     private void HideWarningUI()

@@ -65,6 +65,8 @@ public class PlayerInteractionController : MonoBehaviour
 
     public void InteractInput(bool interact)
     {
+        if (bookController.PickupBook) return;
+
         if (!interact)
         {
             ObjectPicked?.Release();
@@ -105,7 +107,12 @@ public class PlayerInteractionController : MonoBehaviour
         {
             yield return new WaitForSeconds(raycastInteractableInterval);
 
-            if (HoldingObject) continue;
+            if (HoldingObject || bookController.PickupBook)
+            {
+                hoverInteractable?.ExitHover();
+                hoverInteractable = null;
+                continue;
+            }
 
             var interactable = RaycastForInteractable();
 

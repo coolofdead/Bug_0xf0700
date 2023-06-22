@@ -9,9 +9,7 @@ public class BookController : MonoBehaviour
 {
     //public AutoFlip bookAutoFlip;
     public BookFix bookFix;
-    public GameObject bookParent;
     public Animator bookAnimator;
-    public AnimationClip closeBookAnimation;
     public FirstPersonController firstPersonController;
     public CinemachineVirtualCamera cinemachineVirtualCamera;
     public GameObject pointerUI;
@@ -20,11 +18,11 @@ public class BookController : MonoBehaviour
 
     [HideInInspector] public bool CanPickupBook = true;
 
-    private bool pickupBook = false;
+    public bool PickupBook { get; private set; } = false;
 
     public void OnPickupBook(InputValue value)
     {
-        PickupBook(value.isPressed);
+        PickupBookInHand(value.isPressed);
     }
 
     public void OnBookScrollPage(InputValue value)
@@ -58,41 +56,35 @@ public class BookController : MonoBehaviour
         }
     }
 
-    private void PickupBook(bool pickup)
+    private void PickupBookInHand(bool pickup)
     {
         if (!CanPickupBook) return;
 
-        pickupBook = !pickupBook;
+        PickupBook = !PickupBook;
         
         // Either show or hide book
-        if (pickupBook) Invoke("ShowScrollWheelFeedback", showScrollWheelFeedbackAfterDelay);
-        firstPersonController.enabled = !pickupBook;
-        cinemachineVirtualCamera.enabled = pickupBook;
-        if (pickupBook) bookParent.SetActive(true);
-        pointerUI.SetActive(!pickupBook);
-        bookAnimator.Play(pickupBook ? "OpenBook" : "CloseBook");
-        if (!pickupBook) scrollWheelFeedback.SetActive(false);
-        if (!pickupBook) Invoke("HideBook", closeBookAnimation.length);
-    }
-
-    private void HideBook()
-    {
-        scrollWheelFeedback.SetActive(false);
-        bookParent.SetActive(false);
+        if (PickupBook) Invoke("ShowScrollWheelFeedback", showScrollWheelFeedbackAfterDelay);
+        firstPersonController.enabled = !PickupBook;
+        cinemachineVirtualCamera.enabled = PickupBook;
+        pointerUI.SetActive(!PickupBook);
+        bookAnimator.Play(PickupBook ? "OpenBook" : "CloseBook");
+        if (!PickupBook) scrollWheelFeedback.SetActive(false);
     }
 
     private void BookNextPage()
     {
         bookFix.FlipNextPage();
+        scrollWheelFeedback.SetActive(false);
     }
 
     private void BookPreviousPage()
     {
         bookFix.FlipPreviousPage();
+        scrollWheelFeedback.SetActive(false);
     }
 
     private void ShowScrollWheelFeedback()
     {
-        if (bookFix.currentPage == 0) scrollWheelFeedback.SetActive(true);
+        if (bookFix.currentPage == 0) scrollWheelFeedback.SetActive(PickupBook);
     }
 }
