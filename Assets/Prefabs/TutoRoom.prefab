@@ -2245,6 +2245,10 @@ MonoBehaviour:
   - Oui Gerard, je viens de partir
   - tu pourrais faire la fermeture de la boite ce soir ?
   - J'ai mon avion pour les bahamas bye bye.
+  tutoAudioClips:
+  - {fileID: 8300000, guid: 257f226ab4bda8a43bed8b0439453520, type: 3}
+  - {fileID: 8300000, guid: 0346306972dd7114a82044cade5080b9, type: 3}
+  - {fileID: 8300000, guid: 7ade954b02b6a6942b024c6e1073b44d, type: 3}
 --- !u!1 &4824050442035569670
 GameObject:
   m_ObjectHideFlags: 0

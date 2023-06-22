@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using System;
-using System.Linq;
 using UnityEngine.UI;
 
 public class RansomWare : MonoBehaviour
@@ -17,18 +16,12 @@ public class RansomWare : MonoBehaviour
     [SerializeField] public TMP_InputField inputField;
     private bool isCaretDestroy = false;
 
-    private static Dictionary<string, string> computerCodeByCode = new Dictionary<string, string> {
-        { "#011", "114" },
-        { "#007", "914" },
-        { "#002", "781" },
-    };
+    private FixCode fixCode;
 
-    private int codeId;
-
-    private void Awake()
+    private void Start()
     {
-        codeId = UnityEngine.Random.Range(0, 3);
-        computerNumber.text = computerCodeByCode.Keys.ToArray()[codeId];
+        fixCode = FixCodeManager.Instance.GetRandomFixCode();
+        computerNumber.text = fixCode.pcId;
     }
 
     public void EnableInputField(bool activate)
@@ -52,9 +45,8 @@ public class RansomWare : MonoBehaviour
 
     public void CompareCode()
     {
-        if (inputField.text.Trim() == computerCodeByCode.Values.ToArray()[codeId])
+        if (inputField.text.Trim() == fixCode.fixCode)
         {
-            
             screen.sprite = windowsXPScreen;
             inputField.gameObject.SetActive(false);
             computerNumber.gameObject.SetActive(false);

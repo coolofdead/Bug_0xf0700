@@ -7,7 +7,6 @@ using Cinemachine;
 
 public class BookController : MonoBehaviour
 {
-    //public AutoFlip bookAutoFlip;
     public BookFix bookFix;
     public Animator bookAnimator;
     public FirstPersonController firstPersonController;

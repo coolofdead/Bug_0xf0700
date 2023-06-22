@@ -18,6 +18,9 @@ public class DialogueManager : MonoBehaviour
     public Animator phoneAnimator;
     public AnimationClip pickupPhoneAnimationClip;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+
     private bool showLongDialogue;
     private bool showNextLongDialogue;
 
@@ -38,17 +41,17 @@ public class DialogueManager : MonoBehaviour
         textAnimatorPlayer.ShowText(textToShow);
     }
 
-    public void ShowDialogue(string textToShow, Action onLongDialogueDone = null)
+    public void ShowDialogue(string textToShow, AudioClip audioClip = null, Action onLongDialogueDone = null)
     {
-        ShowDialogue(new[] { textToShow}, onLongDialogueDone);
+        ShowDialogue(new[] { textToShow }, new[] { audioClip }, onLongDialogueDone);
     }
 
-    public void ShowDialogue(string[] textsToShow, Action onLongDialogueDone = null)
+    public void ShowDialogue(string[] textsToShow, AudioClip[] audioClips = null, Action onLongDialogueDone = null)
     {
-        StartCoroutine(ShowLongDialogue(textsToShow, onLongDialogueDone));
+        StartCoroutine(ShowLongDialogue(textsToShow, audioClips, onLongDialogueDone));
     }
 
-    private IEnumerator ShowLongDialogue(string[] textsToShow, Action onLongDialogueDone = null)
+    private IEnumerator ShowLongDialogue(string[] textsToShow, AudioClip[] audioClips = null, Action onLongDialogueDone = null)
     {
         showLongDialogue = true;
 
@@ -61,7 +64,13 @@ public class DialogueManager : MonoBehaviour
         {
             ShowText(textsToShow[currentTextIdToShow]);
 
-            yield return new WaitWhile(() => !showNextLongDialogue);
+            if (currentTextIdToShow < audioClips.Length)
+            {
+                audioSource.clip = audioClips[currentTextIdToShow];
+                audioSource.Play();
+            }
+
+            yield return new WaitWhile(() => !showNextLongDialogue && audioSource.isPlaying);
 
             showNextLongDialogue = false;
             yield return new WaitForSeconds(delayBeforeShowingNextLongText);

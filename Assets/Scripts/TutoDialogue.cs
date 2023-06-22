@@ -8,6 +8,7 @@ public class TutoDialogue : MonoBehaviour
     public Animator elevatorTutoAnimator;
     public float showBugAfterDelay = 3f;
     public string[] tutoDialogue;
+    public AudioClip[] tutoAudioClips;
 
     void Start()
     {
@@ -16,7 +17,7 @@ public class TutoDialogue : MonoBehaviour
 
     public void ShowTutoDialogue()
     {
-        DialogueManager.Instance.ShowDialogue(tutoDialogue, OnDialogueDone);
+        DialogueManager.Instance.ShowDialogue(tutoDialogue, tutoAudioClips, OnDialogueDone);
     }
 
     private void OnDialogueDone()
