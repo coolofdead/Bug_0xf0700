@@ -7,13 +7,16 @@ public class Elevator : MonoBehaviour
 {
     public Action<int, int> onElevatorMovingToFloor;
     public Action<int> onElevatorReachedFloor;
+    
+    [field:Header("Current Floor")]
+    [field:SerializeField] public int CurrentFloorLevel { get; private set; }
 
+    [Header("Elevator Settings")]
     public Animator elevatorAnimator;
     public AnimationClip elevatorDorosAnimationClip;
     public Transform[] floorsTargets;
     public float timeToMoveToNextFloor = 3f;
 
-    private int currentFloorLevel = 1;
     private bool isMoving;
 
     public void OpenDoors()
@@ -30,13 +33,19 @@ public class Elevator : MonoBehaviour
     {
         if (isMoving) return;
 
-        OpenDoors();
+        if (floorLevel == CurrentFloorLevel)
+        {
+            OpenDoors();
+            return;
+        }
+
+        CloseDoors();
         PickFloor(floorLevel);
     }
 
     public void PickFloor(int floorLevel)
     {
-        if (currentFloorLevel == floorLevel || isMoving) return;
+        if (CurrentFloorLevel == floorLevel || isMoving) return;
 
         StartCoroutine(MoveToFloor(floorLevel));
     }
@@ -46,13 +55,13 @@ public class Elevator : MonoBehaviour
         CloseDoors();
         isMoving = true;
 
-        onElevatorMovingToFloor?.Invoke(currentFloorLevel, floorLevel);
+        onElevatorMovingToFloor?.Invoke(CurrentFloorLevel, floorLevel);
 
         yield return new WaitForSeconds(elevatorDorosAnimationClip.length);
 
         Vector3 targetPos = floorsTargets[floorLevel - 1].localPosition;
         Vector3 startPos = transform.localPosition;
-        float targetTime = timeToMoveToNextFloor * Mathf.Abs(currentFloorLevel - floorLevel);
+        float targetTime = timeToMoveToNextFloor * Mathf.Abs(CurrentFloorLevel - floorLevel);
         float currentTime = 0;
 
         while (currentTime < targetTime)
@@ -65,7 +74,7 @@ public class Elevator : MonoBehaviour
         }
 
         transform.localPosition = targetPos;
-        currentFloorLevel = floorLevel;
+        CurrentFloorLevel = floorLevel;
 
         onElevatorReachedFloor?.Invoke(floorLevel);
 

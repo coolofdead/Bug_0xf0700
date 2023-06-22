@@ -13,6 +13,7 @@ public class ElevatorFront : MonoBehaviour
     public CallElevatorButton callElevatorButton;
     public TextMeshProUGUI floorLevelTMP;
     public Animator floorLevelAnimator;
+    public Animator frontDoorAnimator;
 
     private void Awake()
     {
@@ -24,10 +25,14 @@ public class ElevatorFront : MonoBehaviour
     {
         floorLevelTMP.text = targetFloorLevel > currentLevel ? elevatorMovingUp : elevatorMovingDown;
         floorLevelAnimator.Play("ShowElevatorMoving");
+
+        if (targetFloorLevel != floorLevel) frontDoorAnimator.Play("CloseDoors");
     }
 
     public void OnElevatorReachedFloor(int targetFloorLevel)
     {
+        if (targetFloorLevel == floorLevel) frontDoorAnimator.Play("OpenDoors");
+
         floorLevelTMP.text = targetFloorLevel.ToString();
         floorLevelAnimator.Play("Idle");
         callElevatorButton.ResetColor();
@@ -35,6 +40,8 @@ public class ElevatorFront : MonoBehaviour
 
     public void CallElevator()
     {
+        if (elevatorLinked.CurrentFloorLevel == floorLevel) frontDoorAnimator.Play("OpenDoors");
+
         elevatorLinked.CallElevator(floorLevel);
     }
 

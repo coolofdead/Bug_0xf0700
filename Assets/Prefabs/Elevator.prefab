@@ -2887,6 +2887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 308bc00f646d04f0287e4a77ae5051c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <CurrentFloorLevel>k__BackingField: 1
   elevatorAnimator: {fileID: 1452750505}
   elevatorDorosAnimationClip: {fileID: 7400000, guid: d598121c698934fe8a907bd6273d4839,
     type: 2}
@@ -2894,7 +2895,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  timeToMoveToNextFloor: 4
+  timeToMoveToNextFloor: 3
 --- !u!1 &888538929461776605
 GameObject:
   m_ObjectHideFlags: 0
