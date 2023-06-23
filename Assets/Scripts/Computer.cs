@@ -7,6 +7,7 @@ using System;
 
 public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
 {
+    public static Action<Computer> onComputerFire;
     public static Action<Computer> onComputerHack;
     public static Action<Computer> onComputerFix;
 

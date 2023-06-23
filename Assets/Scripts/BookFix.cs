@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BookFix : MonoBehaviour
 {
-    public Sprite[] pagesSprites;
+    public TextMeshProUGUI currentPageCodeTMP;
+    public TextMeshProUGUI nextPageCodeTMP;
     public int currentPage;
 
     public Animator pageAnimator;
     public float updateCurrentPageDelay = 0.3f;
     public float timeToFlipPage = 1.2f;
-    public Material currentPageMaterial;
-    public Material nextPageMaterial;
 
     private bool flippingPage = false;
 
@@ -22,16 +22,16 @@ public class BookFix : MonoBehaviour
 
     public void ResetFirstPage()
     {
-        currentPageMaterial.mainTexture = pagesSprites[currentPage].texture;
+        currentPageCodeTMP.text = FormatFixCodeOnPageAtIndex(currentPage);
     }
 
     public void FlipNextPage()
     {
-        if (currentPage == pagesSprites.Length-1 || flippingPage) return;
+        if (currentPage == FixCodeManager.Instance.FixCodes.Length-1 || flippingPage) return;
 
         flippingPage = true;
         currentPage++;
-        nextPageMaterial.mainTexture = pagesSprites[currentPage].texture;
+        nextPageCodeTMP.text = FormatFixCodeOnPageAtIndex(currentPage);
         pageAnimator.Play("NextPage");
         Invoke("UpdateCurrentPage", updateCurrentPageDelay);
         Invoke("DoneFlippingPage", timeToFlipPage);
@@ -42,20 +42,25 @@ public class BookFix : MonoBehaviour
         if (currentPage == 0 || flippingPage) return;
 
         flippingPage = true;
-        nextPageMaterial.mainTexture = pagesSprites[currentPage].texture;
+        nextPageCodeTMP.text = FormatFixCodeOnPageAtIndex(currentPage);
         currentPage--;
-        currentPageMaterial.mainTexture = pagesSprites[currentPage].texture;
+        currentPageCodeTMP.text = FormatFixCodeOnPageAtIndex(currentPage);
         pageAnimator.Play("PreviousPage");
         Invoke("DoneFlippingPage", timeToFlipPage);
     }
 
     private void UpdateCurrentPage()
     {
-        currentPageMaterial.mainTexture = pagesSprites[currentPage].texture;
+        currentPageCodeTMP.text = FormatFixCodeOnPageAtIndex(currentPage);
     }
 
     private void DoneFlippingPage()
     {
         flippingPage = false;
+    }
+
+    private string FormatFixCodeOnPageAtIndex(int page)
+    {
+        return FixCodeManager.Instance.FixCodes[page].pcId + "\n" + FixCodeManager.Instance.FixCodes[page].fixCode;
     }
 }

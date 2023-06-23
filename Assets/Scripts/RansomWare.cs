@@ -7,8 +7,6 @@ using UnityEngine.UI;
 
 public class RansomWare : MonoBehaviour
 {
-    public static Action onComputerBugResolve;
-
     [SerializeField] private Computer computer;
     [SerializeField] private TMP_InputField computerNumber;
     [SerializeField] public Sprite windowsXPScreen;
@@ -52,8 +50,6 @@ public class RansomWare : MonoBehaviour
             computerNumber.gameObject.SetActive(false);
 
             computer.FixBug();
-
-            onComputerBugResolve?.Invoke();
         }
     }
 }

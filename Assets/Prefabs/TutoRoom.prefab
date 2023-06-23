@@ -3460,6 +3460,11 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6942394223325667447, guid: e81bf05cda780894eb56683247dcf932,
+        type: 3}
+      propertyPath: disableOnComputerHack
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6942394223552366468, guid: e81bf05cda780894eb56683247dcf932,
         type: 3}
       propertyPath: m_LocalRotation.x

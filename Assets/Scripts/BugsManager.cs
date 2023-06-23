@@ -27,11 +27,14 @@ public class BugsManager : MonoBehaviour
     private Computer[] computers;
     private bool showWarningOnce = true;
 
+    public int TotalOfComputersHacked { get; private set; }
+    public int TotalOfComputersFixed { get; private set; }
+
     private void Awake()
     {
         Instance = this;
         computers = FindObjectsOfType<Computer>();
-        RansomWare.onComputerBugResolve += OnComputerBugResolved;
+        Computer.onComputerFix += OnComputerBugResolved;
     }
 
     private void Update()
@@ -46,6 +49,8 @@ public class BugsManager : MonoBehaviour
 
     private void MakeBug(int floorLevel)
     {
+        TotalOfComputersHacked++;
+
         var rnd = new System.Random();
         var computersNotBugged = computers.Where((computer) => !computer.IsBugged && computer.FloorLevel == floorLevel).ToList();
         computersNotBugged.Sort((i, c) => rnd.Next());
@@ -53,8 +58,11 @@ public class BugsManager : MonoBehaviour
         computerToBug.CreateBug();
     }
 
-    private void OnComputerBugResolved()
+    private void OnComputerBugResolved(Computer computer)
     {
+        TotalOfComputersHacked--;
+        TotalOfComputersFixed++;
+
         //Invoke("BugAppear", timeBetweenBugs);
     }
 
@@ -87,6 +95,6 @@ public class BugsManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        RansomWare.onComputerBugResolve -= OnComputerBugResolved;
+        Computer.onComputerFix -= OnComputerBugResolved;
     }
 }

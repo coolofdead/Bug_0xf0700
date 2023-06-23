@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SlidingDoors : MonoBehaviour
 {
+    [Header("Doors")]
     public float openDoorOffset;
     public float openDoorTime;
     public GameObject rightDoor;
@@ -11,6 +12,8 @@ public class SlidingDoors : MonoBehaviour
     public Material enableLightMaterial;
     public Material disableLightMaterial;
 
+    [Header("Status")]
+    public bool disableOnComputerHack = false;
     public MeshRenderer[] statusIndicatorMaterials;
     public Light[] statusIndicatorLights;
     public Color enableStatusLightColor;
@@ -26,11 +29,14 @@ public class SlidingDoors : MonoBehaviour
         defaultRightDoorlocalPos = rightDoor.transform.localPosition;
         defaultLeftDoorlocalPos = leftDoor.transform.localPosition;
 
-        BugsManager.onHack += OnHackCloseDoors;
+        Computer.onComputerHack += OnHackCloseDoors;
+        Computer.onComputerFix += FixDoors;
     }
 
-    private void OnHackCloseDoors()
+    private void OnHackCloseDoors(Computer computer)
     {
+        if (!disableOnComputerHack) return;
+
         isEnable = false;
         foreach (MeshRenderer mr in statusIndicatorMaterials) mr.material = disableLightMaterial;
         foreach (Light light in statusIndicatorLights) light.color = disableStatusLightColor;
@@ -39,8 +45,10 @@ public class SlidingDoors : MonoBehaviour
         Invoke("FixDoors", 10f);
     }
 
-    public void FixDoors()
+    public void FixDoors(Computer computer)
     {
+        if (!disableOnComputerHack) return;
+
         isEnable = true;
         foreach (MeshRenderer mr in statusIndicatorMaterials) mr.material = enableLightMaterial;
         foreach (Light light in statusIndicatorLights) light.color = enableStatusLightColor;
@@ -87,6 +95,7 @@ public class SlidingDoors : MonoBehaviour
 
     private void OnDestroy()
     {
-        BugsManager.onHack -= OnHackCloseDoors;
+        Computer.onComputerHack -= OnHackCloseDoors;
+        Computer.onComputerFix -= FixDoors;
     }
 }
