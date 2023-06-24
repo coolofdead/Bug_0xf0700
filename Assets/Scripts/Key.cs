@@ -33,12 +33,18 @@ public class Key : MonoBehaviour, IInteractable
 
     public void Hover()
     {
-        outline.OutlineColor = hoverColor;
-        outline.enabled = true;
+        if (gameObject != null)
+        {
+            outline.OutlineColor = hoverColor;
+            outline.enabled = true;
+        }
     }
 
     public void ExitHover()
     {
-        outline.enabled = false;
+        if (gameObject != null)
+        {
+            outline.enabled = false;
+        }
     }
 }
