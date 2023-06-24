@@ -60,7 +60,8 @@ public class PlayerInteractionController : MonoBehaviour
         if (ObjectPicked == null) return;
         
         //objectPicked.rb.AddTorque(new Vector3(moveDirection.x, 0, moveDirection.y) * pickedObjectPhysicsForce);
-        ObjectPicked.Rb.AddForce(moveDirection * pickedObjectPhysicsForce);
+        if (ObjectPicked.CompareTag("Object"))
+            ObjectPicked.Rb.AddForce(moveDirection * pickedObjectPhysicsForce);
     }
 
     public void InteractInput(bool interact)
