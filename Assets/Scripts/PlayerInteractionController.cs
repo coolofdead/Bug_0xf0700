@@ -102,6 +102,11 @@ public class PlayerInteractionController : MonoBehaviour
             ((IInteractableDisablePlayerMovement)interactable).DisablePlayerMovement(ReleaseMovements);
         }
 
+        if (interactable is Key)
+        {
+            
+        }
+
         interactable.Interact();
     }
 
