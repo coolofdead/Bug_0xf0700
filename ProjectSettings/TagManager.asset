@@ -8,6 +8,7 @@ TagManager:
   - Door
   - Computer
   - Object
+  - Shooter
   layers:
   - Default
   - TransparentFX
