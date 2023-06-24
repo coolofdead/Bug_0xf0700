@@ -7,6 +7,7 @@ public class Door : MonoBehaviour
     public float rotSpeed = 1f;
     public Vector3 doorPosOpen, doorPosClose;
     public bool isOpen = false;
+    public bool isLock = false;
     public AudioClip sfx;
 
     private void Update()
