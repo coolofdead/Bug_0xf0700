@@ -14,13 +14,14 @@ public class WarningLight : MonoBehaviour
     private void Awake()
     {
         BugsManager.onHack += SoundAlarm;
+        StopSoundingAlarm();
     }
 
     public void SoundAlarm()
     {
         lights.SetActive(true);
         warningLightMaterial.color = warningColor;
-        warningLightMaterial.SetColor("_EmissionColor", warningColor * 1);
+        warningLightMaterial.SetColor("_EmissionColor", warningColor * 5);
 
         CancelInvoke();
         Invoke("StopSoundingAlarm", warningLightDuration);

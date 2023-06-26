@@ -52,6 +52,9 @@ MonoBehaviour:
   pickupPhoneAnimationClip: {fileID: 7400000, guid: 2a62362d3744b4de5b9348b62d8b59d0,
     type: 2}
   audioSource: {fileID: 5175374873859386206}
+  phoneRingingAudioClip: {fileID: 8300000, guid: 1ecf0a85c1289244d8139df3ffad6eda,
+    type: 3}
+  totalPhoneRingBeforeDialogue: 2
 --- !u!82 &5175374873859386206
 AudioSource:
   m_ObjectHideFlags: 0

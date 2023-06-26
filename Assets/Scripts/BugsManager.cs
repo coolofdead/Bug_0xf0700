@@ -69,15 +69,25 @@ public class BugsManager : MonoBehaviour
     public void BugAppear()
     {
         int nbBugToMake = UnityEngine.Random.Range(0, 100) < percentageOfHavingTwoBugs ? 1 : 2;
-
         for (int i = 0; i < nbBugToMake; i++)
         {
             int floorLevelBug = UnityEngine.Random.Range(1, 4);
-            LeanTween.value(warningCoverBuildingFloors[floorLevelBug - 1].gameObject, (Color c) => { warningCoverBuildingFloors[floorLevelBug - 1].color = c; }, Color.white, targetColor, timeToSwapColors).setLoopType(LeanTweenType.pingPong);
             MakeBug(floorLevelBug);
-
         }
 
+        FireHackEvent();
+    }
+
+    public void BugAppearOnComputer(Computer hackThisComputer)
+    {
+        LeanTween.value(warningCoverBuildingFloors[hackThisComputer.FloorLevel - 1].gameObject, (Color c) => { warningCoverBuildingFloors[hackThisComputer.FloorLevel - 1].color = c; }, Color.white, targetColor, timeToSwapColors).setLoopType(LeanTweenType.pingPong);
+        hackThisComputer.CreateBug();
+
+        FireHackEvent();
+    }
+
+    private void FireHackEvent()
+    {
         if (showWarningOnce)
         {
             showWarningOnce = false;

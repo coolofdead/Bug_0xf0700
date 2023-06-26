@@ -13,6 +13,12 @@ public class ObjectPickable : MonoBehaviour, IInteractable
     [SerializeField] private Color pickedColor;
     [SerializeField] private Outline outline;
 
+    private void Awake()
+    {
+        if (Rb == null) Rb = GetComponent<Rigidbody>();    
+        if (outline == null) outline = GetComponent<Outline>();    
+    }
+
     public void Pick()
     {
         outline.OutlineColor = pickedColor;

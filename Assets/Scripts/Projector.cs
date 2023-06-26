@@ -5,15 +5,19 @@ using UnityEngine.UI;
 
 public class Projector : MonoBehaviour
 {
+    public bool autoStartProjecting = true;
+
     [Header("Screen")]
     public Image screenImage;
+    public Animator projectorAnimator;
     public Animator screenAnimator;
+    public AnimationClip startProjectorAnimation;
     public AnimationClip swapSlidesAnimation;
     public Sprite[] projectedTutoFrames;
 
     public float changeFrameAfterSec;
 
-    [Header("Screen")]
+    [Header("Slides")]
     public Image timeLeftFill;
     public Image[] slidesCount;
     public Color slideDisplayedColor;
@@ -23,11 +27,22 @@ public class Projector : MonoBehaviour
 
     private void Start()
     {
+        if (autoStartProjecting) StartProjecting();
+    }
+
+    public void StartProjecting()
+    {
+        projectorAnimator.Play("ProjectorLight");
+        
         StartCoroutine(DisplayFrames());
     }
 
     private IEnumerator DisplayFrames()
     {
+        screenAnimator.Play("StartProjector");
+
+        yield return new WaitForSeconds(startProjectorAnimation.length);
+
         while (true)
         {
             screenImage.sprite = projectedTutoFrames[currentFrame];

@@ -15,6 +15,7 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
     [SerializeField] private RansomWare ransomWare;
     [SerializeField] private GameObject canvas;
     [SerializeField] private GameObject particles;
+    [SerializeField] private GameObject bugRedLight;
 
     [Header("Outline")]
     [SerializeField] private Color hoverColor;
@@ -24,7 +25,7 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
     private TMP_SelectionCaret caret;
 
     public bool IsBugged { get; private set; }
-    public int FloorLevel { get; set; }
+    [field: SerializeField] public int FloorLevel { get; set; } = 1;
 
     private Action releasePlayerMovementCallback;
 
@@ -33,7 +34,8 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
         IsBugged = true;
         particles.SetActive(true);
         canvas.SetActive(true);
-
+        bugRedLight.SetActive(true);
+        
         onComputerHack?.Invoke(this);
     }
 
@@ -51,6 +53,7 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
         IsBugged = false;
         particles.SetActive(false);
         canvas.SetActive(false);
+        bugRedLight.SetActive(false);
 
         onComputerFix?.Invoke(this);
     }

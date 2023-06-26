@@ -20,6 +20,8 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Audio")]
     public AudioSource audioSource;
+    public AudioClip phoneRingingAudioClip;
+    public int totalPhoneRingBeforeDialogue = 2;
 
     private bool showLongDialogue;
     private bool showNextLongDialogue;
@@ -54,6 +56,13 @@ public class DialogueManager : MonoBehaviour
     private IEnumerator ShowLongDialogue(string[] textsToShow, AudioClip[] audioClips = null, Action onLongDialogueDone = null)
     {
         showLongDialogue = true;
+
+        audioSource.clip = phoneRingingAudioClip;
+        for (int i = 0; i < totalPhoneRingBeforeDialogue; i++)
+        {
+            audioSource.Play();
+            yield return new WaitWhile(() => audioSource.isPlaying);
+        }
 
         phoneAnimator.Play("PickUp");
 

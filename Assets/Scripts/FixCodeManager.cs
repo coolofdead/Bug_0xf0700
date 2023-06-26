@@ -37,9 +37,10 @@ public class FixCodeManager : MonoBehaviour
             .Select(s => s[rnd.Next(s.Length)]).ToArray());
     }
 
-    public FixCode GetRandomFixCode() => new FixCode();
+    public FixCode GetRandomFixCode() => FixCodes[rnd.Next(FixCodes.Length)];
 }
 
+[System.Serializable]
 public struct FixCode
 {
     public string pcId;

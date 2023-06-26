@@ -856,7 +856,7 @@ GameObject:
   - component: {fileID: 3561448138131030409}
   - component: {fileID: 8872372052995048962}
   m_Layer: 0
-  m_Name: Projector
+  m_Name: projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -923,8 +923,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81e4df3b74ac03498ec3cfce4882a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  autoStartProjecting: 1
   screenImage: {fileID: 0}
+  projectorAnimator: {fileID: 3561448138131030409}
   screenAnimator: {fileID: 0}
+  startProjectorAnimation: {fileID: 7400000, guid: f7a0eea83a212a34d8ace87da8cb1fcc,
+    type: 2}
   swapSlidesAnimation: {fileID: 7400000, guid: 0bd467ceeaf385b4a849154b9fb511b7, type: 2}
   projectedTutoFrames:
   - {fileID: -2106056961, guid: 3019434d4a13d7741a62dc3c146d7b69, type: 3}
