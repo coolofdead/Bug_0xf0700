@@ -9,6 +9,10 @@ public class LightEvent : MonoBehaviour
     public static Action onLightTurnOff;
     public static Action onLightTurnOn;
 
+    [Header("Event")]
+    [Range(0, 100)] public float lightEventRate = 40;
+    public float lightEventEverySec = 40;
+
     [Header("Lights")]
     public Image blackScreen;
     public Image blackScreenTransition;
@@ -21,11 +25,23 @@ public class LightEvent : MonoBehaviour
     public string[] dialoguesOnLightsOff;
     public AudioClip[] dialoguesAudioClipsOnLightsOff;
 
+    public bool AreLightsDown => blackScreen.color.a != 0;
+
     private bool hasShownDialogue;
 
     private void Awake()
     {
         PowerGenerator.onGeneratorFixed += TurnOnAllLights;
+        InvokeRepeating("TryToTurnOffLights", 0, lightEventEverySec);
+    }
+
+    private void TryToTurnOffLights()
+    {
+        if (AreLightsDown || BugsManager.Instance.TotalOfComputersFixed <= 2) return;
+
+        if (UnityEngine.Random.Range(0, 100) > lightEventRate) return;
+
+        TurnOffAllLights();
     }
 
     public void TurnOffAllLights()

@@ -45,8 +45,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugBugWithB: 1
+  newBugAfterTime: 30
   timeBetweenBugs: 45
-  percentageOfHavingTwoBugs: 70
+  addOneToMaxComputersHackPerFix: 4
+  percentageOfHavingTwoBugs:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1.1712886
+      outSlope: 1.1712886
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.1064982
+    - serializedVersion: 3
+      time: 3.9638965
+      value: 30.176699
+      inSlope: 0.2917787
+      outSlope: 0.2917787
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.15162456
+      outWeight: 0.42649934
+    - serializedVersion: 3
+      time: 9.992758
+      value: 84.15578
+      inSlope: 18.016937
+      outSlope: 18.016937
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.13118768
+      outWeight: 0.05483614
+    - serializedVersion: 3
+      time: 20
+      value: 100
+      inSlope: -0.38392368
+      outSlope: -0.38392368
+      tangentMode: 0
+      weightedMode: 1
+      inWeight: 0.58961993
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   warningCoverUI: {fileID: 0}
   warningCoverBuildingFloors:
   - {fileID: 0}
@@ -54,3 +97,4 @@ MonoBehaviour:
   - {fileID: 0}
   targetColor: {r: 0.9056604, g: 0, b: 0, a: 1}
   timeToSwapColors: 0.4
+  lightEvent: {fileID: 0}

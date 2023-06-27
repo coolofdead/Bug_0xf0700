@@ -13,16 +13,22 @@ public class BugsManager : MonoBehaviour
 
     public bool debugBugWithB = true;
 
+    [Header("Tuto Related")]
+    public float newBugAfterTime;
+
     [Header("Bug Related")]
     public float timeBetweenBugs = 45f;
-    [Range(0, 100)]
-    public float percentageOfHavingTwoBugs = 70;
+    public float addOneToMaxComputersHackPerFix = 4;
+    public AnimationCurve percentageOfHavingTwoBugs;
 
     [Header("Bug Effects")]
     public Animator warningCoverUI;
     public Image[] warningCoverBuildingFloors;
     public Color targetColor;
     public float timeToSwapColors = 0.5f;
+
+    [Header("Events")]
+    public LightEvent lightEvent;
 
     private Computer[] computers;
     private bool showWarningOnce = true;
@@ -63,17 +69,30 @@ public class BugsManager : MonoBehaviour
         TotalOfComputersHacked--;
         TotalOfComputersFixed++;
 
-        //Invoke("BugAppear", timeBetweenBugs);
+        if (TotalOfComputersFixed == 1) // Tutorial done
+        {
+            Invoke("BugAppear", newBugAfterTime);
+        }
+        else if (TotalOfComputersFixed == 2)
+        {
+            lightEvent.TurnOffAllLights();
+            Invoke("BugAppear", newBugAfterTime);
+        }
+        else
+        {
+            var percentage = percentageOfHavingTwoBugs.Evaluate(TotalOfComputersFixed);
+            int nbBugToMake = UnityEngine.Random.Range(0, 100) < percentage ? 1 : 1 + (int)(TotalOfComputersFixed / addOneToMaxComputersHackPerFix);
+            for (int i = 0; i < nbBugToMake; i++)
+            {
+                Invoke("BugAppear", timeBetweenBugs);
+            }
+        }
     }
 
     public void BugAppear()
     {
-        int nbBugToMake = UnityEngine.Random.Range(0, 100) < percentageOfHavingTwoBugs ? 1 : 2;
-        for (int i = 0; i < nbBugToMake; i++)
-        {
-            int floorLevelBug = UnityEngine.Random.Range(1, 4);
-            MakeBug(floorLevelBug);
-        }
+        int floorLevelBug = UnityEngine.Random.Range(1, 4);
+        MakeBug(floorLevelBug);
 
         FireHackEvent();
     }
