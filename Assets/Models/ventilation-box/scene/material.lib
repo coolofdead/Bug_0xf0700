@@ -1,0 +1,16 @@
+# Aspose.3D Wavefront OBJ Exporter
+# Copyright 2004-2023 Aspose Pty Ltd.
+# File created: 06/27/2023 18:14:29
+
+newmtl Scene_-_Root
+	illum 2
+	Kd 1 1 1
+	Ke 0 0 0
+	Pr 1
+	Pm 1
+	d 1
+	Tr 0
+	map_Kd Scene_-_Root_baseColor.png
+	map_Pr Scene_-_Root_metallicRoughness.png
+	map_Pm Scene_-_Root_metallicRoughness.png
+	norm Scene_-_Root_normal.png

@@ -73,7 +73,7 @@ public class DialogueManager : MonoBehaviour
         {
             ShowText(textsToShow[currentTextIdToShow]);
 
-            if (currentTextIdToShow < audioClips.Length)
+            if (currentTextIdToShow < audioClips.Length && audioClips[currentTextIdToShow] != null)
             {
                 audioSource.clip = audioClips[currentTextIdToShow];
                 audioSource.Play();

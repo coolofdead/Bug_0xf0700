@@ -1,0 +1,11 @@
+Model Information:
+* title:	Battery - 9 Volt
+* source:	https://sketchfab.com/3d-models/battery-9-volt-de82224716a84659ac645bda0793193e
+* author:	overevolve (https://sketchfab.com/overevolve)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Battery - 9 Volt" (https://sketchfab.com/3d-models/battery-9-volt-de82224716a84659ac645bda0793193e) by overevolve (https://sketchfab.com/overevolve) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
