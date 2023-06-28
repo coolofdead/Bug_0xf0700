@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
-    [SerializeField, Range(0f, 1f)] private float currentIntensity = 1.0f;
+    [SerializeField, Range(0f, 1f)] private float currentIntensity = 0.1f;
     [SerializeField] private float regenDelay = 2.5f;
     [SerializeField] private float regenRate = 0.1f;
 
@@ -15,6 +15,7 @@ public class Fire : MonoBehaviour
     private float startVolume;
     private float timeLastWatered = 0;
     private bool isLit = true;
+    public bool start = true;
 
     private void Start()
     {
@@ -33,7 +34,7 @@ public class Fire : MonoBehaviour
 
     private void Update()
     {
-        if (isLit && currentIntensity < 1.0f && Time.time - timeLastWatered >= regenDelay)
+        if (isLit && currentIntensity < 1.0f && Time.time - timeLastWatered >= regenDelay && start)
         {
             currentIntensity += regenRate * Time.deltaTime;
             
@@ -81,6 +82,22 @@ public class Fire : MonoBehaviour
         
         return false;
     }
-}
-    
 
+    public void Stop()
+    {
+        start = false;
+        for (int i = 0; i < particle.Length; i++)
+        {
+            particle[i].Stop();
+        }
+    }
+
+    public void StartFire()
+    {
+        start = true;
+        for (int i = 0; i < particle.Length; i++)
+        {
+            particle[i].Play();
+        }
+    }
+}

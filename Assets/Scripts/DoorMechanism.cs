@@ -14,6 +14,7 @@ public class DoorMechanism : MonoBehaviour, IInteractable {
     public bool isInteractable { get; set; }
     [field: SerializeField] public GameObject interactionGUI { get; set; }
     [field: SerializeField] public TextMeshProUGUI interactionText { get; set; }
+    public KeyHolder keyHolder;
 
 	void Update () 
 	{
@@ -28,37 +29,54 @@ public class DoorMechanism : MonoBehaviour, IInteractable {
 
     public void Interact()
     {
-        if (!isInteractable)
+        if (!isInteractable) // Check for raycast hit
         {
             popup.Close();
             return;
         }
         
-        if (!hit.transform.CompareTag("Door"))
+        if (!hit.transform.CompareTag("Door")) // Check if the hit object is a door
         {
             return;
         }
 
 
-        if (!hit.transform.TryGetComponent<Door>(out door))
+        if (!hit.transform.TryGetComponent<Door>(out door)) // Check if the hit object have a Door component
         {
             return;
+        }
+
+        if (door.isLock) // Check if the door is lock
+        {
+            popup.text.text = "Unlock the door ?";
         }
 
         popup.Pop();
 
         if (door.isOpen)
             popup.text.text = "Close the door ?";
-        else
+        else if (!door.isLock)
             popup.text.text = "Open the door ?";
 
 
-        if (!Input.GetKeyDown(KeyCode.E))
+        if (!Input.GetKeyDown(KeyCode.E)) // Check input interaction with the door
         {
             return;
         }
 
-        door.isOpen = !door.isOpen;
+        if (!door.isLock) // if the door has no key needed, open the door
+        {
+            door.isOpen = !door.isOpen;
+            return;
+        }
+        
+        if (door.isLock) // if the door need a key, check if the player have the key
+        {
+            door.TryGetComponent<KeyDoor>(out var keyDoor);
+            door.isLock = !keyHolder.ContainsKey(keyDoor.GetKeyType());
+            door.isOpen = !door.isLock;
+            return;
+        }
     }
 
     public void Hover()

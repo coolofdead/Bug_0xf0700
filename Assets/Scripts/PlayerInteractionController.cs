@@ -12,6 +12,8 @@ public class PlayerInteractionController : MonoBehaviour
     [SerializeField] private float pickedObjectDistance = 4;
     [SerializeField] private float maxInteractDistance;
     [SerializeField] private Transform pickupObjectHand;
+    [SerializeField] private Transform shooterContainer;
+
 
     [Header("Input")]
     [SerializeField] private BookController bookController;
@@ -53,6 +55,11 @@ public class PlayerInteractionController : MonoBehaviour
         if (!HoldingObject) return;
 
         ObjectPicked.transform.position = Camera.main.transform.position + Camera.main.transform.forward * pickedObjectDistance;
+
+        if (ObjectPicked.CompareTag("Shooter"))
+        {
+            ObjectPicked.transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y + 90, 0);
+        }
     }
 
     private void HandlePickupObjectPhysics(Vector2 moveDirection)
@@ -60,7 +67,10 @@ public class PlayerInteractionController : MonoBehaviour
         if (ObjectPicked == null) return;
         
         //objectPicked.rb.AddTorque(new Vector3(moveDirection.x, 0, moveDirection.y) * pickedObjectPhysicsForce);
-        ObjectPicked.Rb.AddForce(moveDirection * pickedObjectPhysicsForce);
+        if (ObjectPicked.CompareTag("Object"))
+            ObjectPicked.Rb.AddForce(moveDirection * pickedObjectPhysicsForce);
+
+      
     }
 
     public void InteractInput(bool interact)
@@ -90,6 +100,11 @@ public class PlayerInteractionController : MonoBehaviour
             bookController.CanPickupBook = false;
 
             ((IInteractableDisablePlayerMovement)interactable).DisablePlayerMovement(ReleaseMovements);
+        }
+
+        if (interactable is Key)
+        {
+            
         }
 
         interactable.Interact();
