@@ -107,12 +107,12 @@ public class BugsManager : MonoBehaviour
 
     private void FireHackEvent()
     {
-        if (showWarningOnce)
-        {
+        //if (showWarningOnce)
+        //{
             showWarningOnce = false;
             warningCoverUI.Play("ShowWarning");
             Invoke("HideWarningUI", 8);
-        }
+        //}
 
         onHack?.Invoke();
     }
