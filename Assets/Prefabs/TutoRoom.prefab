@@ -2452,10 +2452,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 257f226ab4bda8a43bed8b0439453520, type: 3}
   - {fileID: 8300000, guid: 0346306972dd7114a82044cade5080b9, type: 3}
   - {fileID: 8300000, guid: 7ade954b02b6a6942b024c6e1073b44d, type: 3}
-  tutoAfterWarningDialogue: []
-  tutoAfterWarningAudioClips: []
-  tutoDoneDialogue: []
-  tutoDoneAudioClips: []
+  tutoAfterWarningDialogue:
+  - "J'ai oubli\xE9 de te pr\xE9venir qu'on a des petits probl\xE8mes d'ordis."
+  - Si tu peux regarder y jeter un oeil, la bise.
+  tutoAfterWarningAudioClips:
+  - {fileID: 8300000, guid: 7ea6e36b2eec17e43829a315400764e3, type: 3}
+  - {fileID: 8300000, guid: 67daee6505b15494d89ee1fa837a6843, type: 3}
 --- !u!1 &4824050442035569670
 GameObject:
   m_ObjectHideFlags: 0

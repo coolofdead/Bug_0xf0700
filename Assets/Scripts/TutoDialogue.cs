@@ -56,7 +56,7 @@ public class TutoDialogue : MonoBehaviour
 
     private void OnComputerFix(Computer computer)
     {
-        DialogueManager.Instance.ShowDialogue(tutoAfterWarningDialogue, tutoAfterWarningAudioClips, () => Destroy(gameObject));
+        // DialogueManager.Instance.ShowDialogue(tutoAfterWarningDialogue, tutoAfterWarningAudioClips, () => Destroy(gameObject));
     }
 
     private void OnDestroy()
