@@ -26,8 +26,6 @@ public class Clock : MonoBehaviour
 
     private void StartClock()
     {
-        print("start clock");
-
         clockIsRunning = true;
         startClockTime = Time.time;
 
@@ -36,8 +34,6 @@ public class Clock : MonoBehaviour
 
     private void EndClock()
     {
-        print("end clock");
-
         clockIsRunning = false;
         timeLeftFeedback.color = new Color(0, 0, 0, 0);
     }
