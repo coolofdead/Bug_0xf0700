@@ -37,7 +37,7 @@ public class FixCodeManager : MonoBehaviour
             .Select(s => s[rnd.Next(s.Length)]).ToArray());
     }
 
-    public FixCode GetRandomFixCode() => FixCodes[rnd.Next(FixCodes.Length)];
+    public FixCode GetRandomFixCode(bool assignFirstFixCode) => !assignFirstFixCode ? FixCodes[rnd.Next(FixCodes.Length)] : FixCodes[0];
 }
 
 [System.Serializable]

@@ -14,11 +14,13 @@ public class RansomWare : MonoBehaviour
     [SerializeField] public TMP_InputField inputField;
     private bool isCaretDestroy = false;
 
+    public bool assignFirstFixCode = false;
+
     private FixCode fixCode;
 
     private void Start()
     {
-        fixCode = FixCodeManager.Instance.GetRandomFixCode();
+        fixCode = FixCodeManager.Instance.GetRandomFixCode(assignFirstFixCode);
         computerNumber.text = fixCode.pcId;
     }
 
