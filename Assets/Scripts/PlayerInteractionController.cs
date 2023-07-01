@@ -25,7 +25,6 @@ public class PlayerInteractionController : MonoBehaviour
 
     private IInteractable hoverInteractable;
     private RaycastHit hit;
-    private float defaultPlayerMoveSpeed;
 
     public static PlayerInteractionController Instance { get; private set; } //Singleton
 
@@ -36,7 +35,6 @@ public class PlayerInteractionController : MonoBehaviour
             Instance = this;
         }
 
-        defaultPlayerMoveSpeed = fpsController.MoveSpeed;
         StartCoroutine(RaycastInteractable());
     }
 
@@ -96,7 +94,7 @@ public class PlayerInteractionController : MonoBehaviour
 
         if (interactable is IInteractableDisablePlayerMovement)
         {
-            fpsController.MoveSpeed = 0;
+            fpsController.Disable();
             bookController.CanPickupBook = false;
 
             ((IInteractableDisablePlayerMovement)interactable).DisablePlayerMovement(ReleaseMovements);
@@ -112,7 +110,7 @@ public class PlayerInteractionController : MonoBehaviour
 
     private void ReleaseMovements()
     {
-        fpsController.MoveSpeed = defaultPlayerMoveSpeed;
+        fpsController.Enable();
         bookController.CanPickupBook = true;
     }
 

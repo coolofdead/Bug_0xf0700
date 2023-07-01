@@ -33,8 +33,6 @@ public class DialogueManager : MonoBehaviour
 
     public void OnDialogueShown()
     {
-        if (!showLongDialogue) return;
-
         showNextLongDialogue = true;
     }
 
@@ -79,7 +77,7 @@ public class DialogueManager : MonoBehaviour
                 audioSource.Play();
             }
 
-            yield return new WaitWhile(() => !showNextLongDialogue && audioSource.isPlaying);
+            yield return new WaitWhile(() => !showNextLongDialogue);
 
             showNextLongDialogue = false;
             yield return new WaitForSeconds(delayBeforeShowingNextLongText);
