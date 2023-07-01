@@ -3429,6 +3429,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4824050441726380066}
     m_Modifications:
+    - target: {fileID: 1298932602619887124, guid: e0643e4b3ae4c4b00af55f045bdd2d04,
+        type: 3}
+      propertyPath: assignFirstFixCode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5402962080358931372, guid: e0643e4b3ae4c4b00af55f045bdd2d04,
         type: 3}
       propertyPath: m_RootOrder

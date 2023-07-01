@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugBugWithB: 1
-  newBugAfterTime: 30
+  newBugAfterTime: 15
   timeBetweenBugs: 45
   addOneToMaxComputersHackPerFix: 4
   percentageOfHavingTwoBugs:
