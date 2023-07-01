@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3adf8d9045a9a6b41b961e7c453c32cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightEventRate: 40
+  lightEventEverySec: 40
   blackScreen: {fileID: 0}
   blackScreenTransition: {fileID: 0}
   timeToRestoreSomeOpacity: 3.5
@@ -70,7 +72,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 84e4280b2c7e9934eb84a73927942324, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

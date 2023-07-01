@@ -14,10 +14,12 @@ namespace StarterAssets
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
 		public float MoveSpeed = 4.0f;
+		public float BaseMoveSpeed { get; private set; }
 		[Tooltip("Sprint speed of the character in m/s")]
 		public float SprintSpeed = 6.0f;
 		[Tooltip("Rotation speed of the character")]
 		public float RotationSpeed = 1.0f;
+		public float BaseRotationSpeed { get; private set; }
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
 
@@ -93,6 +95,9 @@ namespace StarterAssets
 			{
 				_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 			}
+
+			BaseMoveSpeed = MoveSpeed;
+			BaseRotationSpeed = RotationSpeed;
 		}
 
 		private void Start()
@@ -112,8 +117,8 @@ namespace StarterAssets
 
 		private void Update()
 		{
-			JumpAndGravity();
 			GroundedCheck();
+			JumpAndGravity();
 			Move();
 		}
 
@@ -251,6 +256,18 @@ namespace StarterAssets
 			if (lfAngle < -360f) lfAngle += 360f;
 			if (lfAngle > 360f) lfAngle -= 360f;
 			return Mathf.Clamp(lfAngle, lfMin, lfMax);
+		}
+
+		public void Disable()
+        {
+			MoveSpeed = 0;
+			RotationSpeed = 0;
+		}
+
+        public void Enable()
+        {
+			MoveSpeed = BaseMoveSpeed;
+			RotationSpeed = BaseRotationSpeed;
 		}
 
 		private void OnDrawGizmosSelected()

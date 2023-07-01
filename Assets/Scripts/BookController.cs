@@ -63,7 +63,10 @@ public class BookController : MonoBehaviour
         
         // Either show or hide book
         if (PickupBook) Invoke("ShowScrollWheelFeedback", showScrollWheelFeedbackAfterDelay);
-        firstPersonController.enabled = !PickupBook;
+        if (PickupBook)
+            firstPersonController.Disable();
+        else
+            firstPersonController.Enable();
         cinemachineVirtualCamera.enabled = PickupBook;
         pointerUI.SetActive(!PickupBook);
         bookAnimator.Play(PickupBook ? "OpenBook" : "CloseBook");
