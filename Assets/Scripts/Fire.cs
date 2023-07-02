@@ -17,7 +17,7 @@ public class Fire : MonoBehaviour
     private bool isLit = true;
     public bool start = true;
 
-    private void Start()
+    private void Awake()
     {
         if (TryGetComponent(out sfx))
         {

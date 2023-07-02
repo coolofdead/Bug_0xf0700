@@ -28,7 +28,7 @@ public class FireEvent : MonoBehaviour
     
     private IEnumerator ProgressBar()
     {
-        
+        Debug.Log("PROGGGGRE");
         while (slider.value > 0)
         {
             slider.value -= 0.01f;
