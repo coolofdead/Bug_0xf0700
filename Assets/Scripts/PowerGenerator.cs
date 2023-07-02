@@ -58,4 +58,9 @@ public class PowerGenerator : MonoBehaviour, IInteractable
     {
         if (!status) outline.enabled = false;
     }
+
+    public bool IsInteractable()
+    {
+        return true;
+    }
 }

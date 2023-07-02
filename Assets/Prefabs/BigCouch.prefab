@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4627989592036193247}
   - component: {fileID: 5166567201326027824}
   - component: {fileID: 5166567201326027825}
+  - component: {fileID: 8646039895482429198}
+  - component: {fileID: -1739714252135733954}
   m_Layer: 0
   m_Name: BigCouch
   m_TagString: Untagged
@@ -25,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5436474422828853605}
-  m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.7071079}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 4.43, y: -0.25, z: 7.27}
   m_LocalScale: {x: 0.94583195, y: 1.3094, z: 1.3094}
   m_ConstrainProportionsScale: 0
@@ -62,8 +64,42 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.9629782, y: 1.2363764, z: 3.7507312}
+  m_Center: {x: -0.9512313, y: 0.42357174, z: -0.8725942}
+--- !u!114 &8646039895482429198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5436474422828853605}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.43137255, b: 0, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &-1739714252135733954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5436474422828853605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5074bdb8d89a317498c3bde8515dbefa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rb: {fileID: 5166567201326027824}
+  hoverColor: {r: 1, g: 0.43137255, b: 0, a: 1}
+  pickedColor: {r: 1, g: 0.43137255, b: 0, a: 1}
+  outline: {fileID: 8646039895482429198}
 --- !u!1 &6353005181815127104
 GameObject:
   m_ObjectHideFlags: 0

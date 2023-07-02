@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
+    [Header("Fire")]
     [SerializeField, Range(0f, 1f)] private float currentIntensity = 0.1f;
     [SerializeField] private float regenDelay = 2.5f;
     [SerializeField] private float regenRate = 0.1f;
 
+    [Header("Fire Spread")]
+    [SerializeField] private float timeBeforeSpreading = 10f;
+    [SerializeField] private float spreadRange = 1f;
 
     private ParticleSystem[] particle;
     private AudioSource sfx;
     private float[] startIntensity;
     private float startVolume;
     private float timeLastWatered = 0;
-    private bool isLit = true;
-    public bool start = true;
+    public bool isLit { get; private set; } = true;
+    public bool start { get; private set; } = false;
 
     private void Awake()
     {
+        start = false;
+
         if (TryGetComponent(out sfx))
         {
             startVolume = sfx.volume;
@@ -81,6 +87,22 @@ public class Fire : MonoBehaviour
         }
         
         return false;
+    }
+
+    private void StartSpreading()
+    {
+        Ray ray = new Ray(transform.position, Vector3.one);
+        foreach (var hit in Physics.SphereCastAll(ray, spreadRange))
+        {
+            if (hit.collider.TryGetComponent(out Computer computer))
+            {
+                if (!computer.fire.start)
+                {
+                    computer.fire.StartFire();
+                    break;
+                }
+            }
+        }
     }
 
     public void Stop()

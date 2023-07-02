@@ -67,8 +67,6 @@ public class PlayerInteractionController : MonoBehaviour
         //objectPicked.rb.AddTorque(new Vector3(moveDirection.x, 0, moveDirection.y) * pickedObjectPhysicsForce);
         if (ObjectPicked.CompareTag("Object"))
             ObjectPicked.Rb.AddForce(moveDirection * pickedObjectPhysicsForce);
-
-      
     }
 
     public void InteractInput(bool interact)
@@ -83,7 +81,7 @@ public class PlayerInteractionController : MonoBehaviour
         }
 
         var interactable = RaycastForInteractable();
-        if (interactable == null) return;
+        if (interactable == null || !interactable.IsInteractable()) return;
 
         if (interactable is ObjectPickable)
         {

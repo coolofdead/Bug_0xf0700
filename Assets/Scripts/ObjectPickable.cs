@@ -56,4 +56,9 @@ public class ObjectPickable : MonoBehaviour, IInteractable
     {
         throw new System.NotImplementedException();
     }
+
+    public bool IsInteractable()
+    {
+        return true;
+    }
 }

@@ -19,7 +19,7 @@ public class FireEvent : MonoBehaviour
             StartCoroutine(ProgressBar());
         }
     }
-
+    
     // Update is called once per frame
     void Update()
     {

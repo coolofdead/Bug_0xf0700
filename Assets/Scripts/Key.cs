@@ -47,4 +47,9 @@ public class Key : MonoBehaviour, IInteractable
             outline.enabled = false;
         }
     }
+
+    public bool IsInteractable()
+    {
+        return true;
+    }
 }

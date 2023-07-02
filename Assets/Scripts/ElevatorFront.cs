@@ -19,6 +19,22 @@ public class ElevatorFront : MonoBehaviour
     {
         elevatorLinked.onElevatorMovingToFloor += OnElevatorStartMoving;
         elevatorLinked.onElevatorReachedFloor += OnElevatorReachedFloor;
+        elevatorLinked.onElevatorError += OnElevatorError;
+        elevatorLinked.onElevatorErrorResolved += OnElevatorErrorResolved;
+    }
+
+    private void OnElevatorError()
+    {
+        callElevatorButton.btnMaterial.SetColor("_EmissionColor", callElevatorButton.errorElevatorColor * 10);
+        callElevatorButton.status =  false;
+        floorLevelTMP.text = "x";
+    }
+
+    private void OnElevatorErrorResolved()
+    {
+        callElevatorButton.btnMaterial.SetColor("_EmissionColor", callElevatorButton.defaultElevatorColor * 10);
+        callElevatorButton.status = true;
+        floorLevelTMP.text = elevatorLinked.CurrentFloorLevel.ToString();
     }
 
     public void OnElevatorStartMoving(int currentLevel, int targetFloorLevel)
@@ -49,5 +65,7 @@ public class ElevatorFront : MonoBehaviour
     {
         elevatorLinked.onElevatorMovingToFloor -= OnElevatorStartMoving;
         elevatorLinked.onElevatorReachedFloor -= OnElevatorReachedFloor;
+        elevatorLinked.onElevatorError -= OnElevatorError;
+        elevatorLinked.onElevatorErrorResolved -= OnElevatorErrorResolved;
     }
 }

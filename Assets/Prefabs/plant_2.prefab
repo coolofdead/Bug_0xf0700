@@ -11,6 +11,10 @@ GameObject:
   - component: {fileID: 6266013463886273746}
   - component: {fileID: 2060291304624987519}
   - component: {fileID: 7574792335327149284}
+  - component: {fileID: -7190643002914589118}
+  - component: {fileID: 475677922286403485}
+  - component: {fileID: 5867502560150106055}
+  - component: {fileID: 3278965272962398906}
   m_Layer: 0
   m_Name: plant_2
   m_TagString: Untagged
@@ -85,3 +89,66 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-7190643002914589118
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122060402285504461}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0020886716, y: 0.002989501, z: 0.00367425}
+  m_Center: {x: -0.00016230179, y: -0.000012650638, z: 0.0018324848}
+--- !u!54 &475677922286403485
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122060402285504461}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &5867502560150106055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122060402285504461}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.43137255, b: 0, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &3278965272962398906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122060402285504461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5074bdb8d89a317498c3bde8515dbefa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rb: {fileID: 6609253556939222294, guid: 5f3ffc0e16720f64b811146e71c5d2be, type: 3}
+  hoverColor: {r: 1, g: 0.43137255, b: 0, a: 1}
+  pickedColor: {r: 1, g: 0.43137255, b: 0, a: 1}
+  outline: {fileID: 8009320849145652960, guid: 5f3ffc0e16720f64b811146e71c5d2be, type: 3}

@@ -21,7 +21,8 @@ public class WarningLight : MonoBehaviour
     {
         lights.SetActive(true);
         warningLightMaterial.color = warningColor;
-        warningLightMaterial.SetColor("_EmissionColor", warningColor * 5);
+        warningLightMaterial.SetColor("_EmissionColor", warningColor * 10f);
+        warningLightMaterial.EnableKeyword("_EMISSION");
 
         CancelInvoke();
         Invoke("StopSoundingAlarm", warningLightDuration);
@@ -31,6 +32,7 @@ public class WarningLight : MonoBehaviour
     {
         lights.SetActive(false);
         warningLightMaterial.SetColor("_EmissionColor", disabledColor);
+        warningLightMaterial.DisableKeyword("_EMISSION");
         warningLightMaterial.color = disabledColor;
     }
 

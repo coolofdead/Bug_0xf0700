@@ -433,6 +433,7 @@ MonoBehaviour:
   elevatorFront: {fileID: 1021946942}
   btnMaterial: {fileID: 2100000, guid: 361f99501f44a4712a65fbbddebd7e2d, type: 2}
   calledElevatorColor: {r: 0, g: 1.754318, b: 0, a: 1}
+  errorElevatorColor: {r: 1, g: 0, b: 0, a: 1}
   defaultElevatorColor: {r: 1, g: 1, b: 1, a: 1}
   outline: {fileID: 7202767519473989475}
 --- !u!114 &7202767519473989475

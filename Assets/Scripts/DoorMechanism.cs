@@ -87,6 +87,11 @@ public class DoorMechanism : MonoBehaviour, IInteractable {
     {
     }
 
+    public bool IsInteractable()
+    {
+        return true;
+    }
+
     //public void Open()
     //{
     //    if (!hit.transform.GetComponent<Door>().isOpen)

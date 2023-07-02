@@ -5,6 +5,8 @@ using System;
 
 public class Elevator : MonoBehaviour
 {
+    public Action onElevatorError;
+    public Action onElevatorErrorResolved;
     public Action<int, int> onElevatorMovingToFloor;
     public Action<int> onElevatorReachedFloor;
     
@@ -17,7 +19,35 @@ public class Elevator : MonoBehaviour
     public Transform[] floorsTargets;
     public float timeToMoveToNextFloor = 3f;
 
+    [Header("Error Settings")]
+    [Range(0, 100)] public float percentageOfError = 30f;
+    public float errorRateInSec = 30f;
+    public float timeToRepairErrorInSec = 20f;
+
     private bool isMoving;
+    private bool isOnError;
+
+    private void Awake()
+    {
+        InvokeRepeating("Error", 0, errorRateInSec);
+    }
+
+    private void Error()
+    {
+        if (UnityEngine.Random.Range(0, 100) > percentageOfError || isMoving || isOnError) return;
+
+        isOnError = true;
+        Invoke("FixError", timeToRepairErrorInSec);
+
+        onElevatorError?.Invoke();
+    }
+
+    private void FixError()
+    {
+        isOnError = false;
+
+        onElevatorErrorResolved?.Invoke();
+    }
 
     public void OpenDoors()
     {
@@ -31,7 +61,7 @@ public class Elevator : MonoBehaviour
 
     public void CallElevator(int floorLevel)
     {
-        if (isMoving) return;
+        if (isMoving || isOnError) return;
 
         if (floorLevel == CurrentFloorLevel)
         {
@@ -45,7 +75,7 @@ public class Elevator : MonoBehaviour
 
     public void PickFloor(int floorLevel)
     {
-        if ( isMoving) return;
+        if (isMoving || isOnError) return;
 
         StartCoroutine(MoveToFloor(floorLevel));
     }

@@ -20,6 +20,7 @@ public class BugsManager : MonoBehaviour
     public float timeBetweenBugs = 45f;
     public float addOneToMaxComputersHackPerFix = 4;
     public AnimationCurve percentageOfHavingTwoBugs;
+    public AudioSource audioSource;
 
     [Header("Bug Effects")]
     public Animator warningCoverUI;
@@ -63,6 +64,13 @@ public class BugsManager : MonoBehaviour
         var computerToBug = computersNotBugged.First();
         computerToBug.CreateBug();
     }
+    public void BugAppear()
+    {
+        int floorLevelBug = UnityEngine.Random.Range(1, 4);
+        MakeBug(floorLevelBug);
+
+        FireHackEvent();
+    }
 
     private void OnComputerBugResolved(Computer computer)
     {
@@ -89,14 +97,6 @@ public class BugsManager : MonoBehaviour
         }
     }
 
-    public void BugAppear()
-    {
-        int floorLevelBug = UnityEngine.Random.Range(1, 4);
-        MakeBug(floorLevelBug);
-
-        FireHackEvent();
-    }
-
     public void BugAppearOnComputer(Computer hackThisComputer)
     {
         LeanTween.value(warningCoverBuildingFloors[hackThisComputer.FloorLevel - 1].gameObject, (Color c) => { warningCoverBuildingFloors[hackThisComputer.FloorLevel - 1].color = c; }, Color.white, targetColor, timeToSwapColors).setLoopType(LeanTweenType.pingPong);
@@ -107,14 +107,22 @@ public class BugsManager : MonoBehaviour
 
     private void FireHackEvent()
     {
-        //if (showWarningOnce)
-        //{
+        if (showWarningOnce)
+        {
             showWarningOnce = false;
             warningCoverUI.Play("ShowWarning");
-            Invoke("HideWarningUI", 8);
-        //}
+            Invoke("HideWarningUI", WarningLight.warningLightDuration * 0.7f);
+        }
+
+        audioSource.Play();
+        Invoke("StopWarningBugAudio", WarningLight.warningLightDuration);
 
         onHack?.Invoke();
+    }
+
+    private void StopWarningBugAudio()
+    {
+        audioSource.Stop();
     }
 
     private void HideWarningUI()
