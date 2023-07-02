@@ -6,6 +6,7 @@ public class Extinguisher : MonoBehaviour
 {
     [SerializeField] private float amountExtinguishedPerSecond = 1f;
     [SerializeField] private WaterJet waterJet;
+    [SerializeField] private AudioSource SFX_Water;
 
     void Start()
     {
@@ -18,6 +19,7 @@ public class Extinguisher : MonoBehaviour
         if (!PlayerInteractionController.Instance.HoldingObject)
         {
             waterJet.StopEmit();
+            SFX_Water.volume = 0f;
             Debug.Log("no object");
             return;
         }
@@ -25,6 +27,7 @@ public class Extinguisher : MonoBehaviour
         if (!PlayerInteractionController.Instance.ObjectPicked.TryGetComponent(out Extinguisher extinguisher))
         {
             waterJet.StopEmit();
+            SFX_Water.volume = 0f;
             Debug.Log("Not extinguisher");
             return;
         }
@@ -32,15 +35,18 @@ public class Extinguisher : MonoBehaviour
         if (!PlayerInteractionController.Instance.ObjectPicked.isPick)
         {
             waterJet.StopEmit();
+            SFX_Water.volume = 0f;
             return;
         }
         
         if (!Input.GetMouseButton(0))
         {
             waterJet.StopEmit();
+            SFX_Water.volume = 0f;
             return;
         }
 
+        SFX_Water.volume = 0.5f;
         waterJet.Emit();
 
 
