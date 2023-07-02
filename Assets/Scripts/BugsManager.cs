@@ -60,8 +60,7 @@ public class BugsManager : MonoBehaviour
 
         var rnd = new System.Random();
         var computersNotBugged = computers.Where((computer) => !computer.IsBugged && computer.FloorLevel == floorLevel).ToList();
-        computersNotBugged.Sort((i, c) => rnd.Next());
-        var computerToBug = computersNotBugged.First();
+        var computerToBug = computersNotBugged[UnityEngine.Random.Range(0, computersNotBugged.Count)];
         computerToBug.CreateBug();
     }
     public void BugAppear()

@@ -3599,16 +3599,6 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 9136066669469517506, guid: e0643e4b3ae4c4b00af55f045bdd2d04,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4387498
-      objectReference: {fileID: 0}
-    - target: {fileID: 9136066669469517506, guid: e0643e4b3ae4c4b00af55f045bdd2d04,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4387498
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0643e4b3ae4c4b00af55f045bdd2d04, type: 3}
 --- !u!4 &579087708142151206 stripped

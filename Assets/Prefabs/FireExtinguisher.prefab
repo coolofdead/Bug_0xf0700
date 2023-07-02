@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5074bdb8d89a317498c3bde8515dbefa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rb: {fileID: 0}
+  Rb: {fileID: 6144111319259201616}
   hoverColor: {r: 1, g: 0.43137255, b: 0, a: 1}
   pickedColor: {r: 1, g: 0.43137255, b: 0, a: 1}
-  outline: {fileID: 0}
+  outline: {fileID: 6144111319259201615}

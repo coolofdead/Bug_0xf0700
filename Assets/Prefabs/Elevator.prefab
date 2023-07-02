@@ -2904,7 +2904,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  timeToMoveToNextFloor: 3
+  timeToMoveToNextFloor: 2.5
   percentageOfError: 45
   errorRateInSec: 30
   timeToRepairErrorInSec: 15

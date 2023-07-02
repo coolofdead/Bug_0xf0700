@@ -32,7 +32,7 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
 
     private TMP_SelectionCaret caret;
 
-    public bool IsBugged { get; private set; }
+    public bool IsBugged { get; private set; } = false;
     [field: SerializeField] public int FloorLevel { get; set; } = 1;
 
     private Action releasePlayerMovementCallback;

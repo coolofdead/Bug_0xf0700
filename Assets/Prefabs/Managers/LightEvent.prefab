@@ -50,11 +50,11 @@ MonoBehaviour:
   blackScreen: {fileID: 0}
   blackScreenTransition: {fileID: 0}
   timeToRestoreSomeOpacity: 3.5
-  blackScreenOpacity: 0.998
+  blackScreenOpacity: 0.994
   audioSource: {fileID: 1454035388887034472}
   showDialogueOnce: 1
   dialoguesOnLightsOff:
-  - .<waitfor=0.5>..<waitfor=0.5>...<waitfor=2>
+  - .<waitfor=0.5>.<waitfor=0.5>.<waitfor=2>
   - "Ne me dis pas que tu as r\xE9ussi \xE0 faire sauter le g\xE9n\xE9rateur ?"
   - "Va me r\xE9parer ca tout de suite au rdc !"
   dialoguesAudioClipsOnLightsOff:
