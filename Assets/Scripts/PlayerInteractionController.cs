@@ -58,6 +58,13 @@ public class PlayerInteractionController : MonoBehaviour
         {
             ObjectPicked.transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
         }
+
+        if (ObjectPicked.CompareTag("FPS"))
+        {
+            ObjectPicked.transform.parent = shooterContainer.transform;
+            ObjectPicked.transform.position = shooterContainer.transform.position;
+            ObjectPicked.transform.rotation = shooterContainer.transform.rotation;
+        }
     }
 
     private void HandlePickupObjectPhysics(Vector2 moveDirection)
