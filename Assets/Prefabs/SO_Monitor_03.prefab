@@ -1470,7 +1470,7 @@ MonoBehaviour:
   canvas: {fileID: 1602919587520535808}
   particles: {fileID: 7531662537683218174}
   bugRedLight: {fileID: 6932138460392249687}
-  timeBeforePuttingFire: 60
+  timeBeforePuttingFire: 90
   timeLeftImage: {fileID: 8830221924921041570}
   timeLeftSlider: {fileID: 2817739441286651235}
   <fire>k__BackingField: {fileID: 1124890742052963928}

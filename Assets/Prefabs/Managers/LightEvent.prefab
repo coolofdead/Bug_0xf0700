@@ -50,7 +50,7 @@ MonoBehaviour:
   blackScreen: {fileID: 0}
   blackScreenTransition: {fileID: 0}
   timeToRestoreSomeOpacity: 3.5
-  blackScreenOpacity: 0.994
+  blackScreenOpacity: 0.991
   audioSource: {fileID: 1454035388887034472}
   showDialogueOnce: 1
   dialoguesOnLightsOff:
