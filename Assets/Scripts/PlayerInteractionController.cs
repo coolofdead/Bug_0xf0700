@@ -56,7 +56,7 @@ public class PlayerInteractionController : MonoBehaviour
 
         if (ObjectPicked.CompareTag("Shooter"))
         {
-            ObjectPicked.transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y + 90, 0);
+            ObjectPicked.transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
         }
     }
 

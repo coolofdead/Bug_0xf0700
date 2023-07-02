@@ -7,6 +7,7 @@ using UnityEngine;
 public class ObjectPickable : MonoBehaviour, IInteractable
 {
     [field:SerializeField] public Rigidbody Rb;
+    public bool isPick = false;
     
     [Header("Outline")]
     [SerializeField] private Color hoverColor;
@@ -23,11 +24,13 @@ public class ObjectPickable : MonoBehaviour, IInteractable
     {
         outline.OutlineColor = pickedColor;
         EnableOutline();
+        isPick = true;
     }
 
     public void Release()
     {
         DisableOutline();
+        isPick = false;
     }
 
     private void EnableOutline()
