@@ -73,8 +73,8 @@ public class PlayerInteractionController : MonoBehaviour
         if (ObjectPicked == null) return;
         
         //objectPicked.rb.AddTorque(new Vector3(moveDirection.x, 0, moveDirection.y) * pickedObjectPhysicsForce);
-        if (ObjectPicked.CompareTag("Object"))
-            ObjectPicked.Rb.AddForce(moveDirection * pickedObjectPhysicsForce);
+        //if (ObjectPicked.CompareTag("Object"))
+        ObjectPicked.Rb.AddForce(moveDirection * pickedObjectPhysicsForce);
     }
 
     public void InteractInput(bool interact)
@@ -97,6 +97,8 @@ public class PlayerInteractionController : MonoBehaviour
             ObjectPicked = interactable as ObjectPickable;
             ObjectPicked.Pick();
 
+            bookController.CanPickupBook = false;
+
             return;
         }
 
@@ -106,11 +108,6 @@ public class PlayerInteractionController : MonoBehaviour
             bookController.CanPickupBook = false;
 
             ((IInteractableDisablePlayerMovement)interactable).DisablePlayerMovement(ReleaseMovements);
-        }
-
-        if (interactable is Key)
-        {
-            
         }
 
         interactable.Interact();

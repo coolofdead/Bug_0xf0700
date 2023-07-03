@@ -30,6 +30,7 @@ public class ObjectPickable : MonoBehaviour, IInteractable
     public virtual void Release()
     {
         DisableOutline();
+        Rb.velocity = Vector3.zero;
         isPick = false;
     }
 
