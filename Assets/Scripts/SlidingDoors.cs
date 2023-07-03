@@ -14,6 +14,7 @@ public class SlidingDoors : MonoBehaviour
 
     [Header("Status")]
     public bool disableOnComputerHack = false;
+    public bool disableOnceOnHack = false;
     public MeshRenderer[] statusIndicatorMaterials;
     public Light[] statusIndicatorLights;
     public Color enableStatusLightColor;
@@ -37,6 +38,8 @@ public class SlidingDoors : MonoBehaviour
     {
         if (!disableOnComputerHack) return;
 
+        if (!disableOnceOnHack) return;
+
         isEnable = false;
         foreach (MeshRenderer mr in statusIndicatorMaterials) mr.material = disableLightMaterial;
         foreach (Light light in statusIndicatorLights) light.color = disableStatusLightColor;
@@ -53,6 +56,8 @@ public class SlidingDoors : MonoBehaviour
         foreach (MeshRenderer mr in statusIndicatorMaterials) mr.material = enableLightMaterial;
         foreach (Light light in statusIndicatorLights) light.color = enableStatusLightColor;
         OpenDoors();
+
+        disableOnceOnHack = false;
     }
 
     public void OpenDoors()

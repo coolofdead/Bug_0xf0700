@@ -277,6 +277,17 @@
                 },
                 {
                     "name": "",
+                    "id": "2a128119-7216-46cf-880e-1e89b1ef3327",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "8458700d-fcf5-4d1c-a356-910c187d7ab3",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",

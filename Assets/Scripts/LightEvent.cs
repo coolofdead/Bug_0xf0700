@@ -16,9 +16,13 @@ public class LightEvent : MonoBehaviour
     [Header("Lights")]
     public Image blackScreen;
     public Image blackScreenTransition;
+    public Image powerImage;
     public float timeToRestoreSomeOpacity;
+    public float timeToHideBlackScreen = 0.7f;
+    public float timeBeforeHavingBug = 60;
     [Range(0, 1)] public float blackScreenOpacity;
     public AudioSource audioSource;
+    private float lastLightOffTime;
 
     [Header("Dialogue")]
     public bool showDialogueOnce = true;
@@ -35,9 +39,14 @@ public class LightEvent : MonoBehaviour
         InvokeRepeating("TryToTurnOffLights", 0, lightEventEverySec);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L)) TurnOffAllLights();
+    }
+
     private void TryToTurnOffLights()
     {
-        if (AreLightsDown || BugsManager.Instance.TotalOfComputersFixed <= 2) return;
+        if (AreLightsDown || BugsManager.Instance.TotalOfComputersFixed <= 2 || Time.time < lastLightOffTime + timeBeforeHavingBug) return;
 
         if (UnityEngine.Random.Range(0, 100) > lightEventRate) return;
 
@@ -47,6 +56,12 @@ public class LightEvent : MonoBehaviour
     public void TurnOffAllLights()
     {
         blackScreen.color = Color.black;
+        powerImage.gameObject.SetActive(true);
+        LeanTween.value(
+            powerImage.gameObject,
+            (Color c) => { powerImage.color = c; },
+            Color.black, Color.white, 0.7f
+        ).setLoopPingPong();
         audioSource.Play();
 
         Invoke("RestoreSomeOpacity", timeToRestoreSomeOpacity);
@@ -54,7 +69,14 @@ public class LightEvent : MonoBehaviour
 
     public void TurnOnAllLights()
     {
-        blackScreen.color = new Color(0, 0, 0, 0);
+        lastLightOffTime = Time.time;
+        LeanTween.cancel(powerImage.gameObject);
+        powerImage.gameObject.SetActive(false);
+        LeanTween.value(
+            blackScreen.gameObject,
+            (Color c) => { powerImage.color = c; },
+            Color.black, new Color(0, 0, 0, 0), timeToHideBlackScreen
+        );
 
         onLightTurnOn?.Invoke();
     }

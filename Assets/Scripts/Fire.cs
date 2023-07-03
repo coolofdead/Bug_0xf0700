@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Fire : MonoBehaviour
 {
+    public Action onFireStop;
+
     [Header("Fire")]
     [SerializeField, Range(0f, 1f)] private float currentIntensity = 0.1f;
     [SerializeField] private float regenDelay = 2.5f;
@@ -112,6 +115,8 @@ public class Fire : MonoBehaviour
         {
             particle[i].Stop();
         }
+
+        onFireStop?.Invoke();
     }
 
     public void StartFire()
@@ -121,5 +126,7 @@ public class Fire : MonoBehaviour
         {
             particle[i].Play();
         }
+
+        Invoke("StartSpreading", timeBeforeSpreading);
     }
 }

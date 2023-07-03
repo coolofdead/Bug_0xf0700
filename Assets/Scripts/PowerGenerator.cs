@@ -13,9 +13,15 @@ public class PowerGenerator : MonoBehaviour, IInteractable
 
     public GameObject[] objetcsToDisableWhenPowerOn;
 
+    [Header("Outline")]
     public Outline outline;
 
-    private bool status;
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip powerDownClip;
+    public AudioClip powerUpClip;
+
+    private bool status = true;
 
     private void Awake()
     {
@@ -28,6 +34,8 @@ public class PowerGenerator : MonoBehaviour, IInteractable
         status = false;
         statusMR.material = disableMaterial;
         foreach (GameObject objetcToDisableWhenPowerOn in objetcsToDisableWhenPowerOn) objetcToDisableWhenPowerOn.SetActive(true);
+        audioSource.clip = powerDownClip;
+        audioSource.Play();
     }
 
     public void TurnOnLight()
@@ -35,6 +43,8 @@ public class PowerGenerator : MonoBehaviour, IInteractable
         status = true;
         statusMR.material = enableMaterial;
         foreach (GameObject objetcToDisableWhenPowerOn in objetcsToDisableWhenPowerOn) objetcToDisableWhenPowerOn.SetActive(false);
+        audioSource.clip = powerUpClip;
+        audioSource.Play();
     }
 
     private void OnDestroy()
@@ -45,6 +55,8 @@ public class PowerGenerator : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        if (!status) return;
+
         outline.enabled = false;
         onGeneratorFixed?.Invoke();
     }

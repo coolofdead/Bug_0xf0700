@@ -11,8 +11,6 @@ public class BugsManager : MonoBehaviour
     public static Action onHack;
     public static BugsManager Instance { get; private set; }
 
-    public bool debugBugWithB = true;
-
     [Header("Tuto Related")]
     public float newBugAfterTime;
 
@@ -46,7 +44,7 @@ public class BugsManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B) && debugBugWithB) BugAppear();
+        if (Input.GetKeyDown(KeyCode.B)) BugAppear();
     }
 
     public void StartBugs()
@@ -56,6 +54,8 @@ public class BugsManager : MonoBehaviour
 
     private void MakeBug(int floorLevel)
     {
+        if (lightEvent.AreLightsDown) return;
+
         TotalOfComputersHacked++;
 
         var rnd = new System.Random();
@@ -91,7 +91,7 @@ public class BugsManager : MonoBehaviour
             int nbBugToMake = UnityEngine.Random.Range(0, 100) < percentage ? 1 : 1 + (int)(TotalOfComputersFixed / addOneToMaxComputersHackPerFix);
             for (int i = 0; i < nbBugToMake; i++)
             {
-                Invoke("BugAppear", timeBetweenBugs);
+                BugAppear();
             }
         }
     }

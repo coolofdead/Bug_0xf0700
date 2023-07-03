@@ -23,19 +23,23 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
     [SerializeField] private float timeBeforePuttingFire = 15;
     [SerializeField] private Image timeLeftImage;
     [SerializeField] private GameObject timeLeftSlider;
-    [field:SerializeField] public Fire fire  { get; private set; }
+    [SerializeField] private GameObject extinguisherBigImage;
+    [field:SerializeField] public Fire fire { get; private set; }
 
     [Header("Outline")]
     [SerializeField] private Color hoverColor;
     [SerializeField] private Color pickedColor;
     [SerializeField] private Outline outline;
 
-    private TMP_SelectionCaret caret;
-
     public bool IsBugged { get; private set; } = false;
     [field: SerializeField] public int FloorLevel { get; set; } = 1;
 
     private Action releasePlayerMovementCallback;
+
+    private void Awake()
+    {
+        fire.onFireStop += OnFireStop;
+    }
 
     public void CreateBug()
     {
@@ -51,17 +55,29 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
         onComputerHack?.Invoke(this);
     }
 
+    private void OnFireStop()
+    {
+        extinguisherBigImage.SetActive(false);
+        canvas.SetActive(false);
+    }
+
     private void StartFire()
     {
         if (!IsBugged) return;
 
         outline.enabled = false;
+        particles.SetActive(false);
+        bugRedLight.SetActive(false);
+        timeLeftSlider.SetActive(false);
+        extinguisherBigImage.SetActive(true);
+        LeanTween.cancel(timeLeftImage.gameObject);
+
         fire.StartFire();
     }
 
     public void Interact()
     {
-        if (fire.start) return;
+        if (!IsInteractable()) return;
 
         computerCamera.enabled = !computerCamera.enabled;
 
@@ -79,6 +95,8 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
         timeLeftSlider.SetActive(false);
         LeanTween.cancel(timeLeftImage.gameObject);
 
+        computerCamera.enabled = false;
+        releasePlayerMovementCallback?.Invoke();
         onComputerFix?.Invoke(this);
     }
 

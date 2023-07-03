@@ -29,13 +29,31 @@ public class Elevator : MonoBehaviour
 
     private void Awake()
     {
-        InvokeRepeating("Error", 0, errorRateInSec);
+        LightEvent.onLightTurnOff += OnLightOff;
+        LightEvent.onLightTurnOn += OnLightOn;
+
+        InvokeRepeating("TryToThrowError", 0, errorRateInSec);
+    }
+
+    private void OnLightOff()
+    {
+        Error();
+    }
+
+    private void OnLightOn()
+    {
+        FixError();
+    }
+
+    private void TryToThrowError()
+    {
+        if (UnityEngine.Random.Range(0, 100) > percentageOfError || isMoving || isOnError) return;
+
+        Error();
     }
 
     private void Error()
     {
-        if (UnityEngine.Random.Range(0, 100) > percentageOfError || isMoving || isOnError) return;
-
         isOnError = true;
         Invoke("FixError", timeToRepairErrorInSec);
 
@@ -110,5 +128,11 @@ public class Elevator : MonoBehaviour
 
         isMoving = false;
         OpenDoors();
+    }
+
+    private void OnDestroy()
+    {
+        LightEvent.onLightTurnOff -= OnLightOff;
+        LightEvent.onLightTurnOn -= OnLightOn;
     }
 }
