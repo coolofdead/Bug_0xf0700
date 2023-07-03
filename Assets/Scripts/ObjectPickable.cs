@@ -10,9 +10,9 @@ public class ObjectPickable : MonoBehaviour, IInteractable
     public bool isPick = false;
     
     [Header("Outline")]
-    [SerializeField] private Color hoverColor;
-    [SerializeField] private Color pickedColor;
-    [SerializeField] private Outline outline;
+    [SerializeField] protected Color hoverColor;
+    [SerializeField] protected Color pickedColor;
+    [SerializeField] protected Outline outline;
 
     private void Awake()
     {
@@ -20,7 +20,7 @@ public class ObjectPickable : MonoBehaviour, IInteractable
         if (outline == null) outline = GetComponent<Outline>();    
     }
 
-    public void Pick()
+    public virtual void Pick()
     {
         outline.OutlineColor = pickedColor;
         EnableOutline();
@@ -33,7 +33,7 @@ public class ObjectPickable : MonoBehaviour, IInteractable
         isPick = false;
     }
 
-    private void EnableOutline()
+    protected void EnableOutline()
     {
         outline.enabled = true;
     }

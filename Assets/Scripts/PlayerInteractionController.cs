@@ -52,19 +52,20 @@ public class PlayerInteractionController : MonoBehaviour
     {
         if (!HoldingObject) return;
 
-        ObjectPicked.transform.position = Camera.main.transform.position + Camera.main.transform.forward * pickedObjectDistance;
+        if (!ObjectPicked.CompareTag("FPS"))
+            ObjectPicked.transform.position = Camera.main.transform.position + Camera.main.transform.forward * pickedObjectDistance;
 
         if (ObjectPicked.CompareTag("Shooter"))
         {
             ObjectPicked.transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
         }
 
-        if (ObjectPicked.CompareTag("FPS"))
-        {
-            ObjectPicked.transform.parent = shooterContainer.transform;
-            ObjectPicked.transform.position = shooterContainer.transform.position;
-            ObjectPicked.transform.rotation = shooterContainer.transform.rotation;
-        }
+        //if (ObjectPicked.CompareTag("FPS"))
+        //{
+        //    ObjectPicked.transform.parent = shooterContainer.transform;
+        //    ObjectPicked.transform.position = shooterContainer.transform.position;
+        //    ObjectPicked.transform.rotation = shooterContainer.transform.rotation;
+        //}
     }
 
     private void HandlePickupObjectPhysics(Vector2 moveDirection)
@@ -90,10 +91,12 @@ public class PlayerInteractionController : MonoBehaviour
         var interactable = RaycastForInteractable();
         if (interactable == null || !interactable.IsInteractable()) return;
 
+
         if (interactable is ObjectPickable)
         {
             ObjectPicked = interactable as ObjectPickable;
             ObjectPicked.Pick();
+
             return;
         }
 
