@@ -21,7 +21,7 @@ public class Clock : MonoBehaviour
 
     private void Start()
     {
-        // StartClock();
+        StartClock();
     }
 
     private void StartClock()

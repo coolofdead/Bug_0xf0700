@@ -101,7 +101,7 @@ public class Fire : MonoBehaviour
             {
                 if (!computer.fire.start)
                 {
-                    computer.fire.StartFire();
+                    computer.StartFire();
                     break;
                 }
             }

@@ -49,9 +49,11 @@ MonoBehaviour:
   lightEventEverySec: 40
   blackScreen: {fileID: 0}
   blackScreenTransition: {fileID: 0}
+  powerImage: {fileID: 0}
   timeToRestoreSomeOpacity: 3.5
+  timeToHideBlackScreen: 0.7
   timeBeforeHavingBug: 60
-  blackScreenOpacity: 0.9
+  blackScreenOpacity: 0.985
   audioSource: {fileID: 1454035388887034472}
   showDialogueOnce: 1
   dialoguesOnLightsOff:

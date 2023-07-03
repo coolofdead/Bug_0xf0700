@@ -2,22 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Outline), typeof(Collider), typeof(Rigidbody))]
 public class ObjectPickable : MonoBehaviour, IInteractable
 {
+    [field:Header("Handle")]
+    [field:SerializeField] public bool ShoudBeHoldInHand { get; private set; }  = false;
+    public Vector3 sizeInHand = Vector3.one;
     [field:SerializeField] public Rigidbody Rb;
-    public bool isPick = false;
-    
+
     [Header("Outline")]
     [SerializeField] protected Color hoverColor;
     [SerializeField] protected Color pickedColor;
     [SerializeField] protected Outline outline;
 
+    [HideInInspector] public bool isPick = false;
+
+    public UnityEvent onPickup;
+    public UnityEvent onRelease;
+
+    private RigidbodyConstraints defaultConstraints;
+
+    private Vector3 defaultSize;
+
     private void Awake()
     {
         if (Rb == null) Rb = GetComponent<Rigidbody>();    
-        if (outline == null) outline = GetComponent<Outline>();    
+        if (outline == null) outline = GetComponent<Outline>();
+        defaultConstraints = Rb.constraints;
+        defaultSize = transform.localScale;
     }
 
     public virtual void Pick()
@@ -25,6 +39,16 @@ public class ObjectPickable : MonoBehaviour, IInteractable
         outline.OutlineColor = pickedColor;
         EnableOutline();
         isPick = true;
+
+        if (ShoudBeHoldInHand)
+        {
+            Rb.constraints = RigidbodyConstraints.FreezePosition;
+            transform.localPosition = Vector3.zero;
+            transform.localScale = sizeInHand;
+            transform.localRotation = Quaternion.identity;
+        }
+
+        onPickup?.Invoke();
     }
 
     public virtual void Release()
@@ -32,6 +56,14 @@ public class ObjectPickable : MonoBehaviour, IInteractable
         DisableOutline();
         Rb.velocity = Vector3.zero;
         isPick = false;
+
+        if (ShoudBeHoldInHand)
+        {
+            Rb.constraints = defaultConstraints;
+            transform.localScale = defaultSize;
+        }
+
+        onRelease?.Invoke();
     }
 
     protected void EnableOutline()
@@ -58,7 +90,6 @@ public class ObjectPickable : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        throw new System.NotImplementedException();
     }
 
     public bool IsInteractable()

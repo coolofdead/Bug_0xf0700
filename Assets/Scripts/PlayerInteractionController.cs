@@ -50,30 +50,15 @@ public class PlayerInteractionController : MonoBehaviour
     
     private void Update()
     {
-        if (!HoldingObject) return;
+        if (!HoldingObject || ObjectPicked.ShoudBeHoldInHand) return;
 
-        if (!ObjectPicked.CompareTag("FPS"))
-            ObjectPicked.transform.position = Camera.main.transform.position + Camera.main.transform.forward * pickedObjectDistance;
-
-        if (ObjectPicked.CompareTag("Shooter"))
-        {
-            ObjectPicked.transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
-        }
-
-        //if (ObjectPicked.CompareTag("FPS"))
-        //{
-        //    ObjectPicked.transform.parent = shooterContainer.transform;
-        //    ObjectPicked.transform.position = shooterContainer.transform.position;
-        //    ObjectPicked.transform.rotation = shooterContainer.transform.rotation;
-        //}
+        ObjectPicked.transform.position = Camera.main.transform.position + Camera.main.transform.forward * pickedObjectDistance;
     }
 
     private void HandlePickupObjectPhysics(Vector2 moveDirection)
     {
         if (ObjectPicked == null) return;
         
-        //objectPicked.rb.AddTorque(new Vector3(moveDirection.x, 0, moveDirection.y) * pickedObjectPhysicsForce);
-        //if (ObjectPicked.CompareTag("Object"))
         ObjectPicked.Rb.AddForce(moveDirection * pickedObjectPhysicsForce);
     }
 
@@ -83,21 +68,37 @@ public class PlayerInteractionController : MonoBehaviour
 
         if (!interact)
         {
-            ObjectPicked?.Release();
-            ObjectPicked = null;
+            if (ObjectPicked != null)
+            {
+                if (ObjectPicked.ShoudBeHoldInHand)
+                {
+                    ObjectPicked.transform.SetParent(null);
+                }
+
+                ObjectPicked.Release();
+                ObjectPicked = null;
+
+                bookController.CanPickupBook = true;
+            }
+
             return;
         }
 
         var interactable = RaycastForInteractable();
         if (interactable == null || !interactable.IsInteractable()) return;
 
-
         if (interactable is ObjectPickable)
         {
             ObjectPicked = interactable as ObjectPickable;
-            ObjectPicked.Pick();
 
             bookController.CanPickupBook = false;
+
+            if (ObjectPicked.ShoudBeHoldInHand)
+            {
+                ObjectPicked.transform.SetParent(shooterContainer);
+            }
+
+            ObjectPicked.Pick();
 
             return;
         }

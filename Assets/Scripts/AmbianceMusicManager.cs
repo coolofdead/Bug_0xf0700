@@ -39,6 +39,7 @@ public class AmbianceMusicManager : MonoBehaviour
         {
             audioSource.clip = ambianceMusics[currentTrack].audioClip;
             audioSource.volume = ambianceMusics[currentTrack].volume;
+            audioSource.Play();
 
             yield return new WaitWhile(() => audioSource.isPlaying);
 

@@ -55,7 +55,7 @@ public class PowerGenerator : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (!status) return;
+        if (status) return;
 
         outline.enabled = false;
         onGeneratorFixed?.Invoke();

@@ -2447,7 +2447,7 @@ MonoBehaviour:
   showBugAfterDelay: 4
   showProjectorAfterDelay: 15
   tutoDialogue:
-  - Oui Gerard, je viens de partir
+  - Oui Gerard, je viens de partir.
   - tu pourrais faire la fermeture de la boite ce soir ?
   - J'ai mon avion pour les bahamas bye bye.
   tutoAudioClips:
@@ -3476,21 +3476,6 @@ PrefabInstance:
       propertyPath: assignFirstFixCode
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3060522622053192137, guid: e0643e4b3ae4c4b00af55f045bdd2d04,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-    - target: {fileID: 3060522622053192137, guid: e0643e4b3ae4c4b00af55f045bdd2d04,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3060522622053192137, guid: e0643e4b3ae4c4b00af55f045bdd2d04,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4541e6dab9d041f4f94a7f20db5efbc3, type: 2}
     - target: {fileID: 5402962080358931372, guid: e0643e4b3ae4c4b00af55f045bdd2d04,
         type: 3}
       propertyPath: m_RootOrder
@@ -3550,71 +3535,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Desk
-      objectReference: {fileID: 0}
-    - target: {fileID: 5829353889850592006, guid: e0643e4b3ae4c4b00af55f045bdd2d04,
-        type: 3}
-      propertyPath: outlineColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5829353889850592006, guid: e0643e4b3ae4c4b00af55f045bdd2d04,
-        type: 3}
-      propertyPath: outlineColor.g
-      value: 0.43137255
-      objectReference: {fileID: 0}
-    - target: {fileID: 6764866922941201769, guid: e0643e4b3ae4c4b00af55f045bdd2d04,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.5744002
-      objectReference: {fileID: 0}
-    - target: {fileID: 6764866922941201769, guid: e0643e4b3ae4c4b00af55f045bdd2d04,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.0193552
-      objectReference: {fileID: 0}
-    - target: {fileID: 6764866922941201769, guid: e0643e4b3ae4c4b00af55f045bdd2d04,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.25881854
-      objectReference: {fileID: 0}
-    - target: {fileID: 6764866922941201769, guid: e0643e4b3ae4c4b00af55f045bdd2d04,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6764866922941201769, guid: e0643e4b3ae4c4b00af55f045bdd2d04,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.96592593
-      objectReference: {fileID: 0}
-    - target: {fileID: 6764866922941201769, guid: e0643e4b3ae4c4b00af55f045bdd2d04,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6764866922941201769, guid: e0643e4b3ae4c4b00af55f045bdd2d04,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 210
-      objectReference: {fileID: 0}
-    - target: {fileID: 9035592025026811190, guid: e0643e4b3ae4c4b00af55f045bdd2d04,
-        type: 3}
-      propertyPath: LightsModule.ratio
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9035592025026811190, guid: e0643e4b3ae4c4b00af55f045bdd2d04,
-        type: 3}
-      propertyPath: LightsModule.maxLights
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9035592025026811190, guid: e0643e4b3ae4c4b00af55f045bdd2d04,
-        type: 3}
-      propertyPath: LightsModule.rangeCurve.scalar
-      value: 3.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9035592025026811190, guid: e0643e4b3ae4c4b00af55f045bdd2d04,
-        type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0643e4b3ae4c4b00af55f045bdd2d04, type: 3}
