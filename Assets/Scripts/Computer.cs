@@ -22,8 +22,10 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
     [Header("Fire")]
     [SerializeField] private float timeBeforePuttingFire = 15;
     [SerializeField] private Image timeLeftImage;
+    [SerializeField] private GameObject extinguisherBigImageContainer;
+    [SerializeField] private Image extinguisherBigImage;
+    [SerializeField] private float blinkExtinguisherTime = 0.7f;
     [SerializeField] private GameObject timeLeftSlider;
-    [SerializeField] private GameObject extinguisherBigImage;
     [field:SerializeField] public Fire fire { get; private set; }
 
     [Header("Outline")]
@@ -57,11 +59,12 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
 
     private void OnFireStop()
     {
-        extinguisherBigImage.SetActive(false);
+        extinguisherBigImageContainer.SetActive(false);
+        LeanTween.cancel(extinguisherBigImage.gameObject);
         canvas.SetActive(false);
     }
 
-    private void StartFire()
+    public void StartFire()
     {
         if (!IsBugged) return;
 
@@ -69,8 +72,14 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
         particles.SetActive(false);
         bugRedLight.SetActive(false);
         timeLeftSlider.SetActive(false);
-        extinguisherBigImage.SetActive(true);
+        extinguisherBigImageContainer.SetActive(true);
         LeanTween.cancel(timeLeftImage.gameObject);
+        var targetColor = extinguisherBigImage.color;
+        targetColor.a = 0;
+        LeanTween.value(extinguisherBigImage.gameObject, (Color c) => extinguisherBigImage.color = c, extinguisherBigImage.color, targetColor, blinkExtinguisherTime).setLoopPingPong();
+
+        computerCamera.enabled = false;
+        releasePlayerMovementCallback?.Invoke();
 
         fire.StartFire();
     }

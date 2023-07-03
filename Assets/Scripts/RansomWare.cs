@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using System;
 using UnityEngine.UI;
 
 public class RansomWare : MonoBehaviour
@@ -12,7 +11,6 @@ public class RansomWare : MonoBehaviour
     [SerializeField] public Sprite windowsXPScreen;
     [SerializeField] public Image screen;
     [SerializeField] public TMP_InputField inputField;
-    private bool isCaretDestroy = false;
 
     public bool assignFirstFixCode = false;
 
@@ -26,15 +24,12 @@ public class RansomWare : MonoBehaviour
 
     public void EnableInputField(bool activate)
     {
-        if (!isCaretDestroy)
-        {
-            var caret = inputField.GetComponentInChildren<TMP_SelectionCaret>();
-            Destroy(caret?.gameObject);
-            isCaretDestroy = true;
-        }
+        var caret = inputField.GetComponentInChildren<TMP_SelectionCaret>();
+        Destroy(caret?.gameObject);
 
         if (activate)
         {
+            inputField.Select();
             inputField.ActivateInputField();
         }
         else

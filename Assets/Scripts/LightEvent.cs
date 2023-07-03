@@ -56,7 +56,7 @@ public class LightEvent : MonoBehaviour
     public void TurnOffAllLights()
     {
         blackScreen.color = Color.black;
-        powerImage.gameObject.SetActive(true);
+        //powerImage.gameObject.SetActive(true);
         LeanTween.value(
             powerImage.gameObject,
             (Color c) => { powerImage.color = c; },
@@ -70,12 +70,10 @@ public class LightEvent : MonoBehaviour
     public void TurnOnAllLights()
     {
         lastLightOffTime = Time.time;
-        LeanTween.cancel(powerImage.gameObject);
-        powerImage.gameObject.SetActive(false);
         LeanTween.value(
             blackScreen.gameObject,
-            (Color c) => { powerImage.color = c; },
-            Color.black, new Color(0, 0, 0, 0), timeToHideBlackScreen
+            (Color c) => { blackScreen.color = c; },
+            blackScreen.color, new Color(0, 0, 0, 0), timeToHideBlackScreen
         );
 
         onLightTurnOn?.Invoke();
@@ -86,7 +84,8 @@ public class LightEvent : MonoBehaviour
         Color color = Color.black;
         color.a = blackScreenOpacity;
         blackScreen.color = color;
-
+        LeanTween.cancel(powerImage.gameObject);
+        //powerImage.gameObject.SetActive(false);
         LeanTween.value(
             blackScreenTransition.gameObject,
             (Color c) => { blackScreenTransition.color = c; },

@@ -149,11 +149,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5074bdb8d89a317498c3bde8515dbefa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ShoudBeHoldInHand>k__BackingField: 0
   Rb: {fileID: 6609253556939222294}
-  isPick: 0
   hoverColor: {r: 1, g: 0.43137255, b: 0, a: 1}
   pickedColor: {r: 1, g: 0.43137255, b: 0, a: 1}
   outline: {fileID: 8009320849145652960}
+  isPick: 0
 --- !u!1 &6112203536697290449
 GameObject:
   m_ObjectHideFlags: 0

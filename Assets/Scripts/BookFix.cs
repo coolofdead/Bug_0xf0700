@@ -5,36 +5,36 @@ using TMPro;
 
 public class BookFix : MonoBehaviour
 {
+    [Header("Book")]
     public TextMeshProUGUI currentPageCodeTMP;
-    public TextMeshProUGUI nextPageCodeTMP;
+    public TextMeshProUGUI animatedPageCodeTMP;
+    public TextMeshProUGUI pageInfo;
     public int currentPage;
 
+    [Header("Page")]
     public Animator pageAnimator;
-    public float updateCurrentPageDelay = 0.3f;
+    public float updateNextPageDelay = 0.3f;
+    public float updatePreviousPageDelay = 0.3f;
     public float timeToFlipPage = 1.2f;
 
     private bool flippingPage = false;
-
-    private void OnEnable()
+    
+    private void Start()
     {
-        ResetFirstPage();
-    }
-
-    public void ResetFirstPage()
-    {
-        currentPageCodeTMP.text = FormatFixCodeOnPageAtIndex(currentPage);
+        UpdateCurrentPage();
     }
 
     public void FlipNextPage()
     {
-        if (currentPage == FixCodeManager.Instance.FixCodes.Length-1 || flippingPage) return;
+        if (currentPage == FixCodeManager.Instance.FixCodes.Length - 1 || flippingPage) return;
 
         flippingPage = true;
+        animatedPageCodeTMP.text = FormatFixCodeOnPageAtIndex(currentPage);
         currentPage++;
-        nextPageCodeTMP.text = FormatFixCodeOnPageAtIndex(currentPage);
         pageAnimator.Play("NextPage");
-        Invoke("UpdateCurrentPage", updateCurrentPageDelay);
-        Invoke("DoneFlippingPage", timeToFlipPage);
+
+        Invoke("UpdateCurrentPage", updateNextPageDelay);
+        StartCoroutine(DoneFlippingPage(timeToFlipPage));
     }
 
     public void FlipPreviousPage()
@@ -42,20 +42,24 @@ public class BookFix : MonoBehaviour
         if (currentPage == 0 || flippingPage) return;
 
         flippingPage = true;
-        nextPageCodeTMP.text = FormatFixCodeOnPageAtIndex(currentPage);
         currentPage--;
-        currentPageCodeTMP.text = FormatFixCodeOnPageAtIndex(currentPage);
+        animatedPageCodeTMP.text = FormatFixCodeOnPageAtIndex(currentPage);
         pageAnimator.Play("PreviousPage");
-        Invoke("DoneFlippingPage", timeToFlipPage);
+
+        Invoke("UpdateCurrentPage", updatePreviousPageDelay);
+        StartCoroutine(DoneFlippingPage(timeToFlipPage));
     }
 
     private void UpdateCurrentPage()
     {
         currentPageCodeTMP.text = FormatFixCodeOnPageAtIndex(currentPage);
+        pageInfo.text = $"{currentPage + 1}/{FixCodeManager.Instance.FixCodes.Length}";
     }
 
-    private void DoneFlippingPage()
+    private IEnumerator DoneFlippingPage(float waitTime)
     {
+        yield return new WaitForSeconds(waitTime);
+
         flippingPage = false;
     }
 

@@ -17,7 +17,9 @@ public class BookController : MonoBehaviour
 
     [HideInInspector] public bool CanPickupBook = true;
 
-    public bool PickupBook { get; private set; } = false;
+    [field:SerializeField] public bool PickupBook { get; private set; } = false;
+
+    private bool hasShownMouseScrollFeedback;
 
     public void OnPickupBook(InputValue value)
     {
@@ -75,18 +77,26 @@ public class BookController : MonoBehaviour
 
     private void BookNextPage()
     {
+        if (!PickupBook) return;
+
         bookFix.FlipNextPage();
         scrollWheelFeedback.SetActive(false);
     }
 
     private void BookPreviousPage()
     {
+        if (!PickupBook) return;
+
         bookFix.FlipPreviousPage();
         scrollWheelFeedback.SetActive(false);
     }
 
     private void ShowScrollWheelFeedback()
     {
-        if (bookFix.currentPage == 0) scrollWheelFeedback.SetActive(PickupBook);
+        if (bookFix.currentPage == 0 && PickupBook)
+        {
+            hasShownMouseScrollFeedback = true;
+            scrollWheelFeedback.SetActive(PickupBook);
+        }
     }
 }
