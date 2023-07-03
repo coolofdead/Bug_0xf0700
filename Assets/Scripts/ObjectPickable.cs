@@ -27,7 +27,7 @@ public class ObjectPickable : MonoBehaviour, IInteractable
         isPick = true;
     }
 
-    public void Release()
+    public virtual void Release()
     {
         DisableOutline();
         isPick = false;
@@ -38,7 +38,7 @@ public class ObjectPickable : MonoBehaviour, IInteractable
         outline.enabled = true;
     }
 
-    private void DisableOutline()
+    protected void DisableOutline()
     {
         outline.enabled = false;
     }

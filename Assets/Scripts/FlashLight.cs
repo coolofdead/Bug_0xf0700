@@ -20,6 +20,7 @@ public class FlashLight : ObjectPickable
         EnableOutline();
         isPick = true;
 
+        Rb.constraints = RigidbodyConstraints.FreezeAll;
         transform.parent = shooterContainer.transform;
         transform.localPosition = Vector3.zero;
         transform.localRotation = new Quaternion(0,0,0,0);
@@ -29,6 +30,14 @@ public class FlashLight : ObjectPickable
 
         //Rb.useGravity = false;
         //transform.GetComponent<Rigidbody>
+    }
+
+    public override void Release()
+    {
+        Rb.constraints = RigidbodyConstraints.None;
+        DisableOutline();
+        isPick = false;
+        transform.parent = transform.root;
     }
 
     public void Update()
