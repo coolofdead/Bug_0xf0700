@@ -129,8 +129,8 @@ GameObject:
   - component: {fileID: 6856654242476759541}
   - component: {fileID: 6806477054945019450}
   - component: {fileID: 6806477054945019449}
-  - component: {fileID: 6806477054945019428}
   - component: {fileID: 6806477054945019451}
+  - component: {fileID: 7445320379422468005}
   m_Layer: 0
   m_Name: Flashlight
   m_TagString: FPS
@@ -256,23 +256,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.072043225, y: 0.23057179, z: 0.07315459}
   m_Center: {x: -0.000000020489097, y: 0, z: 0}
---- !u!114 &6806477054945019428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6806901827572696171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5074bdb8d89a317498c3bde8515dbefa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Rb: {fileID: 6806477054945019450}
-  isPick: 0
-  hoverColor: {r: 0.26697993, g: 1, b: 0, a: 0}
-  pickedColor: {r: 1, g: 0, b: 0, a: 0}
-  outline: {fileID: 6806477054945019451}
 --- !u!114 &6806477054945019451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,3 +274,21 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &7445320379422468005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6806901827572696171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a10da73d1d359644a322d67b05703e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rb: {fileID: 6806477054945019450}
+  isPick: 0
+  hoverColor: {r: 0.31958675, g: 1, b: 0, a: 0}
+  pickedColor: {r: 1, g: 0, b: 0, a: 0}
+  outline: {fileID: 6806477054945019451}
+  shooterContainer: {fileID: 0}

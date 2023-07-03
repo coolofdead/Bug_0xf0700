@@ -25,7 +25,10 @@ public class FlashLight : ObjectPickable
         transform.localPosition = Vector3.zero;
         transform.localRotation = new Quaternion(0,0,0,0);
 
-
+        if (TryGetComponent<Extinguisher>(out var extinguisher))
+        {
+            transform.Rotate(-90, 0, 0);
+        }
 
 
         //Rb.useGravity = false;
