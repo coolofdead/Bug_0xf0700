@@ -13,7 +13,7 @@ public class HosePump : MonoBehaviour {
     public Color bulgeColor = Color.cyan;
 
     [Header("Flow controls")]
-    public ParticleSystem waterEmitter;
+    //public ParticleSystem waterEmitter;
     public float flowSpeedMin = 0.5f;
     public float flowSpeedMax = 7;
     public float minEmitRate = 100;
@@ -60,24 +60,24 @@ public class HosePump : MonoBehaviour {
         }
 
         // change particle emission rate/speed based on sine wave at the last particle:
-        if (waterEmitter != null)
-        {
-            var main = waterEmitter.main;
-            main.startSpeed = Mathf.Lerp(flowSpeedMin,flowSpeedMax,sine);
+        //if (waterEmitter != null)
+        //{
+        //    var main = waterEmitter.main;
+        //    main.startSpeed = Mathf.Lerp(flowSpeedMin,flowSpeedMax,sine);
 
-            var emission = waterEmitter.emission;
-            emission.rateOverTime = Mathf.Lerp(minEmitRate, maxEmitRate, sine);
-        }
+        //    var emission = waterEmitter.emission;
+        //    emission.rateOverTime = Mathf.Lerp(minEmitRate, maxEmitRate, sine);
+        //}
     }
 
     public void LateUpdate() 
     {
-        if (smoother != null && waterEmitter != null)
-        {
-            ObiPathFrame section = smoother.GetSectionAt(1);
-            waterEmitter.transform.position = transform.TransformPoint(section.position);
-            waterEmitter.transform.rotation = transform.rotation * (Quaternion.LookRotation(section.tangent, section.binormal));
-        }
+        //if (smoother != null && waterEmitter != null)
+        //{
+        //    ObiPathFrame section = smoother.GetSectionAt(1);
+        //    waterEmitter.transform.position = transform.TransformPoint(section.position);
+        //    waterEmitter.transform.rotation = transform.rotation * (Quaternion.LookRotation(section.tangent, section.binormal));
+        //}
     }
 }   
 
