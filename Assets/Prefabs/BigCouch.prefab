@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5166567201326027825}
   - component: {fileID: 8646039895482429198}
   - component: {fileID: -1739714252135733954}
+  - component: {fileID: 3680731057729842711}
+  - component: {fileID: 4609139018011382302}
   m_Layer: 0
   m_Name: BigCouch
   m_TagString: Untagged
@@ -97,9 +99,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rb: {fileID: 5166567201326027824}
+  isPick: 0
   hoverColor: {r: 1, g: 0.43137255, b: 0, a: 1}
   pickedColor: {r: 1, g: 0.43137255, b: 0, a: 1}
   outline: {fileID: 8646039895482429198}
+--- !u!114 &3680731057729842711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5436474422828853605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thickness: 0
+  material: {fileID: 0}
+  filter: -65535
+  m_SourceCollider: {fileID: 5166567201326027825}
+  m_DistanceField: {fileID: 0}
+--- !u!114 &4609139018011382302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5436474422828853605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62359d80fdc0e4315ab6331b78ec5b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kinematicForParticles: 0
 --- !u!1 &6353005181815127104
 GameObject:
   m_ObjectHideFlags: 0

@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 4828286202777251588}
   - component: {fileID: 4828286202777251591}
   - component: {fileID: 4828286202777251589}
+  - component: {fileID: 456471619900484977}
   m_Layer: 0
   m_Name: PowerGenerator
   m_TagString: Untagged
@@ -240,7 +241,6 @@ MonoBehaviour:
   - {fileID: 4886933943958230082}
   - {fileID: 5697204532074667470}
   - {fileID: 5697204531494060223}
-  audioSource: {fileID: 0}
   outline: {fileID: 4828286202777251589}
 --- !u!114 &4828286202777251589
 MonoBehaviour:
@@ -260,6 +260,23 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &456471619900484977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828286202777251590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thickness: 0
+  material: {fileID: 0}
+  filter: -65535
+  m_SourceCollider: {fileID: 4828286202777251588}
+  m_DistanceField: {fileID: 0}
 --- !u!1 &4886933943958230082
 GameObject:
   m_ObjectHideFlags: 0

@@ -442,6 +442,7 @@ GameObject:
   - component: {fileID: 6942394223325667445}
   - component: {fileID: 6942394223325667447}
   - component: {fileID: 6942394223325667446}
+  - component: {fileID: 141699675986257895}
   m_Layer: 0
   m_Name: SlidingDoors
   m_TagString: Untagged
@@ -486,6 +487,7 @@ MonoBehaviour:
   enableLightMaterial: {fileID: 2100000, guid: 736f6926184c7bb43b3c04a4ad165960, type: 2}
   disableLightMaterial: {fileID: 2100000, guid: 56a1a4ae12d70df4dae743091f782a2b,
     type: 2}
+  disableOnComputerHack: 0
   statusIndicatorMaterials:
   - {fileID: 4021793914415772273}
   - {fileID: 9104086621614082206}
@@ -507,6 +509,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9, y: 3, z: 4}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &141699675986257895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6942394223325667442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thickness: 0
+  material: {fileID: 0}
+  filter: -65535
+  m_SourceCollider: {fileID: 6942394223325667446}
+  m_DistanceField: {fileID: 0}
 --- !u!1 &6942394223552366469
 GameObject:
   m_ObjectHideFlags: 0

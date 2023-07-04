@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 6340527307930548906}
   - component: {fileID: 1128815778451023230}
   - component: {fileID: -5258316709840655378}
+  - component: {fileID: 3261612214767815479}
+  - component: {fileID: 3356584237937902722}
   m_Layer: 0
   m_Name: Plante_1
   m_TagString: Untagged
@@ -154,6 +156,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rb: {fileID: 6609253556939222294, guid: 5f3ffc0e16720f64b811146e71c5d2be, type: 3}
+  isPick: 0
   hoverColor: {r: 1, g: 0.43137255, b: 0, a: 1}
   pickedColor: {r: 1, g: 0.43137255, b: 0, a: 1}
   outline: {fileID: 8009320849145652960, guid: 5f3ffc0e16720f64b811146e71c5d2be, type: 3}
+--- !u!114 &3261612214767815479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830662412381877384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thickness: 0
+  material: {fileID: 0}
+  filter: -65535
+  m_SourceCollider: {fileID: -7138080351365607579}
+  m_DistanceField: {fileID: 0}
+--- !u!114 &3356584237937902722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830662412381877384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62359d80fdc0e4315ab6331b78ec5b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kinematicForParticles: 0

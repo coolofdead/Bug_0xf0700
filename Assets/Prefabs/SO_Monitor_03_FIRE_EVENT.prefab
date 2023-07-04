@@ -85,7 +85,7 @@ PrefabInstance:
     - target: {fileID: 1602919587617632560, guid: d3943b0b2068344d8a189beb281d7e5b,
         type: 3}
       propertyPath: m_Name
-      value: SO_Monitor_03
+      value: SO_Monitor_03_FIRE_EVENT
       objectReference: {fileID: 0}
     - target: {fileID: 3244503349938191015, guid: d3943b0b2068344d8a189beb281d7e5b,
         type: 3}
@@ -124,34 +124,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3943b0b2068344d8a189beb281d7e5b, type: 3}
---- !u!1 &2562230061317385773 stripped
+--- !u!1 &8802860509558167262 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 5736005426652629443, guid: d3943b0b2068344d8a189beb281d7e5b,
+  m_CorrespondingSourceObject: {fileID: 1602919587617632560, guid: d3943b0b2068344d8a189beb281d7e5b,
     type: 3}
   m_PrefabInstance: {fileID: 7788056506103080942}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1370819697
+--- !u!114 &-5272940182080999517
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2562230061317385773}
+  m_GameObject: {fileID: 8802860509558167262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feeda0f663a2ddb4ca2d1dc8ed57a93c, type: 3}
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fire: {fileID: 7172217747772858806}
---- !u!114 &7172217747772858806 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1124890742052963928, guid: d3943b0b2068344d8a189beb281d7e5b,
-    type: 3}
-  m_PrefabInstance: {fileID: 7788056506103080942}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a5d73f7dd05a2c4dbd64e256f2ca3ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  thickness: 0
+  material: {fileID: 0}
+  filter: -65535
+  m_SourceCollider: {fileID: 0}
+  m_DistanceField: {fileID: 0}

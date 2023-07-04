@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 16041981197946198}
   - component: {fileID: 16041981197946199}
   - component: {fileID: 16041981197946196}
+  - component: {fileID: 7936158549511255949}
+  - component: {fileID: 5408755626060334637}
   m_Layer: 0
   m_Name: Office_desk
   m_TagString: Untagged
@@ -129,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rb: {fileID: 16041981197946193}
+  isPick: 0
   hoverColor: {r: 1, g: 0.4313832, b: 0, a: 1}
   pickedColor: {r: 1, g: 0, b: 0, a: 1}
   outline: {fileID: 16041981197946196}
@@ -150,3 +153,33 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &7936158549511255949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16041981197946154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thickness: 0
+  material: {fileID: 0}
+  filter: -65535
+  m_SourceCollider: {fileID: 16041981197946198}
+  m_DistanceField: {fileID: 0}
+--- !u!114 &5408755626060334637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16041981197946154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62359d80fdc0e4315ab6331b78ec5b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kinematicForParticles: 0

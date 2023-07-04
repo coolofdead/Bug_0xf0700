@@ -2835,6 +2835,7 @@ GameObject:
   - component: {fileID: 742465758}
   - component: {fileID: 742465759}
   - component: {fileID: 742465760}
+  - component: {fileID: -8382763527531147418}
   m_Layer: 0
   m_Name: plant
   m_TagString: Untagged
@@ -2987,6 +2988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rb: {fileID: 0}
+  isPick: 0
   hoverColor: {r: 1, g: 0.43137255, b: 0, a: 1}
   pickedColor: {r: 1, g: 0.43137255, b: 0, a: 1}
   outline: {fileID: 0}
@@ -3008,6 +3010,23 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &-8382763527531147418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3703966727682385801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thickness: 0
+  material: {fileID: 0}
+  filter: -65535
+  m_SourceCollider: {fileID: 0}
+  m_DistanceField: {fileID: 0}
 --- !u!1 &3732471303668181543
 GameObject:
   m_ObjectHideFlags: 0

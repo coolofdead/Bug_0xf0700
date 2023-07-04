@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 3092792103057502289}
   - component: {fileID: 3092792103057502294}
   - component: {fileID: 3092792103057502295}
+  - component: {fileID: 4344627164564405017}
   m_Layer: 0
   m_Name: door_entry_R_X+
   m_TagString: Door
@@ -247,6 +248,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyType: 0
+--- !u!114 &4344627164564405017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090284738659297370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thickness: 0
+  material: {fileID: 0}
+  filter: -65535
+  m_SourceCollider: {fileID: 3092792103057502289}
+  m_DistanceField: {fileID: 0}
 --- !u!1 &3091588234240297526
 GameObject:
   m_ObjectHideFlags: 0
