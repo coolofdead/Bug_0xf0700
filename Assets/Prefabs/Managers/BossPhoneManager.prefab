@@ -44,9 +44,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e0941a8368209d4c913c2098c6508b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireDelayToShowDialogue: 5
   fireDialogue: "C'est normal que les alarmes incendies soient activ\xE9es ?"
   fireDialogueAudio: {fileID: 8300000, guid: 448d68f7d5d450c4d9c68439e62dab87, type: 3}
-  minBugToSay: 5
+  minBugToSay: 8
   tooMuchBugsDialogue: Tu n'oublies pas de m'envoyer une photo quand tu as fini
   tooMuchBugsDialogueAudio: {fileID: 8300000, guid: 33fcb50dc9b55864090e36c0df6cdacd,
+    type: 3}
+  halfTimeLeftDialogue:
+  - "Hey Gerard, c'est ton boss pr\xE9f\xE9r\xE9 au telephone !"
+  - Je rentre bientot, j'ai hate de retrouver nos bureaux tout propre
+  halfTimeLeftDialogueAudio:
+  - {fileID: 8300000, guid: 8cdd05de1e47f564582130b9a661153d, type: 3}
+  - {fileID: 8300000, guid: 6e4b8c45ac0a68a48a779b974d4746db, type: 3}
+  quarterTimeLeftDialogue: Oui Gege, c'est encore moi, allez plus que 2min et tu
+    pourras rentrer chez toi
+  quarterTimeLeftDialogueAudio: {fileID: 8300000, guid: c190649de008259448610106db0d4683,
     type: 3}

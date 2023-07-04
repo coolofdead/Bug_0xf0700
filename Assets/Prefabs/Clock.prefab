@@ -952,8 +952,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4238966074758984083}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0.647, z: 0}
-  m_LocalScale: {x: 0.2635969, y: 1.5059737, z: 0.2064075}
+  m_LocalPosition: {x: 0.93, y: 0.647, z: 0}
+  m_LocalScale: {x: 0.98223114, y: 1.5059737, z: 0.2064075}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4238966074862138350}
@@ -1067,7 +1067,7 @@ Transform:
   m_GameObject: {fileID: 4238966074973983059}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.694, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4238966075144321084}
@@ -1096,33 +1096,33 @@ MonoBehaviour:
   timeLeftFeedback: {fileID: 1407210090}
   timeLeftFeedbackGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 0}
-    key1: {r: 0.54582316, g: 0.9528302, b: 0.48989856, a: 0}
-    key2: {r: 0.8763191, g: 0.9150943, b: 0.22877358, a: 1}
-    key3: {r: 1, g: 0.8156863, b: 0.30588236, a: 1}
-    key4: {r: 0.9150943, g: 0, b: 0, a: 0}
+    key0: {r: 0.3585026, g: 0.8018868, b: 0.2988163, a: 1}
+    key1: {r: 0.8763191, g: 0.9150943, b: 0.22877358, a: 1}
+    key2: {r: 1, g: 0.8156863, b: 0.30588236, a: 1}
+    key3: {r: 0.9150943, g: 0, b: 0, a: 1}
+    key4: {r: 0.9150943, g: 0, b: 0, a: 1}
     key5: {r: 0.9150943, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 26407
-    ctime2: 42983
-    ctime3: 49922
+    ctime1: 42983
+    ctime2: 49922
+    ctime3: 65535
     ctime4: 65535
     ctime5: 65535
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 14649
-    atime2: 25829
+    atime1: 65535
+    atime2: 65535
     atime3: 65535
-    atime4: 0
+    atime4: 65535
     atime5: 0
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 5
-    m_NumAlphaKeys: 4
+    m_NumColorKeys: 4
+    m_NumAlphaKeys: 2
 --- !u!1 &4238966075111486781
 GameObject:
   m_ObjectHideFlags: 0

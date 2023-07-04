@@ -23,12 +23,26 @@ public class DialogueManager : MonoBehaviour
     public AudioClip phoneRingingAudioClip;
     public int totalPhoneRingBeforeDialogue = 2;
 
-    private bool showLongDialogue;
+    [Header("Random Bullshit Dialogues")]
+    public float throwRandomDialogueEverySec = 150;
+    public BullshitDialogues[] randomDialogues;
+
+    public bool IsShowingDialogue { get; private set; }
     private bool showNextLongDialogue;
 
     private void Awake()
     {
         Instance = this;
+
+        InvokeRepeating("ThrowRandomBullshitDialogue", 0, throwRandomDialogueEverySec);
+    }
+
+    private void ThrowRandomBullshitDialogue()
+    {
+        if (IsShowingDialogue) return;
+
+        int randomDialogueId = UnityEngine.Random.Range(0, randomDialogues.Length);
+        ShowDialogue(randomDialogues[randomDialogueId].dialogues, randomDialogues[randomDialogueId].dialoguesAudioClips);
     }
 
     public void OnDialogueShown()
@@ -53,7 +67,7 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator ShowLongDialogue(string[] textsToShow, AudioClip[] audioClips = null, Action onLongDialogueDone = null)
     {
-        showLongDialogue = true;
+        IsShowingDialogue = true;
 
         audioSource.clip = phoneRingingAudioClip;
         for (int i = 0; i < totalPhoneRingBeforeDialogue; i++)
@@ -88,6 +102,13 @@ public class DialogueManager : MonoBehaviour
         phoneAnimator.Play("HangUp");
 
         onLongDialogueDone?.Invoke();
-        showLongDialogue = false;
+        IsShowingDialogue = false;
+    }
+
+    [Serializable]
+    public struct BullshitDialogues
+    {
+        public string[] dialogues;
+        public AudioClip[] dialoguesAudioClips;
     }
 }

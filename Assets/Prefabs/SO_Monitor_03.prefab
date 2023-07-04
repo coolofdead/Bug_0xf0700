@@ -1583,9 +1583,11 @@ MonoBehaviour:
   blinkExtinguisherTime: 0.35
   timeLeftSlider: {fileID: 2817739441286651235}
   <fire>k__BackingField: {fileID: 1124890742052963928}
-  hoverColor: {r: 1, g: 0.43137255, b: 0, a: 1}
-  pickedColor: {r: 1, g: 0.43137255, b: 0, a: 1}
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  pickedColor: {r: 1, g: 1, b: 1, a: 1}
   outline: {fileID: 6115339589947491367}
+  outlineAnimateTime: 0.6
+  <CanBeHackHonce>k__BackingField: 0
   <FloorLevel>k__BackingField: 1
 --- !u!54 &3943840808531938002
 Rigidbody:

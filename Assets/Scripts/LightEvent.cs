@@ -41,7 +41,7 @@ public class LightEvent : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L)) TurnOffAllLights();
+        //if (Input.GetKeyDown(KeyCode.L)) TurnOffAllLights();
     }
 
     private void TryToTurnOffLights()
@@ -96,7 +96,7 @@ public class LightEvent : MonoBehaviour
 
         if (!showDialogueOnce || !hasShownDialogue)
         {
-            hasShownDialogue = false;
+            hasShownDialogue = true;
             DialogueManager.Instance.ShowDialogue(dialoguesOnLightsOff, dialoguesAudioClipsOnLightsOff);
         }
     }

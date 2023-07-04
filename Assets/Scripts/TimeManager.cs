@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TimeManager : MonoBehaviour
 {
+    public static Action<TimeManager> onTimeStart;
+    public static Action onTimeOver;
+
     public const int HOURS_IN_DAY = 12, MINUTES_IN_HOUR = 60;
 
     public float levelDurationInMinutes = 5;
@@ -11,11 +15,26 @@ public class TimeManager : MonoBehaviour
 
     private float totalTime = 0;
     private float currentTime = 0;
+    private bool startTime;
 
-    void Update()
+    public void StartTime()
     {
+        startTime = true;
+        onTimeStart?.Invoke(this);
+    }
+
+    private void Update()
+    {
+        if (!startTime) return;
+
         totalTime += Time.deltaTime;
         currentTime = totalTime % levelDuration;
+
+        if (totalTime >= levelDuration)
+        {
+            startTime = false;
+            onTimeOver?.Invoke();
+        }
     }
 
     public float GetHour()

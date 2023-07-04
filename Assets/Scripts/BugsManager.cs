@@ -12,10 +12,18 @@ public class BugsManager : MonoBehaviour
     public static BugsManager Instance { get; private set; }
 
     [Header("Tuto Related")]
-    public float newBugAfterTime;
+    public float rushMinNewBugAfterTime;
+    public float rushMaxNewBugAfterTime;
+    public float chillMinNewBugAfterTime;
+    public float chillMaxNewBugAfterTime;
+    public float durationOfRushTime = 15f;
+    public float durationOfChillTime = 15f;
+
+    private bool isInRush;
 
     [Header("Bug Related")]
-    public float timeBetweenBugs = 45f;
+    public float delayBeforeNextBugOnFixFirstBug = 30f;
+    public float smallDelayBetweenMutlipleBugs= 6f;
     public float addOneToMaxComputersHackPerFix = 4;
     public AnimationCurve percentageOfHavingTwoBugs;
     public AudioSource audioSource;
@@ -34,7 +42,7 @@ public class BugsManager : MonoBehaviour
 
     public int TotalOfComputersHacked { get; private set; }
     public int TotalOfComputersFixed { get; private set; }
-
+    
     private void Awake()
     {
         Instance = this;
@@ -44,31 +52,25 @@ public class BugsManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B)) BugAppear();
+        //if (Input.GetKeyDown(KeyCode.B)) BugAppear();
     }
 
-    public void StartBugs()
-    {
-        Invoke("MakeBug", timeBetweenBugs);
-    }
-
-    private void MakeBug(int floorLevel)
-    {
-        if (lightEvent.AreLightsDown) return;
-
-        TotalOfComputersHacked++;
-
-        var rnd = new System.Random();
-        var computersNotBugged = computers.Where((computer) => !computer.IsBugged && computer.FloorLevel == floorLevel).ToList();
-        var computerToBug = computersNotBugged[UnityEngine.Random.Range(0, computersNotBugged.Count)];
-        computerToBug.CreateBug();
-    }
     public void BugAppear()
     {
         int floorLevelBug = UnityEngine.Random.Range(1, 4);
         MakeBug(floorLevelBug);
 
         FireHackEvent();
+    }
+
+    private void MakeBug(int floorLevel)
+    {
+        TotalOfComputersHacked++;
+
+        var rnd = new System.Random();
+        var computersNotBugged = computers.Where((computer) => !computer.IsBugged && computer.FloorLevel == floorLevel).ToList();
+        var computerToBug = computersNotBugged[UnityEngine.Random.Range(0, computersNotBugged.Count)];
+        computerToBug.CreateBug();
     }
 
     private void OnComputerBugResolved(Computer computer)
@@ -78,21 +80,11 @@ public class BugsManager : MonoBehaviour
 
         if (TotalOfComputersFixed == 1) // Tutorial done
         {
-            Invoke("BugAppear", newBugAfterTime);
+            StartCoroutine(ThrowBugs());
         }
         else if (TotalOfComputersFixed == 2)
         {
             lightEvent.TurnOffAllLights();
-            Invoke("BugAppear", newBugAfterTime);
-        }
-        else
-        {
-            var percentage = percentageOfHavingTwoBugs.Evaluate(TotalOfComputersFixed);
-            int nbBugToMake = UnityEngine.Random.Range(0, 100) < percentage ? 1 : 1 + (int)(TotalOfComputersFixed / addOneToMaxComputersHackPerFix);
-            for (int i = 0; i < nbBugToMake; i++)
-            {
-                BugAppear();
-            }
         }
     }
 
@@ -127,6 +119,43 @@ public class BugsManager : MonoBehaviour
     private void HideWarningUI()
     {
         warningCoverUI.SetTrigger("HideWarning");
+    }
+
+    private IEnumerator ThrowBugs()
+    {
+        yield return new WaitForSeconds(delayBeforeNextBugOnFixFirstBug);
+
+        StartCoroutine(HandleChillTime());
+
+        while (true)
+        {
+            var percentage = percentageOfHavingTwoBugs.Evaluate(TotalOfComputersFixed);
+            int nbBugToMake = UnityEngine.Random.Range(0, 100) < percentage ? 1 : 1 + (int)(TotalOfComputersFixed / addOneToMaxComputersHackPerFix);
+            print(nbBugToMake);
+            for (int i = 0; i < nbBugToMake; i++)
+            {
+                BugAppear();
+
+                yield return new WaitForSeconds(smallDelayBetweenMutlipleBugs + WarningLight.warningLightDuration);
+            }
+
+            var waitTime = isInRush ? UnityEngine.Random.Range(chillMinNewBugAfterTime, chillMaxNewBugAfterTime) : UnityEngine.Random.Range(rushMinNewBugAfterTime, rushMaxNewBugAfterTime);
+            yield return new WaitForSeconds(waitTime);
+        }
+    }
+
+    private  IEnumerator HandleChillTime()
+    {
+        while (true)
+        {
+            isInRush = false;
+
+            yield return new WaitForSeconds(durationOfChillTime);
+
+            isInRush = true;
+
+            yield return new WaitForSeconds(durationOfRushTime);
+        }
     }
 
     private void OnDestroy()

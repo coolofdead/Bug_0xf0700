@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class TutoDialogue : MonoBehaviour
 {
+    public TimeManager timeManager;
+
     [Header("Tuto")]
     public Projector tutoProjector;
     public Computer tutoComputerToHack;
@@ -12,6 +14,7 @@ public class TutoDialogue : MonoBehaviour
     public Animator elevatorTutoAnimator;
     public float showBugAfterDelay = 3f;
     public float showProjectorAfterDelay = 3f;
+    public GameObject clickBookUI;
 
     [Header("Tuto Step 1")]
     public string[] tutoDialogue;
@@ -56,7 +59,10 @@ public class TutoDialogue : MonoBehaviour
 
     private void OnComputerFix(Computer computer)
     {
-        // DialogueManager.Instance.ShowDialogue(tutoAfterWarningDialogue, tutoAfterWarningAudioClips, () => Destroy(gameObject));
+        DialogueManager.Instance.ShowDialogue(tutoAfterWarningDialogue, tutoAfterWarningAudioClips, () => Destroy(this));
+        timeManager.StartTime();
+
+        clickBookUI.SetActive(false);
     }
 
     private void OnDestroy()
