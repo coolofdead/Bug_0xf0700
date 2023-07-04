@@ -40,7 +40,7 @@ public class FlashLight : ObjectPickable
         Rb.constraints = RigidbodyConstraints.None;
         DisableOutline();
         isPick = false;
-        transform.parent = transform.root;
+        transform.SetParent(null);
     }
 
     public void Update()
