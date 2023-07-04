@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator Pop()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         popup.Pop();
     }
 }
