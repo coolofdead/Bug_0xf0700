@@ -15,6 +15,11 @@ public class BookController : MonoBehaviour
     public GameObject scrollWheelFeedback;
     public float showScrollWheelFeedbackAfterDelay = 0.7f;
 
+    [Header("Fucked Up Rotation")]
+    public Vector3 fuckedUpBookRotation = new Vector3(-0.000169047184f, 74.9999847f, 270.000061f);
+    public Vector3 defaultBookRotation = new Vector3(0, 285, 90);
+    [Range(0f, 1f)] public float chanceOpenBookFuckedUp = 0.3f;
+
     [HideInInspector] public bool CanPickupBook = true;
 
     [field:SerializeField] public bool PickupBook { get; private set; } = false;
@@ -62,7 +67,8 @@ public class BookController : MonoBehaviour
         if (!CanPickupBook) return;
 
         PickupBook = !PickupBook;
-        
+
+        CancelInvoke();
         // Either show or hide book
         if (PickupBook) Invoke("ShowScrollWheelFeedback", showScrollWheelFeedbackAfterDelay);
         if (PickupBook)
@@ -73,6 +79,8 @@ public class BookController : MonoBehaviour
         pointerUI.SetActive(!PickupBook);
         bookAnimator.Play(PickupBook ? "OpenBook" : "CloseBook");
         if (!PickupBook) scrollWheelFeedback.SetActive(false);
+
+        if (PickupBook) bookFix.transform.localRotation = Random.Range(0f, 1f) <= chanceOpenBookFuckedUp ? Quaternion.Euler(fuckedUpBookRotation) : Quaternion.Euler(defaultBookRotation);
     }
 
     private void BookNextPage()

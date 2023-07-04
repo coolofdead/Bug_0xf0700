@@ -14,10 +14,33 @@ public class BossPhoneManager : MonoBehaviour
     public string tooMuchBugsDialogue = "Tu n'oublies pas de m'envoyer une photo quand tu as fini";
     public AudioClip tooMuchBugsDialogueAudio;
 
+    [Header("Time left Dialogue")]
+    public string[] halfTimeLeftDialogue;
+    public AudioClip[] halfTimeLeftDialogueAudio;
+    public string quarterTimeLeftDialogue = "Tu n'oublies pas de m'envoyer une photo quand tu as fini";
+    public AudioClip quarterTimeLeftDialogueAudio;
+
     private void Start()
     {
         Computer.onComputerHack += OnComputerHack;
         Computer.onComputerFire += OnComputerFire;
+        TimeManager.onTimeStart += OnTimeStart;
+    }
+
+    private void OnTimeStart(TimeManager timeManager)
+    {
+        Invoke("HalfTimeDialogue", timeManager.levelDurationInMinutes * 0.5f * 60f);
+        Invoke("QuarterTimeDialogue", timeManager.levelDurationInMinutes * 0.75f * 60f);
+    }
+
+    private void HalfTimeDialogue()
+    {
+        DialogueManager.Instance.ShowDialogue(halfTimeLeftDialogue, halfTimeLeftDialogueAudio);
+    }
+
+    private void QuarterTimeDialogue()
+    {
+        DialogueManager.Instance.ShowDialogue(quarterTimeLeftDialogue, quarterTimeLeftDialogueAudio);
     }
 
     private void OnComputerHack(Computer computer)
@@ -37,5 +60,6 @@ public class BossPhoneManager : MonoBehaviour
     {
         Computer.onComputerHack -= OnComputerHack;
         Computer.onComputerFire -= OnComputerFire;
+        TimeManager.onTimeStart -= OnTimeStart;
     }
 }

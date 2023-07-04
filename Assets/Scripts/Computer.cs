@@ -12,6 +12,8 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
     public static Action<Computer> onComputerHack;
     public static Action<Computer> onComputerFix;
 
+    public static int TotalComputerPutOnFire { get; private set; }
+
     [Header("Computer")]
     [SerializeField] private CinemachineVirtualCamera computerCamera;
     [SerializeField] private RansomWare ransomWare;
@@ -32,8 +34,11 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
     [SerializeField] private Color hoverColor;
     [SerializeField] private Color pickedColor;
     [SerializeField] private Outline outline;
-
+    [SerializeField] private float outlineAnimateTime = 0.4f;
+    
     public bool IsBugged { get; private set; } = false;
+    [field: SerializeField] public bool CanBeHackHonce { get; private set; } = false;
+
     [field: SerializeField] public int FloorLevel { get; set; } = 1;
 
     private Action releasePlayerMovementCallback;
@@ -68,12 +73,15 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
     {
         if (!IsBugged) return;
 
+        TotalComputerPutOnFire++;
+
         outline.enabled = false;
         particles.SetActive(false);
         bugRedLight.SetActive(false);
         timeLeftSlider.SetActive(false);
         extinguisherBigImageContainer.SetActive(true);
         LeanTween.cancel(timeLeftImage.gameObject);
+        LeanTween.cancel(outline.gameObject);
         var targetColor = extinguisherBigImage.color;
         targetColor.a = 0;
         LeanTween.value(extinguisherBigImage.gameObject, (Color c) => extinguisherBigImage.color = c, extinguisherBigImage.color, targetColor, blinkExtinguisherTime).setLoopPingPong();
@@ -82,6 +90,8 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
         releasePlayerMovementCallback?.Invoke();
 
         fire.StartFire();
+
+        onComputerFire?.Invoke(this);
     }
 
     public void Interact()
@@ -97,12 +107,14 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
 
     public void FixBug()
     {
-        IsBugged = false;
+        if (!CanBeHackHonce) IsBugged = false;
+
         particles.SetActive(false);
         canvas.SetActive(false);
         bugRedLight.SetActive(false);
         timeLeftSlider.SetActive(false);
         LeanTween.cancel(timeLeftImage.gameObject);
+        LeanTween.cancel(outline.gameObject);
 
         computerCamera.enabled = false;
         releasePlayerMovementCallback?.Invoke();
@@ -115,6 +127,7 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
 
         outline.enabled = true;
         outline.OutlineColor = hoverColor;
+        LeanTween.value(outline.gameObject, (float v) => outline.OutlineWidth = v, 8f, 26f, outlineAnimateTime).setLoopPingPong();
     }
 
     public void ExitHover()
@@ -123,6 +136,7 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
 
         outline.enabled = false;
         outline.OutlineColor = pickedColor;
+        LeanTween.cancel(outline.gameObject);
     }
 
     public void DisablePlayerMovement(Action releasePlayerMovementCallback)

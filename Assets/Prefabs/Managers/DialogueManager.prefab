@@ -55,6 +55,28 @@ MonoBehaviour:
   phoneRingingAudioClip: {fileID: 8300000, guid: 1ecf0a85c1289244d8139df3ffad6eda,
     type: 3}
   totalPhoneRingBeforeDialogue: 2
+  throwRandomDialogueEverySec: 150
+  randomDialogues:
+  - dialogues:
+    - "TFR Mobile bonjour, vous auriez 2 petites minutes \xE0 nous accorder ?"
+    - "C'est pour vous parlez d'une super offre dont vous seul pouvez b\xE9n\xE9ficier."
+    - Allo ?  Allo ? Tous les memes...
+    dialoguesAudioClips:
+    - {fileID: 8300000, guid: 396f95b3d642f654c828f1152f115afb, type: 3}
+    - {fileID: 8300000, guid: fa6a934cfbdaf694682f828502a0eb39, type: 3}
+    - {fileID: 8300000, guid: e79266a9c4e8c454b9c86da03e57c09a, type: 3}
+  - dialogues:
+    - Yo man, me dis  pas que c'est toi qui a fini ma pizza
+    - "Tu d\xE9connes man......."
+    dialoguesAudioClips:
+    - {fileID: 8300000, guid: 617bc4a4f5fb2ff4291e959130d66ecd, type: 3}
+    - {fileID: 8300000, guid: 2cdb35b72146a114ab6ca5acbfe23c45, type: 3}
+  - dialogues:
+    - Allo mon poussin, c'est maman
+    - Tu pourrais quand meme ranger tes affaires, c'est un vrai bazard ta chambre
+    dialoguesAudioClips:
+    - {fileID: 8300000, guid: 999406a556873f046a7d7127cf3857c3, type: 3}
+    - {fileID: 8300000, guid: a48fdb0d654a7224dbaf39e8436d19f0, type: 3}
 --- !u!82 &5175374873859386206
 AudioSource:
   m_ObjectHideFlags: 0

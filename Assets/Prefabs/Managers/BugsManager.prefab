@@ -45,48 +45,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803f6c91e70a1446f852c147cdf0bb6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugBugWithB: 1
-  newBugAfterTime: 15
-  timeBetweenBugs: 45
-  addOneToMaxComputersHackPerFix: 4
+  rushMinNewBugAfterTime: 4
+  rushMaxNewBugAfterTime: 8
+  chillMinNewBugAfterTime: 12
+  chillMaxNewBugAfterTime: 20
+  durationOfRushTime: 80
+  durationOfChillTime: 20
+  delayBeforeNextBugOnFixFirstBug: 25
+  smallDelayBetweenMutlipleBugs: 4
+  addOneToMaxComputersHackPerFix: 3
   percentageOfHavingTwoBugs:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1.1712886
-      outSlope: 1.1712886
+      inSlope: 3.6827798
+      outSlope: 3.6827798
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.1064982
-    - serializedVersion: 3
-      time: 3.9638965
-      value: 30.176699
-      inSlope: 0.2917787
-      outSlope: 0.2917787
-      tangentMode: 0
-      weightedMode: 3
-      inWeight: 0.15162456
-      outWeight: 0.42649934
-    - serializedVersion: 3
-      time: 9.992758
-      value: 84.15578
-      inSlope: 18.016937
-      outSlope: 18.016937
-      tangentMode: 0
-      weightedMode: 3
-      inWeight: 0.13118768
-      outWeight: 0.05483614
+      outWeight: 0.01811311
     - serializedVersion: 3
       time: 20
-      value: 100
-      inSlope: -0.38392368
-      outSlope: -0.38392368
+      value: 20
+      inSlope: 0.093757465
+      outSlope: 0.093757465
       tangentMode: 0
       weightedMode: 1
-      inWeight: 0.58961993
+      inWeight: 0.40700698
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

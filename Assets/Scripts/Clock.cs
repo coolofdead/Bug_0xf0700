@@ -19,12 +19,12 @@ public class Clock : MonoBehaviour
     private bool clockIsRunning;
     private float startClockTime;
 
-    private void Start()
+    private void Awake()
     {
-        StartClock();
+        TimeManager.onTimeStart += StartClock;
     }
 
-    private void StartClock()
+    private void StartClock(TimeManager timeManager)
     {
         clockIsRunning = true;
         startClockTime = Time.time;
@@ -45,7 +45,12 @@ public class Clock : MonoBehaviour
         timeLeftFeedback.color = timeLeftFeedbackGradient.Evaluate((Time.time - startClockTime) / timeManager.levelDuration);
         timeLeftFeedback.fillAmount = 1 - timeManager.GetHour() / TimeManager.HOURS_IN_DAY;
         
-        bigClock.rotation = Quaternion.Euler(0, 0, -timeManager.GetMinutes() * MINUTES_TO_DEGREES);
-        smallClock.rotation = Quaternion.Euler(0, 0, -timeManager.GetHour() * HOURS_TO_DEGREES);
+        bigClock.localRotation = Quaternion.Euler(0, timeManager.GetMinutes() * MINUTES_TO_DEGREES, 0);
+        smallClock.localRotation = Quaternion.Euler(0, timeManager.GetHour() * HOURS_TO_DEGREES, 0);
+    }
+
+    private void OnDestroy()
+    {
+        TimeManager.onTimeStart -= StartClock;
     }
 }
