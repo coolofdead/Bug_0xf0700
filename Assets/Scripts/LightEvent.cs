@@ -14,6 +14,7 @@ public class LightEvent : MonoBehaviour
     public float lightEventEverySec = 40;
 
     [Header("Lights")]
+    public GameObject sun;
     public Image blackScreen;
     public Image blackScreenTransition;
     public float timeToRestoreSomeOpacity;
@@ -47,6 +48,7 @@ public class LightEvent : MonoBehaviour
     public void TurnOffAllLights()
     {
         blackScreen.color = Color.black;
+        sun.transform.Rotate(-150, sun.transform.rotation.y, sun.transform.rotation.z);
         audioSource.Play();
 
         Invoke("RestoreSomeOpacity", timeToRestoreSomeOpacity);
@@ -54,6 +56,7 @@ public class LightEvent : MonoBehaviour
 
     public void TurnOnAllLights()
     {
+        sun.transform.Rotate(200, sun.transform.rotation.y, sun.transform.rotation.z);
         blackScreen.color = new Color(0, 0, 0, 0);
 
         onLightTurnOn?.Invoke();
