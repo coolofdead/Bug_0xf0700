@@ -83,6 +83,7 @@ public class Fire : MonoBehaviour
         if (currentIntensity <= 0)
         {
             isLit = false;
+            start = false;
             return true;
         }
         

@@ -14483,9 +14483,9 @@ GameObject:
   - component: {fileID: 1837029093626957433}
   - component: {fileID: 1994800393873310019}
   - component: {fileID: 1994331644578550609}
-  - component: {fileID: 1832507702744330571}
   - component: {fileID: 1832507702744330570}
   - component: {fileID: 1832507702744330567}
+  - component: {fileID: 5035241449978286651}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
@@ -19303,20 +19303,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!136 &1832507702744330571
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1831297854410432851}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1.18
-  m_Height: 4.33
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 1.67}
 --- !u!82 &1832507702744330570
 AudioSource:
   m_ObjectHideFlags: 0
@@ -19439,7 +19425,19 @@ MonoBehaviour:
   regenRate: 0.1
   timeBeforeSpreading: 25
   spreadRange: 2.5
-  debugSpread: 0
+--- !u!65 &5035241449978286651
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831297854410432851}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3573179, y: 0.6301669, z: 3.6942334}
+  m_Center: {x: -0.031341076, y: 0.39491686, z: 1.5460155}
 --- !u!1 &1831767925683394025
 GameObject:
   m_ObjectHideFlags: 0
