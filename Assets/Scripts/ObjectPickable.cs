@@ -9,6 +9,7 @@ public class ObjectPickable : MonoBehaviour, IInteractable
 {
     [field:Header("Handle")]
     [field:SerializeField] public bool ShoudBeHoldInHand { get; private set; }  = false;
+    public RigidbodyConstraints onHandConstraints = RigidbodyConstraints.FreezeAll;
     public Vector3 sizeInHand = Vector3.one;
     [field:SerializeField] public Rigidbody Rb;
 
@@ -42,7 +43,7 @@ public class ObjectPickable : MonoBehaviour, IInteractable
 
         if (ShoudBeHoldInHand)
         {
-            Rb.constraints = RigidbodyConstraints.FreezePosition;
+            Rb.constraints = onHandConstraints;
             transform.localPosition = Vector3.zero;
             transform.localScale = sizeInHand;
             transform.localRotation = Quaternion.identity;

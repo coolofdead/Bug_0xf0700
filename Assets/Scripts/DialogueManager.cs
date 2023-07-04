@@ -34,7 +34,7 @@ public class DialogueManager : MonoBehaviour
     {
         Instance = this;
 
-        InvokeRepeating("ThrowRandomBullshitDialogue", 0, throwRandomDialogueEverySec);
+        InvokeRepeating("ThrowRandomBullshitDialogue", throwRandomDialogueEverySec, throwRandomDialogueEverySec);
     }
 
     private void ThrowRandomBullshitDialogue()

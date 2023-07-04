@@ -57,7 +57,7 @@ public class PlayerInteractionController : MonoBehaviour
 
     private void HandlePickupObjectPhysics(Vector2 moveDirection)
     {
-        if (ObjectPicked == null) return;
+        if (ObjectPicked == null || !ObjectPicked.ShoudBeHoldInHand) return;
         
         ObjectPicked.Rb.AddForce(moveDirection * pickedObjectPhysicsForce);
     }

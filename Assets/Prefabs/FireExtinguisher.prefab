@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 6144111319259201617}
   - component: {fileID: 6144111319259201616}
   - component: {fileID: 6144111319259201615}
-  - component: {fileID: 6144111319259201614}
+  - component: {fileID: 6783490495838622630}
   m_Layer: 0
   m_Name: FireExtinguisher
   m_TagString: Untagged
@@ -283,7 +283,7 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &6144111319259201614
+--- !u!114 &6783490495838622630
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,10 +292,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5025081387803432381}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5074bdb8d89a317498c3bde8515dbefa, type: 3}
+  m_Script: {fileID: 11500000, guid: 7eaad6312a7e9ad4f98d3c3e3008d6d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <ShoudBeHoldInHand>k__BackingField: 1
+  onHandConstraints: 126
   sizeInHand: {x: 0.6, y: 0.6, z: 0.6}
   Rb: {fileID: 6144111319259201616}
   hoverColor: {r: 1, g: 1, b: 1, a: 1}
@@ -332,6 +333,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  exctinctRange: 4
+  forwardRangeAdditive: 4
+  sphereCastInterval: 0.5
 --- !u!1 &6455854323508492500
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,7 +621,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.4
+      scalar: 0.6
       minScalar: 1
       maxCurve:
         serializedVersion: 2

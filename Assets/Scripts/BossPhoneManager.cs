@@ -8,11 +8,13 @@ public class BossPhoneManager : MonoBehaviour
     public float fireDelayToShowDialogue = 5f;
     public string fireDialogue = "C'est normal que les alarmes incendies soient activées ?";
     public AudioClip fireDialogueAudio;
+    private bool hasShownFireDialogue = false;
 
     [Header("A lot of bugs Dialogue")]
     public int minBugToSay = 5;
     public string tooMuchBugsDialogue = "Tu n'oublies pas de m'envoyer une photo quand tu as fini";
     public AudioClip tooMuchBugsDialogueAudio;
+    private bool hasShownLottaBugDialogue = false;
 
     [Header("Time left Dialogue")]
     public string[] halfTimeLeftDialogue;
@@ -45,15 +47,20 @@ public class BossPhoneManager : MonoBehaviour
 
     private void OnComputerHack(Computer computer)
     {
-        if (BugsManager.Instance.TotalOfComputersHacked >= minBugToSay)
+        if (BugsManager.Instance.TotalOfComputersHacked >= minBugToSay && !hasShownLottaBugDialogue)
         {
+            hasShownLottaBugDialogue = true;
             DialogueManager.Instance.ShowDialogue(tooMuchBugsDialogue, tooMuchBugsDialogueAudio);
         }
     }
 
     private void OnComputerFire(Computer computer)
     {
-        DialogueManager.Instance.ShowDialogue(fireDialogue, fireDialogueAudio);
+        if (!hasShownFireDialogue)
+        {
+            hasShownFireDialogue = true;
+            DialogueManager.Instance.ShowDialogue(fireDialogue, fireDialogueAudio);
+        }
     }
 
     private void OnDestroy()

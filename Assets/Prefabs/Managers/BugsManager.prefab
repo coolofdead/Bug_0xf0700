@@ -45,10 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803f6c91e70a1446f852c147cdf0bb6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rushMinNewBugAfterTime: 4
-  rushMaxNewBugAfterTime: 8
-  chillMinNewBugAfterTime: 12
-  chillMaxNewBugAfterTime: 20
+  rushMinNewBugAfterTime: 5
+  rushMaxNewBugAfterTime: 10
+  chillMinNewBugAfterTime: 14
+  chillMaxNewBugAfterTime: 22
   durationOfRushTime: 80
   durationOfChillTime: 20
   delayBeforeNextBugOnFixFirstBug: 25
@@ -63,9 +63,18 @@ MonoBehaviour:
       inSlope: 3.6827798
       outSlope: 3.6827798
       tangentMode: 0
-      weightedMode: 0
+      weightedMode: 2
       inWeight: 0
-      outWeight: 0.01811311
+      outWeight: 0.3488873
+    - serializedVersion: 3
+      time: 3.5499215
+      value: 16.475246
+      inSlope: 3.1401224
+      outSlope: 3.1401224
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.32383534
+      outWeight: 0.099218294
     - serializedVersion: 3
       time: 20
       value: 20
@@ -73,7 +82,7 @@ MonoBehaviour:
       outSlope: 0.093757465
       tangentMode: 0
       weightedMode: 1
-      inWeight: 0.40700698
+      inWeight: 0.40006262
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

@@ -2450,6 +2450,7 @@ MonoBehaviour:
   elevatorTutoAnimator: {fileID: 744912074441558595}
   showBugAfterDelay: 4
   showProjectorAfterDelay: 15
+  clickBookUI: {fileID: 0}
   tutoDialogue:
   - Oui Gerard, je viens de partir.
   - Tu pourrais faire la fermeture de la boite ce soir ?
@@ -4063,11 +4064,6 @@ PrefabInstance:
         type: 3}
       propertyPath: prewarm
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3220704423534629569, guid: 5695e7cb031d4fd4ab398da8a2b686df,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4314383035557519972, guid: 5695e7cb031d4fd4ab398da8a2b686df,
         type: 3}

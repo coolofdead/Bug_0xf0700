@@ -37,6 +37,7 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
     [SerializeField] private float outlineAnimateTime = 0.4f;
     
     public bool IsBugged { get; private set; } = false;
+    public bool IsOnFire => fire.start;
     [field: SerializeField] public bool CanBeHackHonce { get; private set; } = false;
 
     [field: SerializeField] public int FloorLevel { get; set; } = 1;
@@ -115,6 +116,7 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
         timeLeftSlider.SetActive(false);
         LeanTween.cancel(timeLeftImage.gameObject);
         LeanTween.cancel(outline.gameObject);
+        CancelInvoke("StartFire");
 
         computerCamera.enabled = false;
         releasePlayerMovementCallback?.Invoke();

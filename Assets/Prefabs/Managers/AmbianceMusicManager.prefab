@@ -47,11 +47,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ambianceMusics:
   - audioClip: {fileID: 8300000, guid: f7cbdeb67c9214b8ba9ad7f4c3796db5, type: 3}
-    volume: 1
+    volume: 0.6
   - audioClip: {fileID: 8300000, guid: 150142346a118433593de8ea98d4ce06, type: 3}
-    volume: 1
+    volume: 0.6
   - audioClip: {fileID: 8300000, guid: 22d2ad48b6911493bb4cf608ca943f74, type: 3}
-    volume: 1
+    volume: 0.6
   audioSource: {fileID: 5386517822527443294}
 --- !u!82 &5386517822527443294
 AudioSource:
