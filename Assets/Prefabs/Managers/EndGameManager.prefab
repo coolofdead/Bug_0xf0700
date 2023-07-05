@@ -44,3 +44,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1515b77f65b085e458836350e44e6699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endGamePanel: {fileID: 0}
+  continueButton: {fileID: 0}
+  continueButtonIdleColor: {r: 0.5764706, g: 0.49411765, b: 0.38431373, a: 1}
+  continueButtonIdleTime: 0.7
+  showPayCheck: {fileID: 7400000, guid: e2bfdea5c14ff874da59f5858691b91d, type: 2}
+  loadingText: {fileID: 0}
+  fakeDelayToLoadIntroScene: 3
+  playerObjectScore: 50
+  lightScore: 150
+  timeScore: 5000
+  computerHackedScore: 80
+  computerFiredScore: 60
+  computerFixedScore: 150
+  totalTMP: {fileID: 0}
+  nbPlayerObjectsTMP: {fileID: 0}
+  nbLightsTMP: {fileID: 0}
+  nbTimeTMP: {fileID: 0}
+  nbComputerHackedTMP: {fileID: 0}
+  nbComputerFiredTMP: {fileID: 0}
+  nbComputerFixedTMP: {fileID: 0}
+  scorePlayerObjectsTMP: {fileID: 0}
+  scoreLightsTMP: {fileID: 0}
+  scoreTimeTMP: {fileID: 0}
+  scoreComputerHackedTMP: {fileID: 0}
+  scoreComputerFiredTMP: {fileID: 0}
+  scoreComputerFixedTMP: {fileID: 0}
+  totalPlayerObjectsTMP: {fileID: 0}
+  totalLightsTMP: {fileID: 0}
+  totalTimeTMP: {fileID: 0}
+  totalComputerHackedTMP: {fileID: 0}
+  totalComputerFiredTMP: {fileID: 0}
+  totalComputerFixedTMP: {fileID: 0}

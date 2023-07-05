@@ -68,6 +68,7 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
         extinguisherBigImageContainer.SetActive(false);
         LeanTween.cancel(extinguisherBigImage.gameObject);
         canvas.SetActive(false);
+        onComputerFix?.Invoke(this);
     }
 
     public void StartFire()

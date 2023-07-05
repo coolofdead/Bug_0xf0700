@@ -128,10 +128,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5074bdb8d89a317498c3bde8515dbefa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ShoudBeHoldInHand>k__BackingField: 0
+  onHandConstraints: 126
+  sizeInHand: {x: 1, y: 1, z: 1}
   Rb: {fileID: 16041981197946193}
   hoverColor: {r: 1, g: 0.4313832, b: 0, a: 1}
-  pickedColor: {r: 1, g: 0, b: 0, a: 1}
+  pickedColor: {r: 1, g: 0.43137255, b: 0, a: 1}
   outline: {fileID: 16041981197946196}
+  isPick: 0
+  onPickup:
+    m_PersistentCalls:
+      m_Calls: []
+  onRelease:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &16041981197946196
 MonoBehaviour:
   m_ObjectHideFlags: 0

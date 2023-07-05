@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3adf8d9045a9a6b41b961e7c453c32cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightEventRate: 40
-  lightEventEverySec: 40
+  lightEventRate: 70
+  lightEventEverySec: 50
   blackScreen: {fileID: 0}
   blackScreenTransition: {fileID: 0}
   powerImage: {fileID: 0}

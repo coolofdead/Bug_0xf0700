@@ -7,6 +7,8 @@ public class TutoDialogue : MonoBehaviour
 {
     public TimeManager timeManager;
 
+    public float startDelay = 2f;
+
     [Header("Tuto")]
     public Projector tutoProjector;
     public Computer tutoComputerToHack;
@@ -31,7 +33,7 @@ public class TutoDialogue : MonoBehaviour
 
     void Start()
     {
-        ShowTutoDialogue();
+        Invoke("ShowTutoDialogue", startDelay);
     }
 
     public void ShowTutoDialogue()

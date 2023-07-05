@@ -5,6 +5,8 @@ using System;
 
 public class TimeManager : MonoBehaviour
 {
+    public static TimeManager Instance;
+
     public static Action<TimeManager> onTimeStart;
     public static Action onTimeOver;
 
@@ -16,6 +18,11 @@ public class TimeManager : MonoBehaviour
     private float totalTime = 0;
     private float currentTime = 0;
     private bool startTime;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     public void StartTime()
     {

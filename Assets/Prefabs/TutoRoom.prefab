@@ -2448,8 +2448,8 @@ MonoBehaviour:
   tutoComputerToHack: {fileID: 5833502925682131864}
   tutoComputerOutline: {fileID: 1302804916938389132}
   elevatorTutoAnimator: {fileID: 744912074441558595}
-  showBugAfterDelay: 4
-  showProjectorAfterDelay: 15
+  showBugAfterDelay: 2.5
+  showProjectorAfterDelay: 6
   clickBookUI: {fileID: 0}
   tutoDialogue:
   - Oui Gerard, je viens de partir.

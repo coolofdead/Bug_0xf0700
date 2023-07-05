@@ -14,7 +14,6 @@ public class PlayerInteractionController : MonoBehaviour
     [SerializeField] private Transform pickupObjectHand;
     [SerializeField] private Transform shooterContainer;
 
-
     [Header("Input")]
     [SerializeField] private BookController bookController;
     [SerializeField] private FirstPersonController fpsController;
@@ -22,6 +21,7 @@ public class PlayerInteractionController : MonoBehaviour
 
     public ObjectPickable ObjectPicked { get; private set; }
     public bool HoldingObject => ObjectPicked != null;
+    public static int NbTimeObjectPicked { get; private set; }
 
     private IInteractable hoverInteractable;
     private RaycastHit hit;
@@ -86,6 +86,8 @@ public class PlayerInteractionController : MonoBehaviour
 
         var interactable = RaycastForInteractable();
         if (interactable == null || !interactable.IsInteractable()) return;
+
+        NbTimeObjectPicked++;
 
         if (interactable is ObjectPickable)
         {

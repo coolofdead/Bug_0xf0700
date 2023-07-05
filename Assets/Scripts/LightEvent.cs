@@ -30,6 +30,7 @@ public class LightEvent : MonoBehaviour
     public AudioClip[] dialoguesAudioClipsOnLightsOff;
 
     public bool AreLightsDown => blackScreen.color.a != 0;
+    public static int NbLightEvents { get; private set; }
 
     private bool hasShownDialogue;
 
@@ -55,8 +56,10 @@ public class LightEvent : MonoBehaviour
 
     public void TurnOffAllLights()
     {
+        NbLightEvents++;
+
         blackScreen.color = Color.black;
-        //powerImage.gameObject.SetActive(true);
+        powerImage.gameObject.SetActive(true);
         LeanTween.value(
             powerImage.gameObject,
             (Color c) => { powerImage.color = c; },
@@ -85,7 +88,7 @@ public class LightEvent : MonoBehaviour
         color.a = blackScreenOpacity;
         blackScreen.color = color;
         LeanTween.cancel(powerImage.gameObject);
-        //powerImage.gameObject.SetActive(false);
+        powerImage.gameObject.SetActive(false);
         LeanTween.value(
             blackScreenTransition.gameObject,
             (Color c) => { blackScreenTransition.color = c; },

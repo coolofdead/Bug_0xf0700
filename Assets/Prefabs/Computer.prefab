@@ -131,10 +131,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5074bdb8d89a317498c3bde8515dbefa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ShoudBeHoldInHand>k__BackingField: 0
+  onHandConstraints: 126
+  sizeInHand: {x: 1, y: 1, z: 1}
   Rb: {fileID: 4302860907312884207}
   hoverColor: {r: 1, g: 0.4313832, b: 0, a: 1}
-  pickedColor: {r: 1, g: 0, b: 0, a: 1}
+  pickedColor: {r: 1, g: 0.43137255, b: 0, a: 1}
   outline: {fileID: 4302860907312884201}
+  isPick: 0
+  onPickup:
+    m_PersistentCalls:
+      m_Calls: []
+  onRelease:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4302860907312884201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,19 +175,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b8beb3e1ce64d81a97031d3e8872fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bugFeedback: {fileID: 4986067796689795435}
-  bugScreen: {fileID: 4986067796025936352}
-  mr: {fileID: 4986067796025936355}
-  bugScreenMaterials:
-  - {fileID: 2100000, guid: c2011ba7ba3b44e96a67db4561a1b64a, type: 2}
-  - {fileID: 2100000, guid: ae02036226c014f3cb0718c7cc916410, type: 2}
-  - {fileID: 2100000, guid: e6fd992e948554221a1736fe223381fe, type: 2}
-  - {fileID: 2100000, guid: b0388161bee404205aaf48cc68fbc8e7, type: 2}
-  - {fileID: 2100000, guid: fa3a517829371404a8a9824cd6bdb732, type: 2}
-  - {fileID: 2100000, guid: c2167f39b5f934482be500de777fd1ec, type: 2}
-  - {fileID: 2100000, guid: 54bdf7761e365474eaf94643e564c5c5, type: 2}
-  - {fileID: 2100000, guid: 35f95673c1aa84bfd9143ceaec0419d3, type: 2}
-  - {fileID: 2100000, guid: aa1993fa5f1a8467783df4912d367d5e, type: 2}
+  computerCamera: {fileID: 0}
+  ransomWare: {fileID: 0}
+  canvas: {fileID: 0}
+  particles: {fileID: 0}
+  bugRedLight: {fileID: 0}
+  timeBeforePuttingFire: 15
+  timeLeftImage: {fileID: 0}
+  extinguisherBigImageContainer: {fileID: 0}
+  extinguisherBigImage: {fileID: 0}
+  blinkExtinguisherTime: 0.7
+  timeLeftSlider: {fileID: 0}
+  <fire>k__BackingField: {fileID: 0}
+  hoverColor: {r: 0, g: 0, b: 0, a: 0}
+  pickedColor: {r: 0, g: 0, b: 0, a: 0}
+  outline: {fileID: 0}
+  outlineAnimateTime: 0.4
+  <CanBeHackHonce>k__BackingField: 0
+  <FloorLevel>k__BackingField: 1
 --- !u!1 &4986067796025936352
 GameObject:
   m_ObjectHideFlags: 0

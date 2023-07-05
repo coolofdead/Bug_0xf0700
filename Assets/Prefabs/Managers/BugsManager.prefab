@@ -46,13 +46,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rushMinNewBugAfterTime: 5
-  rushMaxNewBugAfterTime: 10
-  chillMinNewBugAfterTime: 14
-  chillMaxNewBugAfterTime: 22
+  rushMaxNewBugAfterTime: 9
+  chillMinNewBugAfterTime: 12
+  chillMaxNewBugAfterTime: 20
   durationOfRushTime: 80
   durationOfChillTime: 20
   delayBeforeNextBugOnFixFirstBug: 25
-  smallDelayBetweenMutlipleBugs: 4
+  smallDelayBetweenMutlipleBugs: 3.5
   addOneToMaxComputersHackPerFix: 3
   percentageOfHavingTwoBugs:
     serializedVersion: 2
@@ -67,17 +67,17 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.3488873
     - serializedVersion: 3
-      time: 3.5499215
-      value: 16.475246
-      inSlope: 3.1401224
-      outSlope: 3.1401224
+      time: 5.752098
+      value: 75.311005
+      inSlope: 12.222053
+      outSlope: 12.222053
       tangentMode: 0
       weightedMode: 3
       inWeight: 0.32383534
-      outWeight: 0.099218294
+      outWeight: 0.1691454
     - serializedVersion: 3
       time: 20
-      value: 20
+      value: 100
       inSlope: 0.093757465
       outSlope: 0.093757465
       tangentMode: 0

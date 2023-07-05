@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c14884ac00bd8458145c19a519b515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeShowingNextLongText: 1.8
+  delayBeforeShowingNextLongText: 2.3
   dialogueTMP: {fileID: 0}
   textAnimatorPlayer: {fileID: 0}
   phoneAnimator: {fileID: 0}
