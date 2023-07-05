@@ -299,6 +299,7 @@ MonoBehaviour:
   <ShoudBeHoldInHand>k__BackingField: 1
   onHandConstraints: 126
   sizeInHand: {x: 0.6, y: 0.6, z: 0.6}
+  offsetInHand: {x: 0, y: 0, z: 0}
   Rb: {fileID: 6144111319259201616}
   hoverColor: {r: 1, g: 1, b: 1, a: 1}
   pickedColor: {r: 1, g: 1, b: 1, a: 1}
@@ -337,6 +338,7 @@ MonoBehaviour:
   exctinctRange: 4
   forwardRangeAdditive: 4
   sphereCastInterval: 0.5
+  timeToExctingFire: 1
   audioSource: {fileID: 6650943261520741253}
 --- !u!82 &6650943261520741253
 AudioSource:
@@ -348,9 +350,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b5a880bc98b89f24d92037cd161d84ac, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ce2310a4eac3f8c478592b2894675292, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.65
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0

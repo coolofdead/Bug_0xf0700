@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endGamePanel: {fileID: 0}
+  endGameTransitionCamera: {fileID: 0}
+  delayBeforePlayingEndAnimation: 4
   continueButton: {fileID: 0}
   continueButtonIdleColor: {r: 0.5764706, g: 0.49411765, b: 0.38431373, a: 1}
   continueButtonIdleTime: 0.7

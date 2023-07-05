@@ -46,6 +46,7 @@ public class BigBugScreen : MonoBehaviour
         );
 
         bugsByFloor[computer.FloorLevel] -= 1;
+        if (bugsByFloor[computer.FloorLevel] < 0) bugsByFloor[computer.FloorLevel] = 0;
         totalComputerBuggedByFloorTMP[computer.FloorLevel - 1].text = bugsByFloor[computer.FloorLevel].ToString();
     }
 

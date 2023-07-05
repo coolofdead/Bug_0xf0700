@@ -22,12 +22,20 @@ public class IntroMenu : MonoBehaviour
 
     public void LoadGameSceneAfterAnimation()
     {
-        Invoke("LoadGameScene", clickPlayBtnAnimationClip.length + extraFakeLoadingTime);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        StartCoroutine(FakeLoad());
     }
 
-    private void LoadGameScene()
+    private IEnumerator FakeLoad()
     {
+        yield return new WaitForSeconds(clickPlayBtnAnimationClip.length);
+
         loadingText.SetActive(true);
+
+        yield return new WaitForSeconds(extraFakeLoadingTime);
+
         LoadScene(gameScene);
     }
 

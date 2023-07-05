@@ -44,8 +44,14 @@ public class TutoDialogue : MonoBehaviour
     private void OnDialogueDone()
     {
         elevatorTutoAnimator.Play("OpenDoors");
+        Invoke("ShowClickBookUI", 0.8f);
         Invoke("ShowTutoBug", showBugAfterDelay);
         Invoke("ShowProjector", showProjectorAfterDelay);
+    }
+
+    private void ShowClickBookUI()
+    {
+        clickBookUI.SetActive(true);
     }
 
     private void ShowTutoBug()

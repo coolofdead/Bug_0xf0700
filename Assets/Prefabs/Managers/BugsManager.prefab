@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rushMinNewBugAfterTime: 5
-  rushMaxNewBugAfterTime: 9
+  rushMaxNewBugAfterTime: 8
   chillMinNewBugAfterTime: 12
-  chillMaxNewBugAfterTime: 20
+  chillMaxNewBugAfterTime: 18
   durationOfRushTime: 80
   durationOfChillTime: 20
   delayBeforeNextBugOnFixFirstBug: 25
@@ -67,22 +67,22 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.3488873
     - serializedVersion: 3
-      time: 5.752098
-      value: 75.311005
-      inSlope: 12.222053
-      outSlope: 12.222053
+      time: 4.6643624
+      value: 85.94102
+      inSlope: 10.874536
+      outSlope: 10.874536
       tangentMode: 0
       weightedMode: 3
       inWeight: 0.32383534
-      outWeight: 0.1691454
+      outWeight: 0.113317795
     - serializedVersion: 3
       time: 20
       value: 100
-      inSlope: 0.093757465
-      outSlope: 0.093757465
+      inSlope: 0.51912737
+      outSlope: 0.51912737
       tangentMode: 0
       weightedMode: 1
-      inWeight: 0.40006262
+      inWeight: 0.058760885
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -108,7 +108,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 16d7700bdf5e83b4c8e5c984c9d8abb5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.15
+  m_Volume: 0.06
   m_Pitch: 1
   Loop: 1
   Mute: 0

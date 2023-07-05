@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Cinemachine;
 using UnityEngine.SceneManagement;
 
 public class EndGameManager : MonoBehaviour
 {
     public GameObject endGamePanel;
+    public CinemachineVirtualCamera endGameTransitionCamera;
+    public CinemachineBrain cinemachineBrain;
+    public float cinemachineBrainSmoothBlend = 2f;
+    public float delayBeforePlayingEndAnimation = 2f;
     public Image continueButton;
     public Color continueButtonIdleColor;
     public float continueButtonIdleTime = 0.7f;
@@ -58,7 +63,8 @@ public class EndGameManager : MonoBehaviour
 
     private void OnTimeOver()
     {
-        endGamePanel.SetActive(true);
+        cinemachineBrain.m_DefaultBlend.m_Time = cinemachineBrainSmoothBlend;
+        endGameTransitionCamera.enabled = true;
 
         nbPlayerObjectsTMP.text = PlayerInteractionController.NbTimeObjectPicked.ToString();
         nbPlayerObjectsTMP.text = LightEvent.NbLightEvents.ToString();
@@ -95,6 +101,10 @@ public class EndGameManager : MonoBehaviour
 
     private IEnumerator ShowEnd()
     {
+        yield return new WaitForSeconds(delayBeforePlayingEndAnimation);
+
+        endGamePanel.SetActive(true);
+
         yield return new WaitForSeconds(showPayCheck.length);
 
         Cursor.visible = true;

@@ -1,8 +1,11 @@
 fileFormatVersion: 2
-guid: 0c060b6ecb5ec0347a649b05c59181bf
+guid: 63c626272cca1e246bd525fc249d40e6
 ModelImporter:
   serializedVersion: 21202
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 7512822020383232697
+    second: CoinObj|Coin
   externalObjects: {}
   materials:
     materialImportMode: 2

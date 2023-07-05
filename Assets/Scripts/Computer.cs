@@ -20,6 +20,8 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
     [SerializeField] private GameObject canvas;
     [SerializeField] private GameObject particles;
     [SerializeField] private GameObject bugRedLight;
+    [SerializeField] private ParticleSystem rewardFixParticleSystem;
+    [SerializeField] private AudioSource rewardAudioSource;
 
     [Header("Fire")]
     [SerializeField] private float timeBeforePuttingFire = 15;
@@ -118,6 +120,9 @@ public class Computer : MonoBehaviour, IInteractableDisablePlayerMovement
         LeanTween.cancel(timeLeftImage.gameObject);
         LeanTween.cancel(outline.gameObject);
         CancelInvoke("StartFire");
+
+        rewardFixParticleSystem.Play();
+        rewardAudioSource.Play();
 
         computerCamera.enabled = false;
         releasePlayerMovementCallback?.Invoke();

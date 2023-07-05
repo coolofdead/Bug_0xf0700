@@ -131,7 +131,7 @@ public class BugsManager : MonoBehaviour
         {
             var percentage = percentageOfHavingTwoBugs.Evaluate(TotalOfComputersFixed);
             int nbBugToMake = UnityEngine.Random.Range(0, 100) < percentage ? 1 : 1 + (int)(TotalOfComputersFixed / addOneToMaxComputersHackPerFix);
-            print(nbBugToMake);
+
             for (int i = 0; i < nbBugToMake; i++)
             {
                 BugAppear();

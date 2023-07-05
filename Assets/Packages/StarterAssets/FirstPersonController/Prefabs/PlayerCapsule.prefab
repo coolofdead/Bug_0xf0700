@@ -2245,6 +2245,7 @@ MonoBehaviour:
   pointerUI: {fileID: 0}
   scrollWheelFeedback: {fileID: 0}
   showScrollWheelFeedbackAfterDelay: 3.5
+  delayBeforeCanStartScrollPages: 0.9
   fuckedUpBookRotation: {x: -0.00016904718, y: 74.999985, z: 270.00006}
   defaultBookRotation: {x: 0, y: 285, z: 90}
   chanceOpenBookFuckedUp: 0.4

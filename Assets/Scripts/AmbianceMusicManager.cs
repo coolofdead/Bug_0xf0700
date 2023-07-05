@@ -7,7 +7,7 @@ public class AmbianceMusicManager : MonoBehaviour
     public AmbianceMusic[] ambianceMusics;
 
     public AudioSource audioSource;
-
+    
     private void Awake()
     {
         BugsManager.onHack += OnHack;
@@ -17,14 +17,17 @@ public class AmbianceMusicManager : MonoBehaviour
 
     private void OnHack()
     {
-        audioSource.Pause();
+        audioSource.volume *= 0.5f;
+        //audioSource.Pause();
 
         Invoke("RestoreAmbiance", WarningLight.warningLightDuration);
     }
 
     private void RestoreAmbiance()
     {
-        audioSource.Play();
+        audioSource.volume *= 2f;
+
+        //audioSource.Play();
     }
 
     private void OnDestroy()

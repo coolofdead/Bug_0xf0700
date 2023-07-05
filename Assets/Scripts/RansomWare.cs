@@ -8,8 +8,6 @@ public class RansomWare : MonoBehaviour
 {
     [SerializeField] private Computer computer;
     [SerializeField] private TMP_InputField computerNumber;
-    [SerializeField] public Sprite windowsXPScreen;
-    [SerializeField] public Image screen;
     [SerializeField] public TMP_InputField inputField;
 
     public bool assignFirstFixCode = false;
@@ -42,7 +40,6 @@ public class RansomWare : MonoBehaviour
     {
         if (inputField.text.Trim() == fixCode.fixCode)
         {
-            screen.sprite = windowsXPScreen;
             inputField.gameObject.SetActive(false);
             computerNumber.gameObject.SetActive(false);
 
